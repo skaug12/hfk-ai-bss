@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI부사수 세션 6회차</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #F8F7F4;
+    --text: #2C2C2C;
+    --text-sub: #6B6B6B;
+    --text-dim: #9A9A9A;
+    --accent: #8B5E3C;
+    --accent2: #3D5A80;
+    --accent3: #5B7B5E;
+    --accent4: #7B6B8A;
+    --accent5: #8A5E5E;
+    --accent6: #5A7B7B;
+    --card-bg: #F1EFEA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 44px; }
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 100%;
+    padding: 0 20px 40px;
+    line-height: 1.7;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  #sticky-nav {
+    position: sticky;
+    top: 0;
+    left: -20px;
+    right: -20px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    height: 36px;
+    background: #ECEAE5;
+    display: flex;
+    z-index: 100;
+    font-family: 'Pretendard', sans-serif;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  #sticky-nav .nav-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    text-decoration: none;
+    border: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #sticky-nav .nav-item + .nav-item { border-left: 1px solid rgba(0,0,0,0.06); }
+  #sticky-nav .nav-item.active { background: var(--accent4); color: #F8F7F4; }
+
+  .section-separator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 32px 0 20px;
+  }
+  .section-separator::before, .section-separator::after {
+    content: ""; flex: 1; height: 1px; background: rgba(0,0,0,0.08);
+  }
+  .section-separator .sep-label {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); white-space: nowrap;
+  }
+
+  .slide-section { padding: 20px 0; }
+  .slide-section:first-of-type { padding-top: 16px; }
+
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.3; }
+  h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.3; }
+  h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; }
+  p { font-size: 15px; line-height: 1.7; color: var(--text-sub); }
+  li { font-size: 15px; line-height: 1.7; color: var(--text-sub); }
+
+  ul { list-style: none; padding-left: 0; margin: 0; }
+  ul li { padding-left: 14px; position: relative; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 11px; width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
+  ol { padding-left: 18px; }
+  ol li { padding-left: 4px; }
+  ol li::before { display: none; }
+
+  code { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 0.88em; }
+
+  .sub { color: var(--text-sub); }
+  .dim { color: var(--text-dim); font-size: 14px; }
+  .accent { color: var(--accent); }
+  .accent2 { color: var(--accent2); }
+  .accent3 { color: var(--accent3); }
+  .accent4 { color: var(--accent4); }
+  .accent5 { color: var(--accent5); }
+  .accent6 { color: var(--accent6); }
+  .bold { font-weight: 600; }
+  .small { font-size: 13px; }
+
+  .label { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px 18px;
+    width: 100%;
+  }
+  .card h3 { margin: 0; }
+  .card p { margin: 0; }
+  .card ul, .card ol { margin: 0; }
+  .card > * + * { margin-top: 10px !important; }
+  .card li + li { margin-top: 3px; }
+
+  .stack { display: flex; flex-direction: column; gap: 12px; }
+
+  .code-block {
+    background: #2C2C2C;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #D4D0C8;
+    text-align: left;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .code-block .comment { color: #6B6B6B; }
+  .code-block .prompt { color: #A8C5E0; }
+  .code-block .cmd { color: #C5D8B0; }
+
+  .summary-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 12px 18px;
+    text-align: center;
+  }
+  .summary-card p { font-size: 14px; color: var(--text); margin: 0; }
+
+  .qblock {
+    background: rgba(123,107,138,0.07);
+    border-radius: 8px;
+    padding: 14px 18px;
+  }
+
+  .title-section { text-align: center; padding: 48px 0 32px; }
+  .closing-section { text-align: center; padding: 32px 0 48px; }
+
+  .card code { font-size: 13px; }
+</style>
+</head>
+<body>
+
+<nav id="sticky-nav">
+  <button class="nav-item" data-target="sec-recap">리캡</button>
+  <button class="nav-item" data-target="sec-r">R 정의</button>
+  <button class="nav-item" data-target="sec-cases">사례</button>
+  <button class="nav-item" data-target="sec-workshop">워크숍</button>
+  <button class="nav-item" data-target="sec-next">예고</button>
+</nav>
+
+<!-- ===== TITLE ===== -->
+<div class="slide-section">
+  <div class="title-section">
+    <h1>R 사분면,<br><span class="accent4">반복을 회수하기</span></h1>
+    <p style="font-size:17px; color:var(--text-sub); margin-top:16px;">지난 2주간 만든 자동화 9가지 &middot; R 워크숍 &middot; 12부 종합 발표 안내</p>
+    <p class="dim" style="margin-top:32px;">AI부사수 세션 6회차 &middot; 2026.05.22 &middot; @Seulki.log</p>
+  </div>
+</div>
+
+<!-- ===== 1: 5회차 리캡 ===== -->
+<div class="section-separator" id="sec-recap"><span class="sep-label">Recap: 5회차</span></div>
+<div class="slide-section">
+  <div class="label">Recap &middot; 5회차</div>
+  <h2>지난 시간에 다룬 것</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent2">A 사분면 = Amplify</h3>
+      <p style="color:var(--text); margin-top:6px;">이미 잘하고 있는 일을, AI 부사수로 <span class="bold">한 단계 더 깊게.</span></p>
+      <ul style="margin-top:6px;">
+        <li>강점·한계·목표·제약을 4칸으로 명령</li>
+        <li>새 표준을 만들고 그 표준 위에서 한 번 더</li>
+        <li>"AI가 잘하는 영역"이 아니라 "내가 잘하는 영역"부터</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">A 워크숍 4단계</h3>
+      <ol style="margin-top:6px;">
+        <li>이미 잘하는 영역 떠올리기</li>
+        <li>한계 한 줄이 가장 또렷한 1개 고르기</li>
+        <li>강점·한계·목표·제약 4칸 명령</li>
+        <li>실행 + 새 표준 정착</li>
+      </ol>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:14px;">→ 오늘은 새 표준이 된 작업을 <span class="bold">자동화·스킬</span>로 옮겨 시간을 회수합니다.</p>
+</div>
+
+<!-- ===== 2: R 정의 (STAR) ===== -->
+<div class="section-separator" id="sec-r"><span class="sep-label">R 정의</span></div>
+<div class="slide-section">
+  <div class="label">STAR 다시 보기</div>
+  <h2>오늘은 R, 마지막 사분면입니다</h2>
+  <div class="stack">
+    <div class="card" style="opacity:0.6;">
+      <h3 class="accent">S &middot; Start</h3>
+      <p style="color:var(--text); margin-top:4px;">할 수 있는데 미뤄왔던 일을 시작</p>
+    </div>
+    <div class="card" style="opacity:0.6;">
+      <h3 class="accent2">T &middot; Try</h3>
+      <p style="color:var(--text); margin-top:4px;">못한다고 생각했던 벽을 넘기</p>
+    </div>
+    <div class="card" style="opacity:0.6;">
+      <h3 class="accent3">A &middot; Amplify</h3>
+      <p style="color:var(--text); margin-top:4px;">이미 잘하는 일을 더 깊게</p>
+    </div>
+    <div class="card" style="border:2px solid var(--accent4);">
+      <h3 class="accent4">R &middot; Recover</h3>
+      <p style="color:var(--text); margin-top:4px;"><span class="bold">반복·낭비를 줄여 시간을 회수</span></p>
+    </div>
+  </div>
+  <p style="margin-top:16px; font-size:14px;">R의 신호는 두 가지입니다.</p>
+  <p style="margin-top:6px; font-size:14px;">① <span class="bold">"또 이거 하고 있네"</span> &mdash; 같은 손동작을 일주일에 두 번 이상</p>
+  <p style="margin-top:4px; font-size:14px;">② <span class="bold">"이거 한 번 더 깨졌네"</span> &mdash; 메모리/룰만으로는 다시 깨지는 자리</p>
+</div>
+
+<!-- ===== 3: Part 2 헤더 ===== -->
+<div class="section-separator" id="sec-cases"><span class="sep-label">Part 2 · 5/8 ~ 오늘</span></div>
+<div class="slide-section">
+  <div class="title-section" style="padding:24px 0 12px;">
+    <h1 style="font-size:24px;">지난 2주,<br><span class="accent4">반복을 회수한 작업들</span></h1>
+    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">손이 가던 9가지 자리를 AI 부사수에 넘겼습니다.</p>
+  </div>
+</div>
+
+<!-- ===== 4: Overview ===== -->
+<div class="slide-section">
+  <div class="label">Overview</div>
+  <h2>오늘 소개할 9가지</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">1. CRM 휴면 멤버 자동 메일링 <span class="dim small" style="font-weight:400;">5/10</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">T1~T4 시퀀스 · UTM 추적 · 시범 11명 발송</p>
+    </div>
+    <div class="card">
+      <h3 class="accent2">2. 아임웹 주문 → 시트 5분 sync <span class="dim small" style="font-weight:400;">5/8</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">STANDBY 주문 자동 append · launchd 5분</p>
+    </div>
+    <div class="card">
+      <h3 class="accent3">3. 어드벤처 댓글 자동 재실행 <span class="dim small" style="font-weight:400;">5/10</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">state·gate·diff skip · 30분 launchd</p>
+    </div>
+    <div class="card">
+      <h3 class="accent4">4. 4L 캔버스 회차 헤더 자동화 <span class="dim small" style="font-weight:400;">5/10~13</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">공지 발사 → 캔버스 헤더 자동 + 소급 backfill</p>
+    </div>
+    <div class="card">
+      <h3 class="accent5">5. 멤버북 InDesign 자동화 <span class="dim small" style="font-weight:400;">5/13~15</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">JSON → IDML 빌더 · 맞춤법 검사 · 추출기</p>
+    </div>
+    <div class="card">
+      <h3 class="accent6">6. 사고 → 코드 자체 수정 <span class="dim small" style="font-weight:400;">5/13</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">메모리만 두면 또 깨진다 · 코드를 고친다</p>
+    </div>
+    <div class="card">
+      <h3 class="accent">7. AI 티 잡아내는 톤 안전망 <span class="dim small" style="font-weight:400;">5/16~17</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">매번 같은 톤 가이드를 다시 설명하던 일을 점수로 회수</p>
+    </div>
+    <div class="card">
+      <h3 class="accent2">8. 힉스필드 배치 자동 생성 <span class="dim small" style="font-weight:400;">5/14</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">표지 시리즈 톤 통일을 마크다운 프롬프트 묶음으로</p>
+    </div>
+    <div class="card">
+      <h3 class="accent3">9. 인디자인 ./run.sh 한 줄 <span class="dim small" style="font-weight:400;">5/14</span></h3>
+      <p class="small" style="color:var(--text); margin-top:4px;">Scripts 패널 메뉴 동선을 셸 한 줄로 압축</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5: 사례 1 CRM ===== -->
+<div class="slide-section">
+  <div class="label">사례 1 &middot; 5/10</div>
+  <h2>CRM 휴면 멤버 자동 메일링</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">손이 가던 자리</h3>
+      <ul style="margin-top:6px;">
+        <li>오랫동안 활동이 없던 멤버에게 "다시 한 번 보러 오세요" 메일</li>
+        <li>1인 1맞춤 본문이 필요 &mdash; 카피만 200명분 못 씀</li>
+        <li>클릭률 추적 시스템도 없음</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">T1~T4 시퀀스 템플릿</span> + HFK 브랜드 컬러, 다크모드 대응</li>
+        <li>HBR Korea Gmail SMTP로 발송 (<code>send_crm_mail.py</code>)</li>
+        <li>UTM(<code>utm_source=crm</code>)으로 클릭 추적</li>
+        <li>GA4 클릭률 자동 조회 (<code>crm_check_clicks.py</code>)</li>
+        <li>일 50~80명 페이싱, 시범 11명 발송 완료</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">스킬: <code>/run-crm-mailing</code> &middot; 다음 발송 미리알림: 2026-05-19 09:00</p>
+</div>
+
+<!-- ===== 6: 사례 2 아임웹 sync ===== -->
+<div class="slide-section">
+  <div class="label">사례 2 &middot; 5/8</div>
+  <h2>아임웹 주문 → 통합 멤버십 시트 5분 sync</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">손이 가던 자리</h3>
+      <ul style="margin-top:6px;">
+        <li>아임웹 신청을 시트에 옮기는 일을 매일 손으로</li>
+        <li>STANDBY(결제 대기)와 DELIVERY_WAIT을 따로 봐야 함</li>
+        <li>옮기다 보면 중복 append, 잊으면 누락</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">cron_sync.py</span>: 5분마다 fetch &middot; order_no 기준 dedupe</li>
+        <li>SEASON_CATEGORY_CODES 필터로 26여름 주문만</li>
+        <li>launchd <code>com.hfk.imweb-order-sync</code> 자동 실행</li>
+        <li>HFK사람들 시트와 자동 백필(<code>backfill_hfk_people.py</code>)</li>
+      </ul>
+    </div>
+    <div class="qblock">
+      <p style="color:var(--text);"><span class="bold">결과:</span> 매일 30분 → 0분. 누락·중복 사고도 멈춤.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7: 사례 3 어드벤처 댓글 ===== -->
+<div class="slide-section">
+  <div class="label">사례 3 &middot; 5/10</div>
+  <h2>어드벤처 댓글 자동 재실행</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent5">왜 다시 만들었나</h3>
+      <ul style="margin-top:6px;">
+        <li>5/10 감각적기획 5회차 어드벤처 댓글 누락 사고</li>
+        <li>봇이 한 번만 돌고 끝나면, 후속 신청자에게 자동 확정 못 함</li>
+        <li>운영자가 다시 손으로 트리거해야 했음</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">state 파일</span> 도입: 마지막 어떤 상태였는지 기억</li>
+        <li>skip 게이트 4종: 과거 세션·메타 공지 시각·빈 신청·diff 없음</li>
+        <li>launchd <code>com.hfk.adventure-auto-rerun</code> 30분 자동</li>
+        <li>봇이 후속 대기자 자동 확정 (정원 미달 시)</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">패턴: <span class="bold">사고 한 번 → 메모리만 두지 않고 코드까지</span></p>
+</div>
+
+<!-- ===== 8: 사례 4 캔버스 헤더 ===== -->
+<div class="slide-section">
+  <div class="label">사례 4 &middot; 5/10~13</div>
+  <h2>4L 캔버스 회차 헤더 자동화</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">손이 가던 자리</h3>
+      <ul style="margin-top:6px;">
+        <li>매 회차 시작할 때 4L 캔버스 상단에 <code>&lt;N회차. 주제&gt;</code> 헤더 추가</li>
+        <li>26봄 13개 팀 × 12회차 = 156번 손이 가야 함</li>
+        <li>저스트두잇 5/12 누락 사고 → 멤버들이 어느 회차인지 못 찾음</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">트리거 자동</span>: 봇이 회차 공지 발사 시 캔버스에 즉시 헤더</li>
+        <li><span class="bold">backfill</span>: 누락된 과거 회차를 시즌 전체에 소급 적용</li>
+        <li><span class="bold">이중 안전망</span>: 매일 06:00 launchd로 누락분 보충</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">156번의 손작업 → 트리거 1번 + 안전망 1번 + 소급 1번</p>
+</div>
+
+<!-- ===== 9: 사례 5 멤버북 ===== -->
+<div class="slide-section">
+  <div class="label">사례 5 &middot; 5/13~15</div>
+  <h2>멤버북 10권 InDesign 자동화</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">손이 가던 자리</h3>
+      <ul style="margin-top:6px;">
+        <li>HFK 에세이 10권(첫 직장~첫 실패), 9명 작가, B6 판형</li>
+        <li>원본 JD101_최종.pdf (122p) &mdash; 손으로 옮기면 며칠</li>
+        <li>맞춤법 1,500+개를 눈으로 보기엔 너무 많음</li>
+        <li>인쇄 직전 검수 &mdash; 원본 PDF와 1:1 대조 필요</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li><code>extract.py</code>: IDML → content.json 자동 추출</li>
+        <li><code>idml_builder.py</code> + <code>make_books.jsx</code>: JSON → 10권 IDML 자동 빌드</li>
+        <li><span class="bold">맞춤법 xlsx 시스템</span>: x 체크 → 자동 적용 → 처리된 행 취소선</li>
+        <li><code>diff_pdf_vs_content.py</code>: 원본 PDF ↔ content.json 자동 diff (90글 / 3,406문장)</li>
+        <li><code>extract_indd_to_json.jsx</code>: InDesign 직접 편집 결과를 다시 SSOT로</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:10px;">이번 회차 라이브: 1,262건 교정 자동 적용 · 245문장 누락 의심 자동 추출</p>
+</div>
+
+<!-- ===== 10: 사례 6 footer 사고 ===== -->
+<div class="slide-section">
+  <div class="label">사례 6 &middot; 5/13</div>
+  <h2>"메모리만 두면 또 깨진다" &mdash; 코드 자체를 고치기</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent5">사고</h3>
+      <ul style="margin-top:6px;">
+        <li>저자북토크 공지 댓글에 양도 방법 안내 누락</li>
+        <li>이벤트 footer가 chat_update 시 일부 wipe됨</li>
+        <li>비슷한 사고가 두 번째</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">두 가지 선택지</h3>
+      <ul style="margin-top:6px;">
+        <li>(A) 메모리에 "다음엔 footer 확인하라"라고 적기</li>
+        <li>(B) <span class="bold">코드에서 footer 보존 로직 자체를 수정</span></li>
+        <li>→ (B). 메모리는 사람 손을 거쳐야 작동, 코드는 다음에 자동으로 작동</li>
+      </ul>
+    </div>
+    <div class="qblock">
+      <p style="color:var(--text);"><span class="bold">R의 깊은 형태:</span> 손이 가던 일을 줄이는 것뿐 아니라, <span class="bold">사고가 재발할 자리를 코드로 막는 것</span>까지.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 11: 사례 7 톤 안전망 ===== -->
+<div class="slide-section">
+  <div class="label">사례 7 &middot; 5/16~17</div>
+  <h2>AI 티 잡아내는 톤 안전망</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent4">손이 가던 자리</h3>
+      <ul style="margin-top:6px;">
+        <li>콘텐츠 만들 때마다 AI 티 표현을 눈으로 다시 확인</li>
+        <li>같은 톤 가이드를 Claude에게 매번 새로 설명</li>
+      </ul>
+      <p style="color:var(--text); margin-top:8px;">단어는 한국어인데 화자가 없는 글이 자꾸 새어 나왔습니다.</p>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">voice-profile.md</span>를 단일 진입점으로. 화자 좌표, 옵시디언 리뷰 7편을 톤 앵커로, BEFORE/AFTER 10쌍을 통합</li>
+        <li><code>ai_not_to_do.py</code> 0~100점 자동 검사. 금지어·정형 도입부·양비론 패턴</li>
+        <li><code>/generate-team-review</code> 스킬에 자가 점검 강제: 70점 미만이면 자동 재작성</li>
+        <li>이 슬라이드를 검사했더니 처음엔 100점, 좌우 대칭 패턴 결함 발견 후 룰 확장 → 76점</li>
+      </ul>
+    </div>
+    <div class="card" style="background:rgba(138,94,94,0.08);">
+      <h3 class="accent5">BEFORE &middot; AI 티</h3>
+      <!-- ai-lint-skip -->
+      <p style="color:var(--text); margin-top:6px;">이번 세션에서는 리더십에 대해 알아보겠습니다. 본질적으로 자율성이 핵심이라고 할 수 있습니다.</p>
+      <!-- /ai-lint-skip -->
+    </div>
+    <div class="card" style="background:rgba(91,123,94,0.08);">
+      <h3 class="accent3">AFTER &middot; 사용자 톤</h3>
+      <p style="color:var(--text); margin-top:6px;">연초에 세운 운동 계획이 어느새 흐지부지되고, 회사에서 정해진 목표는 왜 해야 하는지 의미가 잘 보이지 않는 경험. 직장인이라면 누구나 한 번쯤 겪어봤을 상황입니다.</p>
+      <p class="dim" style="margin-top:6px;">실측: 옵시디언 리뷰 7편 평균 94점 (100·100·100·100·95·83·80). AI 티 가상 텍스트는 0점.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 12: 사례 8 힉스필드 배치 ===== -->
+<div class="slide-section">
+  <div class="label">사례 8 &middot; 5/14</div>
+  <h2>힉스필드 배치 자동 생성</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent5">손이 가던 자리</h3>
+      <p style="color:var(--text); margin-top:6px;">멤버북 10권 표지 시리즈를 만드는데 한 장씩 프롬프트 넣고 결과 보고 다시 고치고, 톤이 흔들리면 처음부터 다시. 옵션 A·B 두 컨셉을 10권 × 두세 후보씩 굽다 보면 손이 끝없이 가는 일.</p>
+    </div>
+    <div class="card">
+      <h3 class="accent3">R로 회수한 방식</h3>
+      <ul style="margin-top:6px;">
+        <li>표지 컨셉을 마크다운 한 파일에 코드펜스로 모아두면, 스킬이 그 안의 모든 프롬프트를 추출해 한 번에 4장씩 자동 생성</li>
+        <li>결과는 옵션별 폴더로 정리되고 인덱스 마크다운이 함께 만들어짐</li>
+        <li>JD101 표지 시리즈에선 자동 평가와 베스트 선정, reference 등록까지 묶어서 시리즈 톤을 잠그는 흐름으로 확장</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">스킬: <code>/run-higgsfield-batch</code> &middot; 기본 대상은 <code>JD101_표지작업/04_표지_컨셉_힉스필드.md</code></p>
+</div>
+
+<!-- ===== 13: 사례 9 인디자인 터미널 ===== -->
+<div class="slide-section">
+  <div class="label">사례 9 &middot; 5/14</div>
+  <h2>인디자인을 터미널로 실행</h2>
+  <p style="margin-top:8px;">멤버북 자동화의 jsx를 매번 InDesign 메뉴에서 찾아 여는 게 짜증나서 셸 스크립트 한 줄로 옮겼습니다. 같은 동선이 반복되는 자리.</p>
+  <div class="stack" style="margin-top:14px;">
+    <div class="card">
+      <h3 class="accent5">BEFORE</h3>
+      <p style="color:var(--text); margin-top:6px;">InDesign 열기 → File &gt; Scripts &gt; Other Script… → 프로젝트 폴더 찾아 들어가 → <code>make_books.jsx</code> 더블클릭</p>
+    </div>
+    <div class="card" style="background:rgba(91,123,94,0.06);">
+      <h3 class="accent3">AFTER</h3>
+      <div class="code-block" style="margin-top:6px;">
+<span class="comment"># 책 10권 INDD만</span>
+<span class="cmd">./run.sh</span>
+
+<span class="comment"># PDF 20개 export</span>
+<span class="cmd">./run.sh pdfs</span>
+
+<span class="comment"># 둘 다</span>
+<span class="cmd">./run.sh both</span>
+      </div>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">osascript로 InDesign에 do script를 보내는 방식. 기본은 books만 실행되도록 안전 디폴트. 자동 PDF export는 의도적으로 끔.</p>
+</div>
+
+<!-- ===== 14: 오늘 라이브 5/15 ===== -->
+<div class="slide-section">
+  <div class="label">오늘 라이브 &middot; 5/15</div>
+  <h2>방금 만든 도구 둘</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">맞춤법 결정 xlsx 시스템</h3>
+      <ul style="margin-top:6px;">
+        <li>1,546개 교정 후보 → CSV로 봤더니 표시한 행이 시각적으로 안 보임</li>
+        <li>CSV → xlsx로 전환, <span class="bold">처리된 행에 취소선</span> 자동 적용</li>
+        <li><code>--clean</code> 옵션으로 취소선 행 일괄 삭제</li>
+        <li>다음 검수 때 어디까지 했는지 한눈에</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent2">INDD → JSON 추출기</h3>
+      <ul style="margin-top:6px;">
+        <li>InDesign에서 직접 편집한 내용을 다시 SSOT(content.json)로 회수</li>
+        <li>JSX는 <span class="bold">READ-ONLY 보장</span>: save/saveAs 미사용, SaveOptions.NO close</li>
+        <li>Python으로 차이 리포트 자동 생성 → 검토 후 수동 교체</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">두 도구 모두 "같은 손동작을 다음에 또 하지 않기" 위한 것. R의 작은 모양.</p>
+</div>
+
+<!-- ===== 14b: 오늘 라이브 5/22 ===== -->
+<div class="slide-section">
+  <div class="label">오늘 라이브 &middot; 5/22</div>
+  <h2>또 만든 도구 셋</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">/run-book-prep</h3>
+      <ul style="margin-top:6px;">
+        <li>책 인쇄 사양 입력 → 견적·책등·내지·표지 템플릿까지 한 흐름</li>
+        <li><span class="bold">단계마다 사용자 확인</span> 3번: 견적 OK? 내지 OK? 표지 OK?</li>
+        <li>도구가 도구를 호출하는 메타 에이전트</li>
+        <li>방금 발표 직전 A5 80p 견적·책등·템플릿 30초 만에 통과</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">/print-interpro-indigo</h3>
+      <ul style="margin-top:6px;">
+        <li>인터프로 견적 폼을 Playwright로 자동 입력</li>
+        <li>폼 value가 전부 한글이라 매핑 테이블로 우회 (예: <code>단면4도컬러</code>)</li>
+        <li>숨겨진 라디오·동적 로딩·input 잘림까지 JS 이벤트로 우회</li>
+        <li>책등은 추정 공식 대신 <span class="bold">사이트 자동 계산값(seneka)</span> 채택</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent2">/indd-outline-and-export</h3>
+      <ul style="margin-top:6px;">
+        <li>Vol-01~10 텍스트 윤곽선 + PDF export 한 흐름</li>
+        <li><code>run.sh outline-and-export</code> 한 번이면 끝</li>
+        <li>일주일에 3번 반복되던 같은 손동작 회수</li>
+        <li>인쇄 직전 폰트 임베드 문제 회피용</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">셋 모두 "방금 끝낸 수작업이 다음 주에 또 올 것 같을 때" 만든 것. 회수의 폭이 한 단계 더 커진 모양.</p>
+</div>
+
+<!-- ===== 15: Part 3 헤더 ===== -->
+<div class="section-separator" id="sec-workshop"><span class="sep-label">Part 3 · R 워크숍</span></div>
+<div class="slide-section">
+  <div class="title-section" style="padding:24px 0 12px;">
+    <h1 style="font-size:24px;">오늘의 R,<br><span class="accent4">반복 하나를 회수합니다</span></h1>
+    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">한 명당 한 가지 반복 업무를 골라, 자동화 워크플로우 한 줄로 설계합니다.</p>
+  </div>
+</div>
+
+<!-- ===== 16: 워크숍 흐름 ===== -->
+<div class="slide-section">
+  <div class="label">Workshop &middot; Intro</div>
+  <h2>오늘 워크숍 흐름</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">4단계로 진행</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">STEP 1</span> &middot; 매주 두 번 이상 손이 가는 일 떠올리기</li>
+        <li><span class="bold">STEP 2</span> &middot; 그중 1개 고르기 (가장 짜증나는 것)</li>
+        <li><span class="bold">STEP 3</span> &middot; 입력·트리거·출력·실패조건 4칸 명령</li>
+        <li><span class="bold">STEP 4</span> &middot; 실행 + 안전망 설계</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">시간 배분 (40분)</h3>
+      <ul style="margin-top:6px;">
+        <li>STEP 1~2: 5분 (혼자)</li>
+        <li>STEP 3: 15분 (Claude와 함께)</li>
+        <li>STEP 4: 10분 (실행)</li>
+        <li>공유: 10분 (각자 1분)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 17: Step 1 ===== -->
+<div class="slide-section">
+  <div class="label">Workshop &middot; Step 1</div>
+  <h2>STEP 1: 매주 두 번 이상 손이 가는 일 떠올리기</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">힌트 질문 3개</h3>
+      <ul style="margin-top:6px;">
+        <li>이번 주에 같은 화면을 두 번 이상 열었던 게 뭐였더라</li>
+        <li>같은 메시지·메일·문장을 카피해서 붙여본 적은</li>
+        <li>똑같은 사고가 두 번째인 자리</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">예시 (이슬기 사례)</h3>
+      <ul style="margin-top:6px;">
+        <li>아임웹 주문을 시트로 옮기기 &middot; 매일 30분 → 5분 sync</li>
+        <li>4L 캔버스에 회차 헤더 달기 &middot; 156번 → 트리거 1번</li>
+        <li>맞춤법 1,500개를 시각적으로 추적 &middot; 무한 → 취소선 1번</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">3분만 적으세요. 완벽하지 않아도 됩니다.</p>
+</div>
+
+<!-- ===== 18: Step 2 ===== -->
+<div class="slide-section">
+  <div class="label">Workshop &middot; Step 2</div>
+  <h2>STEP 2: 그중 1개 고르기 (가장 짜증나는 것)</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">3가지 기준</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">빈도</span>: 주 2회 이상 손이 가는가</li>
+        <li><span class="bold">짜증</span>: 할 때마다 한숨 나오는가</li>
+        <li><span class="bold">규칙성</span>: 입력·출력이 매번 비슷한가</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">고를 때 주의</h3>
+      <ul style="margin-top:6px;">
+        <li>매번 다른 판단이 필요한 일은 자동화 어려움</li>
+        <li>1회용 일은 자동화하지 마세요 (그건 R 아닙니다)</li>
+        <li><span class="bold">사고가 반복된 자리</span>를 우선 후보로</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 19: Step 3 ===== -->
+<div class="slide-section">
+  <div class="label">Workshop &middot; Step 3</div>
+  <h2>STEP 3: 입력 · 트리거 · 출력 · 실패조건 4칸 명령</h2>
+  <div class="code-block" style="margin-top:14px;">
+<span class="comment"># 4칸 템플릿 (Claude에게 그대로 붙여넣기)</span>
+
+<span class="prompt">반복 업무:</span> [어떤 일인가, 한 줄로]
+
+<span class="prompt">입력:</span> [어디서 오는 데이터 &mdash; 시트/메일/슬랙/폴더]
+<span class="prompt">트리거:</span> [언제 실행 &mdash; 정해진 시각/이벤트/수동]
+<span class="prompt">출력:</span> [어디로 가야 하나 &mdash; 시트/메일/슬랙/파일]
+<span class="prompt">실패조건:</span> [어떤 상황에서 멈춰야 하나]
+
+<span class="prompt">제약:</span> [절대 하면 안 되는 것]
+
+<span class="cmd">→ Python 스크립트로 만들어주세요.
+   launchd 등록 명령도 함께.</span>
+  </div>
+</div>
+
+<!-- ===== 20: Step 4 ===== -->
+<div class="slide-section">
+  <div class="label">Workshop &middot; Step 4</div>
+  <h2>STEP 4: 실행 + 안전망 설계</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent">실행 체크리스트</h3>
+      <ul style="margin-top:6px;">
+        <li>먼저 <span class="bold">dry-run 모드</span>로 돌려 보기 (출력 안 보냄)</li>
+        <li>샘플 1~5건만 실제 실행 → 결과 확인</li>
+        <li>전체 실행 → 일주일 관찰</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent5">안전망 3가지</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">멱등성</span>: 두 번 돌려도 같은 결과 (중복 방지)</li>
+        <li><span class="bold">백업</span>: 덮어쓰기 전에 .bak 파일</li>
+        <li><span class="bold">알림</span>: 실패하면 Slack/메일로 통보</li>
+      </ul>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:12px;">자동화 사고 = 사람 사고보다 빠르고 큼. 안전망이 R의 절반.</p>
+</div>
+
+<!-- ===== 21: 12부 안내 ===== -->
+<div class="section-separator" id="sec-next"><span class="sep-label">12부 안내</span></div>
+<div class="slide-section">
+  <div class="label">12부 안내</div>
+  <h2>다음 시간: 6회차에 걸친 STAR 포트폴리오 발표</h2>
+  <div class="stack">
+    <div class="card">
+      <h3 class="accent2">발표 형식 (1인 3분)</h3>
+      <ul style="margin-top:6px;">
+        <li><span class="bold">S</span>: 뭘 시작했는지</li>
+        <li><span class="bold">T</span>: 어떤 벽을 넘었는지</li>
+        <li><span class="bold">A</span>: 뭘 더 깊게 했는지</li>
+        <li><span class="bold">R</span>: 뭘 회수했는지</li>
+        <li>+ 한 줄: 다음 분기 AI 활용 계획</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">준비 가이드</h3>
+      <ul style="margin-top:6px;">
+        <li>각 칸에 1~2 사례만 (전부 안 채워도 OK)</li>
+        <li>구체적으로: "고객 응대 메일을 30분에서 5분으로"</li>
+        <li>실패한 시도도 환영</li>
+        <li>슬라이드 없이 말로 해도 됩니다</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CLOSING ===== -->
+<div class="slide-section">
+  <div class="closing-section">
+    <h1 style="font-size:26px;">손이 가던 일을,<br><span class="accent4">한 번 더 코드로</span></h1>
+    <p style="font-size:15px; color:var(--text); margin-top:28px; line-height:1.9;">
+      AI 부사수의 마지막 쓸모는 <span class="bold">"손이 가던 자리를 코드로 닫는 것"</span><br>
+      그리고 그 코드를 다음 사고가 재발하지 못하게 만드는 일입니다.
+    </p>
+    <div style="margin-top:40px;">
+      <p class="dim">AI부사수 세션 6회차 &middot; 2026.05.22 &middot; @Seulki.log</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('#sticky-nav .nav-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const navItems = document.querySelectorAll('#sticky-nav .nav-item');
+  const sectionAnchors = [
+    document.getElementById('sec-recap'),
+    document.getElementById('sec-r'),
+    document.getElementById('sec-cases'),
+    document.getElementById('sec-workshop'),
+    document.getElementById('sec-next')
+  ];
+
+  function updateNav() {
+    const scrollY = window.scrollY + 60;
+    let activeIdx = 0;
+    sectionAnchors.forEach((anchor, i) => {
+      if (anchor && anchor.offsetTop <= scrollY) activeIdx = i;
+    });
+    navItems.forEach((item, i) => {
+      item.classList.toggle('active', i === activeIdx);
+    });
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+</script>
+</body>
+</html>

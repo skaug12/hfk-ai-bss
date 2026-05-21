@@ -509,6 +509,42 @@
   <p style="margin-top:12px; font-size:0.5em;" class="dim">두 도구 모두 "같은 손동작을 다음에 또 하지 않기" 위한 것. R의 작은 모양.</p>
 </section>
 
+<!-- ===== 14b: 오늘 라이브 5/21 ===== -->
+<section>
+  <div class="label">오늘 라이브 &middot; 5/22</div>
+  <h2>또 만든 도구 셋</h2>
+  <div class="grid grid-3" style="margin-top:14px;">
+    <div class="card">
+      <h3 class="accent">/run-book-prep</h3>
+      <ul>
+        <li>책 인쇄 사양 입력 → 견적·책등·내지·표지 템플릿까지 한 흐름</li>
+        <li><span class="bold">단계마다 사용자 확인</span> 3번: 견적 OK? 내지 OK? 표지 OK?</li>
+        <li>도구가 도구를 호출하는 메타 에이전트</li>
+        <li>방금 발표 직전 A5 80p 견적·책등·템플릿 30초 만에 통과</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent3">/print-interpro-indigo</h3>
+      <ul>
+        <li>인터프로 견적 폼을 Playwright로 자동 입력</li>
+        <li>폼 value가 전부 한글이라 매핑 테이블로 우회 (예: <code>단면4도컬러</code>)</li>
+        <li>숨겨진 라디오·동적 로딩·input 잘림까지 JS 이벤트로 우회</li>
+        <li>책등은 추정 공식 대신 <span class="bold">사이트 자동 계산값(seneka)</span> 채택</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="accent2">/indd-outline-and-export</h3>
+      <ul>
+        <li>Vol-01~10 텍스트 윤곽선 + PDF export 한 흐름</li>
+        <li><code>run.sh outline-and-export</code> 한 번이면 끝</li>
+        <li>일주일에 3번 반복되던 같은 손동작 회수</li>
+        <li>인쇄 직전 폰트 임베드 문제 회피용</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:12px; font-size:0.5em;" class="dim">셋 모두 "방금 끝낸 수작업이 다음 주에 또 올 것 같을 때" 만든 것. 회수의 폭이 한 단계 더 커진 모양.</p>
+</section>
+
 <!-- ===== 15: Part 3 헤더 워크숍 ===== -->
 <section>
   <div style="display:flex; flex-direction:column; justify-content:center; height:100%;">
