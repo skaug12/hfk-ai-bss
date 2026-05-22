@@ -170,7 +170,7 @@
   <button class="nav-item" data-target="sec-r">R 정의</button>
   <button class="nav-item" data-target="sec-cases">사례</button>
   <button class="nav-item" data-target="sec-workshop">워크숍</button>
-  <button class="nav-item" data-target="sec-next">예고</button>
+  <button class="nav-item" data-target="sec-close">마무리</button>
 </nav>
 
 <!-- ===== TITLE ===== -->
@@ -211,63 +211,32 @@
 </div>
 
 <!-- ===== T: 트렌드 헤더 ===== -->
-<div class="section-separator" id="sec-trend"><span class="sep-label">Part 1.5 · 바깥의 흐름</span></div>
+<div class="section-separator" id="sec-trend"><span class="sep-label">Part 1.5 · 트렌드 브리핑</span></div>
 <div class="slide-section">
   <div class="title-section" style="padding:24px 0 12px;">
-    <h1 style="font-size:24px;">지난 2주,<br><span class="accent2">바깥에서 일어난 일들</span></h1>
-    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">내가 회수하는 동안, 시장은 어디로 움직였나.</p>
+    <h1 style="font-size:24px;">지난 2주,<br><span class="accent2">트렌드 브리핑</span></h1>
+    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">내가 일하는 동안 어떤 변화가 있었나.</p>
   </div>
 </div>
 
 <!-- ===== T-1: 양방향 클로드 ===== -->
 <div class="slide-section">
   <div class="label">Trend 1 &middot; 5/15~22</div>
-  <h2>클로드가 양방향이 됩니다</h2>
-  <p style="margin-top:6px; font-size:14px; color:var(--text-sub);">프로그램이 클로드 안으로, 클로드가 회사 안으로</p>
+  <h2>OO에서도 클로드를</h2>
   <div class="stack" style="margin-top:14px;">
     <div class="card">
       <h3 class="accent">어도비가 클로드 안으로</h3>
       <ul style="margin-top:6px;">
         <li>포토샵·프리미어·일러스트레이터 같은 어도비 9개 프로그램이 클로드 채팅창에 직접 붙음</li>
         <li>'사진 색감 보정해줘'라고 말하면 클로드가 그 자리에서 포토샵을 켜서 직접 작업함</li>
-        <li>어도비 앱을 켜고 메뉴를 찾는 손동작이 사라짐. 말 한마디가 그 자리를 대신함</li>
+        <li>어도비 앱을 켜고 메뉴를 찾는 손동작이 사라짐</li>
       </ul>
     </div>
     <div class="card">
       <h3 class="accent3">회사 시스템이 클로드 안으로</h3>
       <ul style="margin-top:6px;">
-        <li>'회사 안에서만 도는 AI 작업방'(베타 공개): 우리 파일·자료가 회사 밖으로 안 나가는 채로 AI가 일함</li>
+        <li>'회사 안에서만 도는 AI'(베타 공개): 우리 파일·자료가 회사 밖으로 안 나가는 채로 AI가 일함</li>
         <li>'사내 자료에 AI가 안전하게 닿는 통로'(시험판): 회사 데이터를 방화벽 안에 그대로 둔 채 클로드가 가져다 씀</li>
-        <li>그 작업방을 제공하는 회사 4곳: 대용량은 Cloudflare, 상태 유지는 Daytona, 무거운 계산은 Modal, 보안 격리는 Vercel</li>
-      </ul>
-    </div>
-  </div>
-  <p style="margin-top:14px; font-size:13px; color:var(--text-dim);">'앱 안의 AI'였던 흐름이 'AI 안의 앱'으로, 동시에 'AI 안의 회사'로 옮겨가는 중</p>
-</div>
-
-<!-- ===== T-2: 앤트로픽 디벨로퍼 데이 ===== -->
-<div class="slide-section">
-  <div class="label">Trend 2 &middot; 5월 앤트로픽 발표회</div>
-  <h2>클로드 만든 회사 매출 80배, 다음에 낼 카드 3장</h2>
-  <div class="stack" style="margin-top:14px;">
-    <div class="card">
-      <h3 class="accent2">앞으로 3가지 방향</h3>
-      <ul style="margin-top:6px;">
-        <li><span class="bold">코딩 안 깨지게</span>: 멤버북 자동화 같은 실제 일에 맡겨도 사고 없이 끝까지</li>
-        <li><span class="bold">한 번에 더 많은 자료</span>: 책 여러 권 분량 글을 한 번에 다루는 방향</li>
-        <li><span class="bold">여러 AI가 함께 일하기</span>: 한 명이 하던 일을 여러 AI가 역할 나눠서 동시에 처리</li>
-      </ul>
-      <p style="margin-top:8px; font-size:13px; color:var(--text-dim);">회사 가치 400억 달러, 매출 80배 성장</p>
-    </div>
-    <div class="card">
-      <h3 class="accent3">새 기능 한 줄씩</h3>
-      <ul style="margin-top:6px;">
-        <li>Claude Design — 클로드가 디자인까지 해줌</li>
-        <li>Claude Code 새 디자인 + 반복 작업 자동 모드</li>
-        <li>Cowork(여럿이 같이 쓰는 공간) 안에서 결과물 실시간 공유</li>
-        <li>Microsoft 365 안에서 바로 쓰는 클로드</li>
-        <li>일상 도구(메일·달력 등) 연결 모음 확대</li>
-        <li>가장 똑똑한 모델 Opus 4.7 + 앤트로픽이 직접 관리해주는 AI 비서</li>
       </ul>
     </div>
   </div>
@@ -316,7 +285,7 @@
       <ul style="margin-top:6px;">
         <li>디자인 참고 사이트(Dribbble) 한 장 → 포트폴리오 사이트 25분 만에 완성</li>
         <li>종목 분석 30페이지 발표 자료 5분 만에 자동 생성</li>
-        <li>코드 한 줄 안 치고 디자인부터 배포까지. 23개 명령어 묶음 가이드는 노션으로 별도 공유</li>
+        <li>코드 한 줄 안 치고 디자인부터 배포까지. 23개 명령어 묶음 가이드는 별도 공유</li>
       </ul>
     </div>
   </div>
@@ -326,10 +295,10 @@
 <!-- ===== T-5: AI 에이전트 SaaS ===== -->
 <div class="slide-section">
   <div class="label">Trend 5 &middot; 5/13~16</div>
-  <h2>AI 비서가 우리가 쓰던 업무 프로그램 자리로 들어옵니다</h2>
+  <h2>에이전틱 AI</h2>
   <div class="stack" style="margin-top:14px;">
     <div class="card">
-      <h3 class="accent">헤르메스: 글로벌 1위 오픈소스 AI 비서</h3>
+      <h3 class="accent"><a href="https://wikidocs.net/book/19686" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">에르메스</a>: 글로벌 1위 오픈소스 AI 비서</h3>
       <p style="color:var(--text); margin-top:4px;">'누스 리서치'라는 곳이 공개. GPT·제미나이·클로드 등 200개 이상 AI 모델을 그대로 갈아끼움. 한 회사에 묶이지 않는 게 특징</p>
     </div>
     <div class="card">
@@ -339,10 +308,6 @@
     <div class="card">
       <h3 class="accent3">한컴 hwpx 스킬</h3>
       <p style="color:var(--text); margin-top:4px;">공문·사업계획서를 한컴 hwpx 파일 그대로 클로드가 만들어줌. 한국 사무 환경에도 클로드가 들어옴</p>
-    </div>
-    <div class="card" style="background:rgba(139,94,60,0.08);">
-      <h3 class="accent">기업에 실제 깔리는 사례</h3>
-      <p style="color:var(--text); margin-top:4px;">영업 자동화(Clay), 금융 분석(Rogo), 디자인 자동화(Amplitude). 모두 앞에서 본 '회사 안 작업방·안전한 통로' 위에서 돌아감</p>
     </div>
   </div>
 </div>
@@ -365,7 +330,7 @@
       <ul style="margin-top:6px;">
         <li>클로드 안의 '프로젝트' 칸부터 만들어, 관련 자료를 미리 올려두고 시작</li>
         <li>'맞춤 지침' 칸에 톤·결과 형식을 미리 적어둠 (예: '처음 듣는 얘기처럼 받아써라')</li>
-        <li>코드 리뷰(CodeRabbit), 개발 환경(JetBrains), 영상 편집(Resolve AI), 터미널(Warp) 같은 도구 안에도 클로드 최신 사용법이 함께 깔리는 흐름</li>
+        <li>암묵지가 점점 중요해짐</li>
       </ul>
     </div>
   </div>
@@ -404,8 +369,8 @@
 <div class="section-separator" id="sec-cases"><span class="sep-label">Part 2 · 5/8 ~ 오늘</span></div>
 <div class="slide-section">
   <div class="title-section" style="padding:24px 0 12px;">
-    <h1 style="font-size:24px;">지난 2주,<br><span class="accent4">반복을 회수한 작업들</span></h1>
-    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">손이 가던 9가지 자리를 AI 부사수에 넘겼습니다.</p>
+    <h1 style="font-size:24px;">지난 2주,<br><span class="accent4">반복을 없앤 작업들</span></h1>
+    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">손이 가던 9가지 업무를 AI 부사수에 넘겼습니다.</p>
   </div>
 </div>
 
@@ -698,10 +663,10 @@
   <p class="dim" style="margin-top:12px;">osascript로 InDesign에 do script를 보내는 방식. 기본은 books만 실행되도록 안전 디폴트. 자동 PDF export는 의도적으로 끔.</p>
 </div>
 
-<!-- ===== 14: 오늘 라이브 5/15 ===== -->
+<!-- ===== 14: 사례 10 ===== -->
 <div class="slide-section">
-  <div class="label">오늘 라이브 &middot; 5/15</div>
-  <h2>방금 만든 도구 둘</h2>
+  <div class="label">사례 10 &middot; 5/15</div>
+  <h2>5/15 라이브로 만든 도구 둘</h2>
   <div class="stack">
     <div class="card">
       <h3 class="accent">맞춤법 결정 xlsx 시스템</h3>
@@ -724,10 +689,10 @@
   <p class="dim" style="margin-top:12px;">두 도구 모두 "같은 손동작을 다음에 또 하지 않기" 위한 것. R의 작은 모양.</p>
 </div>
 
-<!-- ===== 14b: 오늘 라이브 5/22 ===== -->
+<!-- ===== 14b: 사례 11 ===== -->
 <div class="slide-section">
-  <div class="label">오늘 라이브 &middot; 5/22</div>
-  <h2>또 만든 도구 셋</h2>
+  <div class="label">사례 11 &middot; 5/22</div>
+  <h2>오늘 만든 도구 셋</h2>
   <div class="stack">
     <div class="card">
       <h3 class="accent">/run-book-prep</h3>
@@ -764,8 +729,8 @@
 <div class="section-separator" id="sec-workshop"><span class="sep-label">Part 3 · R 워크숍</span></div>
 <div class="slide-section">
   <div class="title-section" style="padding:24px 0 12px;">
-    <h1 style="font-size:24px;">오늘의 R,<br><span class="accent4">반복 하나를 회수합니다</span></h1>
-    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">한 명당 한 가지 반복 업무를 골라, 자동화 워크플로우 한 줄로 설계합니다.</p>
+    <h1 style="font-size:24px;">오늘의 R,<br><span class="accent4">반복되는 작업들을 줄여나갑니다</span></h1>
+    <p style="font-size:15px; color:var(--text-sub); margin-top:14px;">자동화 워크플로우에 도전합니다.</p>
   </div>
 </div>
 
@@ -881,7 +846,7 @@
     <div class="card">
       <h3 class="accent5">안전망 3가지</h3>
       <ul style="margin-top:6px;">
-        <li><span class="bold">멱등성</span>: 두 번 돌려도 같은 결과 (중복 방지)</li>
+        <li><span class="bold">두 번 돌려도 같은 결과</span>: 중복으로 쌓이지 않게</li>
         <li><span class="bold">백업</span>: 덮어쓰기 전에 .bak 파일</li>
         <li><span class="bold">알림</span>: 실패하면 Slack/메일로 통보</li>
       </ul>
@@ -890,41 +855,13 @@
   <p class="dim" style="margin-top:12px;">자동화 사고 = 사람 사고보다 빠르고 큼. 안전망이 R의 절반.</p>
 </div>
 
-<!-- ===== 21: 12부 안내 ===== -->
-<div class="section-separator" id="sec-next"><span class="sep-label">12부 안내</span></div>
-<div class="slide-section">
-  <div class="label">12부 안내</div>
-  <h2>다음 시간: 6회차에 걸친 STAR 포트폴리오 발표</h2>
-  <div class="stack">
-    <div class="card">
-      <h3 class="accent2">발표 형식 (1인 3분)</h3>
-      <ul style="margin-top:6px;">
-        <li><span class="bold">S</span>: 뭘 시작했는지</li>
-        <li><span class="bold">T</span>: 어떤 벽을 넘었는지</li>
-        <li><span class="bold">A</span>: 뭘 더 깊게 했는지</li>
-        <li><span class="bold">R</span>: 뭘 회수했는지</li>
-        <li>+ 한 줄: 다음 분기 AI 활용 계획</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3 class="accent3">준비 가이드</h3>
-      <ul style="margin-top:6px;">
-        <li>각 칸에 1~2 사례만 (전부 안 채워도 OK)</li>
-        <li>구체적으로: "고객 응대 메일을 30분에서 5분으로"</li>
-        <li>실패한 시도도 환영</li>
-        <li>슬라이드 없이 말로 해도 됩니다</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <!-- ===== CLOSING ===== -->
+<div class="section-separator" id="sec-close"><span class="sep-label">마무리</span></div>
 <div class="slide-section">
   <div class="closing-section">
     <h1 style="font-size:26px;">손이 가던 일을,<br><span class="accent4">한 번 더 코드로</span></h1>
     <p style="font-size:15px; color:var(--text); margin-top:28px; line-height:1.9;">
-      AI 부사수의 마지막 쓸모는 <span class="bold">"손이 가던 자리를 코드로 닫는 것"</span><br>
-      그리고 그 코드를 다음 사고가 재발하지 못하게 만드는 일입니다.
+      6회차 동안 고생 많으셨습니다.
     </p>
     <div style="margin-top:40px;">
       <p class="dim">AI부사수 세션 6회차 &middot; 2026.05.22 &middot; @Seulki.log</p>
@@ -947,7 +884,7 @@
     document.getElementById('sec-r'),
     document.getElementById('sec-cases'),
     document.getElementById('sec-workshop'),
-    document.getElementById('sec-next')
+    document.getElementById('sec-close')
   ];
 
   function updateNav() {
