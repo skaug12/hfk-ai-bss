@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HFK 파트너 매뉴얼</title>
+<title>HFK 파트너 매뉴얼 (OP)</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root {
@@ -51,53 +51,15 @@ h1 {
 .header-meta {
   font-size: 0.78em;
   color: var(--sand);
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
-/* ===== TAB BAR ===== */
-.tab-bar {
-  display: flex;
-  align-items: flex-end;
-  border-bottom: 1px solid var(--light-sand);
-  margin-bottom: 20px;
-}
-
-.tab-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.88em;
-  font-weight: 600;
-  color: var(--sand);
-  padding: 8px 18px 10px;
-  position: relative;
-  transition: color 0.18s;
-  letter-spacing: 0.04em;
-}
-
-.tab-btn.active {
-  color: var(--charcoal);
-}
-
-.tab-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--red);
-}
-
-.tab-btn:first-child {
-  padding-left: 0;
-}
-
-/* ===== TAB INDICATOR ===== */
-.tab-indicator {
-  margin-bottom: 40px;
-  padding-top: 14px;
+/* ===== TYPE BANNER ===== */
+.type-banner {
+  border: 1px solid var(--light-sand);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 44px;
 }
 
 .type-name {
@@ -110,12 +72,24 @@ h1 {
 .type-desc {
   font-size: 0.78em;
   color: var(--sand);
+  line-height: 1.6;
+}
+
+.type-switch {
+  font-size: 0.78em;
+  margin-top: 10px;
+}
+
+.type-switch a {
+  color: var(--sand);
+}
+
+.type-switch a:hover {
+  color: var(--red);
 }
 
 /* ===== SECTION ===== */
-.section {
-  margin-bottom: 48px;
-}
+.section { margin-bottom: 48px; }
 
 .section-head {
   display: flex;
@@ -165,9 +139,7 @@ h1 {
 }
 
 /* ===== SUBSECTION ===== */
-.subsec {
-  margin-bottom: 30px;
-}
+.subsec { margin-bottom: 30px; }
 
 .subsec-label {
   font-size: 0.72em;
@@ -283,15 +255,8 @@ h1 {
   letter-spacing: 0.01em;
 }
 
-/* ===== TAB PANES ===== */
-.tab-pane { display: none; }
-.tab-pane.active { display: block; }
-
 /* ===== BENEFIT LIST ===== */
-.benefit-list {
-  list-style: none;
-  margin-bottom: 0;
-}
+.benefit-list { list-style: none; }
 
 .benefit-item {
   display: flex;
@@ -303,9 +268,7 @@ h1 {
   line-height: 1.65;
 }
 
-.benefit-item:last-child {
-  border-bottom: none;
-}
+.benefit-item:last-child { border-bottom: none; }
 
 .b-num {
   flex-shrink: 0;
@@ -382,9 +345,7 @@ a {
   text-underline-offset: 2px;
 }
 
-a:hover {
-  color: var(--burgundy);
-}
+a:hover { color: var(--burgundy); }
 
 strong {
   font-weight: 700;
@@ -395,18 +356,13 @@ strong {
 <body>
 
 <div class="eyebrow">HFK · Partner</div>
-<h1>파트너 매뉴얼</h1>
+<h1>파트너 매뉴얼 (OP)</h1>
 <p class="header-meta">Ver. 0.5 &nbsp;·&nbsp; 2026/01/01</p>
 
-<!-- Tab Bar -->
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('op', this)">OP</button>
-  <button class="tab-btn" onclick="switchTab('cp', this)">CP</button>
-</div>
-
-<div class="tab-indicator">
-  <div class="type-name" id="type-name">운영 파트너 (OP)</div>
-  <div class="type-desc" id="type-desc">활동비 30만원 &nbsp;·&nbsp; 이벤트·어드벤처·HBR 매거진 등 혜택 포함</div>
+<div class="type-banner">
+  <div class="type-name">운영 파트너 (OP)</div>
+  <div class="type-desc">활동비 30만원 · 이벤트·어드벤처·HBR 매거진 등 혜택 포함</div>
+  <div class="type-switch">콘텐츠 파트너이신가요? → <a href="partner-manual-cp.html">CP 매뉴얼 보기</a></div>
 </div>
 
 <!-- ===== 역할 ===== -->
@@ -536,78 +492,36 @@ strong {
   </div>
 </div>
 
-<!-- ===== 혜택 (탭 분리) ===== -->
+<!-- ===== 혜택 ===== -->
 <div class="section">
   <div class="section-head">
     <span class="badge">[혜택]</span>
     <span class="section-title">함께 성장하는 HFK 파트너</span>
   </div>
 
-  <!-- OP 혜택 -->
-  <div id="pane-op" class="tab-pane active">
-    <ul class="benefit-list">
-      <li class="benefit-item"><span class="b-num">01</span>파트너 활동비</li>
-      <li class="benefit-item"><span class="b-num">02</span>HFK 이벤트 참여권</li>
-      <li class="benefit-item"><span class="b-num">03</span>팀별 1회 어드벤처 참여권</li>
-      <li class="benefit-item"><span class="b-num">04</span>HFK 파트너 인증서 발급</li>
-      <li class="benefit-item"><span class="b-num">05</span>최신 HBR 매거진 1권 증정</li>
-      <li class="benefit-item"><span class="b-num">06</span><a href="https://naver.me/501oQ7NU" target="_blank">마이시크릿덴</a> 낮의 사색 월 1회 이용</li>
-      <li class="benefit-item"><span class="b-num">07</span><a href="https://naver.me/501oQ7NU" target="_blank">마이시크릿덴</a> 밤의 여유 이용 시 하우스 와인 1병 무료 증정</li>
-      <li class="benefit-item"><span class="b-num">08</span><a href="https://naver.me/5Y1r6hsD" target="_blank">소정동</a> 대관 시 월 1회 50% 할인</li>
+  <ul class="benefit-list">
+    <li class="benefit-item"><span class="b-num">01</span>파트너 활동비</li>
+    <li class="benefit-item"><span class="b-num">02</span>HFK 이벤트 참여권</li>
+    <li class="benefit-item"><span class="b-num">03</span>팀별 1회 어드벤처 참여권</li>
+    <li class="benefit-item"><span class="b-num">04</span>HFK 파트너 인증서 발급</li>
+    <li class="benefit-item"><span class="b-num">05</span>최신 HBR 매거진 1권 증정</li>
+    <li class="benefit-item"><span class="b-num">06</span><a href="https://naver.me/501oQ7NU" target="_blank">마이시크릿덴</a> 낮의 사색 월 1회 이용</li>
+    <li class="benefit-item"><span class="b-num">07</span><a href="https://naver.me/501oQ7NU" target="_blank">마이시크릿덴</a> 밤의 여유 이용 시 하우스 와인 1병 무료 증정</li>
+    <li class="benefit-item"><span class="b-num">08</span><a href="https://naver.me/5Y1r6hsD" target="_blank">소정동</a> 대관 시 월 1회 50% 할인</li>
+  </ul>
+
+  <div class="fee-box">
+    <div class="fee-label">활동비</div>
+    <div class="fee-amount">30만원</div>
+    <ul class="fee-notes">
+      <li>해당 시즌을 마치고 나서 입금이 시작됩니다. 입금과 관련된 메일이 발송됩니다. (봄: 5월초, 여름: 9월초, 가을: 12월초, 겨울: 3월초)</li>
+      <li>이체/포인트/물품 구매 중 선택하실 수 있습니다.</li>
     </ul>
-
-    <div class="fee-box">
-      <div class="fee-label">활동비</div>
-      <div class="fee-amount">30만원</div>
-      <ul class="fee-notes">
-        <li>해당 시즌을 마치고 나서 입금이 시작됩니다. 입금과 관련된 메일이 발송됩니다. (봄: 5월초, 여름: 9월초, 가을: 12월초, 겨울: 3월초)</li>
-        <li>이체/포인트/물품 구매 중 선택하실 수 있습니다.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CP 혜택 -->
-  <div id="pane-cp" class="tab-pane">
-    <ul class="benefit-list">
-      <li class="benefit-item"><span class="b-num">01</span>파트너 활동비</li>
-      <li class="benefit-item"><span class="b-num">02</span>HFK 이벤트 참여권</li>
-      <li class="benefit-item"><span class="b-num">03</span>팀별 1회 어드벤처 참여권</li>
-      <li class="benefit-item"><span class="b-num">04</span>HFK 파트너 인증서 발급</li>
-    </ul>
-
-    <div class="fee-box">
-      <div class="fee-label">활동비</div>
-      <div class="fee-amount">유료 등록수 × 10만원</div>
-      <ul class="fee-notes">
-        <li>해당 시즌을 마치고 나서 입금이 시작됩니다. 입금과 관련된 메일이 발송됩니다. (봄: 5월초, 여름: 9월초, 가을: 12월초, 겨울: 3월초)</li>
-        <li>중간 취소: 3회차 전에 취소하는 멤버는 유료 등록수에 포함되지 않으며, 이후 취소하는 경우 5만원으로 책정됩니다.</li>
-        <li>인원이 적거나 인원 보충이 필요하다고 판단될 경우 1–3명의 무료 멤버가 참여할 수 있으며 유료 등록수에는 포함되지 않습니다.</li>
-        <li>이체/포인트/물품 구매 중 선택하실 수 있습니다.</li>
-      </ul>
-    </div>
   </div>
 </div>
 
 <!-- Closing -->
 <p class="closing">파트너 활동과 관련해서 궁금하거나 건의사항이 있으시면 언제든 연락주세요.<br>모쪼록 HFK 파트너 활동이 새로운 성장에 도움이 되시길 바랍니다.<br>다시 한번 HFK 파트너가 되어주셔서 감사합니다.</p>
-
-<script>
-function switchTab(type, btn) {
-  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-
-  document.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
-  document.getElementById('pane-' + type).classList.add('active');
-
-  if (type === 'op') {
-    document.getElementById('type-name').textContent = '운영 파트너 (OP)';
-    document.getElementById('type-desc').textContent = '활동비 30만원 · 이벤트·어드벤처·HBR 매거진 등 혜택 포함';
-  } else {
-    document.getElementById('type-name').textContent = '콘텐츠 파트너 (CP)';
-    document.getElementById('type-desc').textContent = '활동비 유료 등록수 × 10만원 · 이벤트·어드벤처 혜택 포함';
-  }
-}
-</script>
 
 </body>
 </html>
