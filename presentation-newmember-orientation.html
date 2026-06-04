@@ -9,13 +9,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-  @font-face {
-    font-family: 'Media77';
-    src: url('assets/Media77-Medium.ttf') format('truetype');
-    font-weight: 400 700;
-    font-style: normal;
-    font-display: swap;
-  }
   :root {
     --bg: #f0eae2;
     --text: #2d2523;
@@ -31,10 +24,10 @@
     --r-heading-color: var(--text);
     --r-main-font-size: 30px;
   }
-  .reveal { font-weight: 400; letter-spacing: -0.025em; }
-  .reveal h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; color: var(--text); text-transform: none; }
-  .reveal h2 { font-size: 1.32em; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 0.62em; line-height: 1.32; color: var(--text); text-transform: none; }
-  .reveal h3 { font-size: 0.74em; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); text-transform: none; }
+  .reveal { font-weight: 400; letter-spacing: -0.05em; }
+  .reveal h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.05em; line-height: 1.2; color: var(--text); text-transform: none; }
+  .reveal h2 { font-size: 1.32em; font-weight: 700; letter-spacing: -0.05em; margin-bottom: 0.62em; line-height: 1.32; color: var(--text); text-transform: none; }
+  .reveal h3 { font-size: 0.74em; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); text-transform: none; }
   .reveal p { font-size: 0.66em; line-height: 1.8; color: var(--text-sub); }
   .reveal li { font-size: 0.66em; line-height: 1.8; color: var(--text-sub); }
   .reveal ul { list-style: none; padding-left: 0; margin: 0; }
@@ -56,8 +49,8 @@
   .bold { font-weight: 700; }
   .ink { color: var(--text) !important; }
 
-  .label { font-family: 'Media77', 'Pretendard', sans-serif; font-size: 0.56em; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
-  .en { font-family: 'Media77', 'Pretendard', sans-serif; }
+  .label { font-family: 'Pretendard', sans-serif; font-size: 0.56em; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+  .en { font-family: 'Pretendard', sans-serif; }
 
   .grid { display: grid; gap: 28px; }
   .grid-2 { grid-template-columns: 1fr 1fr; }
@@ -95,9 +88,6 @@
   .divider { width: 52px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0 auto; }
 
   .reveal section.shotslide { padding: 0 !important; }
-  .shotwrap { position: relative; width: 100%; height: 720px; }
-  .shotlabel { position: absolute; top: 20px; left: 24px; z-index: 6; font-family: 'Media77','Pretendard',sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(152,0,0,0.92); padding: 6px 14px; border-radius: 6px; }
-  .shotcap { position: absolute; bottom: 20px; left: 26px; right: 26px; z-index: 6; font-size: 14px; line-height: 1.5; color: #2d2523; background: rgba(255,255,255,0.86); padding: 8px 16px; border-radius: 6px; }
 
   #custom-progress { position: fixed; bottom: 0; left: 0; right: 0; height: 28px; background: #e7ded0; display: flex; z-index: 100; font-family: 'Pretendard', sans-serif; }
   #custom-progress .seg { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.02em; position: relative; transition: background 0.3s, color 0.3s; cursor: pointer; }
@@ -261,7 +251,6 @@
 
 <!-- ===== 6s: PROFILE SCREENSHOT ===== -->
 <section class="shotslide" data-background-image="assets/shots/shot-profile.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Slack · 프로필 설정</div></div>
 </section>
 
 <!-- ===== 7: SLACK CHANNELS ===== -->
@@ -277,7 +266,6 @@
 
 <!-- ===== 7s: CHANNELS SCREENSHOT ===== -->
 <section class="shotslide" data-background-image="assets/shots/shot-channels.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Slack · 채널 실물</div></div>
 </section>
 
 <!-- ===== 8: KAKAO + CLUB ===== -->
@@ -333,23 +321,18 @@
 
 <!-- ===== 10s: NOTICE/LETTER SCREENSHOTS ===== -->
 <section class="shotslide" data-background-image="assets/shots/shot-selfintro.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Notice · 자기소개 공지</div></div>
 </section>
 
 <section class="shotslide" data-background-image="assets/shots/shot-notice-emoji.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Notice · 회차 공지 · 이모지 참석</div></div>
 </section>
 
 <section class="shotslide" data-background-image="assets/shots/shot-letter.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Notice · 시즌레터</div></div>
 </section>
 
 <section class="shotslide" data-background-image="assets/shots/shot-adventure.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Notice · 팀 어드벤처 신청</div></div>
 </section>
 
 <section class="shotslide" data-background-image="assets/shots/shot-pest.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotwrap"><div class="shotlabel">Event · PEST 브리핑 신청</div></div>
 </section>
 
 <!-- ===== 11: GROUND RULES ===== -->
