@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HFK 뉴멤버 오리엔테이션</title>
-<meta name="description" content="HFK에 처음 오신 멤버를 위한 오리엔테이션: 프로그램, 슬랙, 4L 리뷰, 그라운드룰, 멤버 혜택.">
+<meta name="description" content="HFK에 처음 오신 멤버를 위한 오리엔테이션: 미션·비전·연혁, 프로그램, 슬랙, 4L 리뷰, 그라운드룰, 멤버 혜택.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -70,6 +70,16 @@
   .row { display: flex; gap: 16px; align-items: flex-start; }
   .row + .row { margin-top: 16px; }
 
+  .rule { display: flex; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .rule:last-child { border-bottom: none; }
+  .rule .term { flex: 0 0 64px; font-size: 0.6em; font-weight: 700; color: var(--accent); }
+  .rule .desc { flex: 1 1 auto; font-size: 0.56em; line-height: 1.6; color: var(--text-sub); }
+
+  .tl { display: flex; gap: 18px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .tl:last-child { border-bottom: none; }
+  .tl .yr { flex: 0 0 96px; font-size: 0.6em; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+  .tl .ev { flex: 1 1 auto; font-size: 0.6em; line-height: 1.6; color: var(--text); }
+
   .note { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; }
   .note p { margin: 0; }
 
@@ -89,66 +99,84 @@
 <!-- ===== 0: TITLE ===== -->
 <section data-background-color="#f0eae2">
   <div style="display:flex; flex-direction:column; justify-content:center; height:100%; text-align:center;">
-    <p class="label" style="margin-bottom:16px; text-align:center;">Welcome to HFK</p>
+    <p class="label" style="margin-bottom:16px; text-align:center;">Your Growth Matters</p>
     <h1>뉴멤버 오리엔테이션</h1>
     <p style="font-size:0.74em; color:var(--accent); font-weight:600; margin-top:18px;">처음 오신 멤버를 위한 HFK 안내</p>
-    <div class="divider" style="margin-top:32px;"></div>
-    <p class="dim" style="font-size:0.5em; margin-top:24px;">첫 시즌을 잘 시작할 수 있도록, 알아두면 좋은 것을 한곳에 모았습니다.</p>
+    <div class="divider" style="margin-top:30px;"></div>
+    <p class="dim" style="font-size:0.5em; margin-top:22px;">HFK를 소개하고, 시즌 참여 방법을 안내드린 뒤, 멤버들과 자기소개를 나눕니다.</p>
+    <p class="dim" style="font-size:0.42em; margin-top:18px;">WiFi &nbsp;501_oasisdsg &nbsp;/&nbsp; oasis00000</p>
   </div>
 </section>
 
-<!-- ===== 1: ABOUT ===== -->
+<!-- ===== 1: MISSION ===== -->
 <section>
-  <div class="label">About</div>
-  <h2>HFK는 어떤 곳인가요</h2>
-  <div class="grid grid-2" style="gap:28px;">
+  <div class="label">About · Mission</div>
+  <h2>실무 리더가 더 깊이 성장할 수 있는<br>질문과 환경을 만든다</h2>
+  <div class="grid grid-2" style="gap:28px; margin-top:8px;">
     <div>
-      <p class="ink" style="font-size:0.66em; font-weight:600;">좋은 리더로 성장하고 싶은 실무 리더를 위한 자기계발 커뮤니티입니다.</p>
-      <p style="margin-top:14px;">2013년 하버드 비즈니스 리뷰(HBR) 읽기 모임으로 시작했고, 지금은 3개월 단위 시즌제로 운영합니다.</p>
-      <p style="margin-top:12px;">한 시즌 동안 멤버는 같은 팀에서 함께 읽고 토론하며, 매주 열리는 이벤트와 멤버가 직접 만드는 클럽에 참여합니다.</p>
+      <p>빠른 성공이나 단기 스킬이 아니라, 일을 하며 반드시 마주하게 되는 깊은 질문을 함께 탐구합니다.</p>
+      <p style="margin-top:12px;">다양한 산업의 실무 리더가 서로의 경험과 관점을 교차시키며 사고의 깊이를 넓혀갑니다.</p>
     </div>
-    <div class="grid" style="grid-template-columns:1fr; gap:14px;">
-      <div class="card" style="text-align:center;">
-        <p class="accent bold" style="font-size:0.8em; margin:0;">2013</p>
-        <p class="dim" style="margin:6px 0 0;">HBR 읽기 모임으로 시작</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <p class="accent bold" style="font-size:0.8em; margin:0;">3개월</p>
-        <p class="dim" style="margin:6px 0 0;">한 시즌 단위로 운영</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <p class="accent bold" style="font-size:0.8em; margin:0;">같은 팀</p>
-        <p class="dim" style="margin:6px 0 0;">함께 읽고 토론하는 동료</p>
-      </div>
+    <div class="card" style="display:flex; align-items:center; justify-content:center;">
+      <p class="accent bold" style="font-size:0.84em; margin:0; text-align:center; line-height:1.6;">함께 묻고,<br>함께 깊어지는<br>커뮤니티</p>
     </div>
   </div>
 </section>
 
-<!-- ===== 2: PROGRAM ===== -->
+<!-- ===== 2: VISION ===== -->
+<section>
+  <div class="label">About · Vision</div>
+  <h2>실무 리더의 성장을 설계하는<br>가장 신뢰받는 커뮤니티가 된다</h2>
+  <div class="grid grid-2" style="gap:28px; margin-top:8px;">
+    <div>
+      <p>서울 정동을 기반으로, 다양한 산업의 실무 리더가 모입니다.</p>
+      <p style="margin-top:12px;">질문을 나누고, 관점을 확장하며, 자신의 경험을 기록으로 남기는 리더 성장의 플랫폼을 지향합니다.</p>
+    </div>
+    <div class="card" style="display:flex; align-items:center; justify-content:center;">
+      <p class="accent bold" style="font-size:0.84em; margin:0; text-align:center; line-height:1.6;">질문 · 관점 · 기록<br>리더 성장의 플랫폼</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3: HISTORY ===== -->
+<section>
+  <div class="label">About · History</div>
+  <h2>HFK가 걸어온 길</h2>
+  <div style="margin-top:6px;">
+    <div class="tl"><span class="yr">2013. 5</span><span class="ev">HBR Forum Korea 시작</span></div>
+    <div class="tl"><span class="yr">2016. 6</span><span class="ev">HFK 라운지 '오아시스 덕수궁' 오픈</span></div>
+    <div class="tl"><span class="yr">2018. 1</span><span class="ev">시즌제 멤버십 도입</span></div>
+    <div class="tl"><span class="yr">2021. 4</span><span class="ev">정동401프로젝트 론칭 (마이시크릿덴)</span></div>
+    <div class="tl"><span class="yr">2022. 3</span><span class="ev">커뮤니티 동아리 'HFK 클럽' 시작</span></div>
+  </div>
+  <p class="dim" style="margin-top:18px;">Youtube · Website · Instagram 에서 HFK의 활동을 만나보실 수 있습니다.</p>
+</section>
+
+<!-- ===== 4: PROGRAM ===== -->
 <section>
   <div class="label">Program</div>
   <h2>한 시즌을 채우는 세 가지</h2>
   <p class="sub" style="margin:0 0 22px;">팀, 이벤트, 클럽으로 한 시즌이 채워집니다.</p>
   <div class="grid grid-3">
     <div class="card">
-      <p class="eyebrow">전공</p>
+      <p class="eyebrow">전공 · 월 2회</p>
       <h3 style="font-size:0.86em; color:var(--accent);">팀</h3>
-      <p>비즈니스, 리더십, 커리어 개발을 주제로 3개월간 월 2회, 총 6번 모입니다. 시즌 중에는 팀끼리 떠나는 어드벤처도 있습니다.</p>
+      <p>주제별 딥다이브로 3개월간 총 6번 모입니다. 두 번째 달부터는 팀끼리 떠나는 어드벤처도 있습니다.</p>
     </div>
     <div class="card">
-      <p class="eyebrow">교양</p>
+      <p class="eyebrow">교양 · 매주 수요일</p>
       <h3 style="font-size:0.86em; color:var(--accent);">이벤트</h3>
-      <p>매주 수요일에 열립니다. AAR 밋업, HBR 브리핑, PEST 브리핑, 저자 북토크, 스페셜 토크로 팀 밖에서 폭넓게 배웁니다.</p>
+      <p>지적 자극을 주는 자리입니다. AAR 밋업, HBR·PEST 브리핑, 저자 북토크, 스페셜 토크가 열립니다.</p>
     </div>
     <div class="card">
-      <p class="eyebrow">동아리</p>
+      <p class="eyebrow">동아리 · 월 N회</p>
       <h3 style="font-size:0.86em; color:var(--accent);">클럽</h3>
-      <p>멤버가 직접 기획하고 운영하는 모임입니다. 매월 1회 이상 자유롭게 열립니다.</p>
+      <p>멤버가 직접 기획하고 운영하는 친목 모임입니다. 매월 1회 이상 자유롭게 열립니다.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== 3: CHECKLIST OVERVIEW ===== -->
+<!-- ===== 5: CHECKLIST OVERVIEW ===== -->
 <section>
   <div class="label">Get Started</div>
   <h2>첫 모임 전 준비 다섯 가지</h2>
@@ -156,13 +184,13 @@
   <div class="grid grid-2" style="gap:16px;">
     <div class="row"><span class="badge">1</span><div><h3 style="font-size:0.7em;">슬랙 가입과 프로필</h3><p>HFK의 모든 소통은 슬랙에서 이뤄집니다.</p></div></div>
     <div class="row"><span class="badge">2</span><div><h3 style="font-size:0.7em;">슬랙 채널 익히기</h3><p>앞자리 번호로 채널 성격을 구분합니다.</p></div></div>
-    <div class="row"><span class="badge">3</span><div><h3 style="font-size:0.7em;">카카오톡 병행</h3><p>공지 카톡방과 오픈채팅방을 함께 씁니다.</p></div></div>
+    <div class="row"><span class="badge">3</span><div><h3 style="font-size:0.7em;">카카오톡 · 클럽</h3><p>공지 카톡방과 오픈채팅방을 함께 씁니다.</p></div></div>
     <div class="row"><span class="badge">4</span><div><h3 style="font-size:0.7em;">4L 리뷰</h3><p>모임이 끝나기 전 배움을 정리합니다.</p></div></div>
     <div class="row"><span class="badge">5</span><div><h3 style="font-size:0.7em;">자기소개 미션</h3><p>1번 채널에 자기소개를 남깁니다.</p></div></div>
   </div>
 </section>
 
-<!-- ===== 4: SLACK JOIN ===== -->
+<!-- ===== 6: SLACK JOIN ===== -->
 <section>
   <div class="label">Get Started · 1</div>
   <h2>슬랙 가입과 프로필</h2>
@@ -170,16 +198,16 @@
     <div>
       <p class="ink" style="font-size:0.64em; font-weight:600;">HFK의 모든 소통은 슬랙에서 이뤄집니다.</p>
       <p style="margin-top:14px;">시즌 첫 공지 전날 문자로 초대 링크를 보내드립니다. 받으시면 바로 가입해 주세요.</p>
-      <p style="margin-top:12px;">가입 후 프로필을 아래처럼 맞춰주시면 서로를 알아보기 쉽습니다.</p>
+      <p style="margin-top:12px;">가입 후 본인 사진을 클릭해 View Profile로 들어가, 프로필을 아래처럼 맞춰주시면 서로를 알아보기 쉽습니다.</p>
     </div>
     <div class="card" style="display:flex; flex-direction:column; justify-content:center;">
-      <p class="eyebrow" style="margin-bottom:10px;">프로필 설정</p>
-      <p class="ink" style="line-height:1.9; margin:0;"><span class="accent bold">Display Name</span><br>이름_팀명<br><br><span class="accent bold">What I do</span><br>직장명</p>
+      <p class="eyebrow" style="margin-bottom:10px;">프로필 설정 (모바일 · 웹브라우저)</p>
+      <p class="ink" style="line-height:1.9; margin:0;"><span class="accent bold">Display Name</span><br>이름_팀명<br><br><span class="accent bold">What I do</span><br>회사명</p>
     </div>
   </div>
 </section>
 
-<!-- ===== 5: SLACK CHANNELS ===== -->
+<!-- ===== 7: SLACK CHANNELS ===== -->
 <section>
   <div class="label">Get Started · 2</div>
   <h2>슬랙 채널 구성</h2>
@@ -190,27 +218,40 @@
   <div class="row"><span class="chnum">3</span><p style="margin:0;"><span class="bold ink">클럽</span>. 멤버가 만드는 동아리 활동이 모이는 채널입니다.</p></div>
 </section>
 
-<!-- ===== 6: KAKAO + 4L ===== -->
+<!-- ===== 8: KAKAO + CLUB ===== -->
 <section>
-  <div class="label">Get Started · 3 · 4</div>
-  <h2>카카오톡과 4L 리뷰</h2>
+  <div class="label">Get Started · 3</div>
+  <h2>카카오톡과 클럽</h2>
   <div class="grid grid-2" style="gap:24px;">
     <div>
       <p class="eyebrow">카카오톡 병행</p>
       <p style="margin-top:6px;">슬랙과 함께 카카오톡도 씁니다. 공지용 카톡방과 오픈채팅방 두 개가 있어요. 오픈채팅방에서는 뉴스 클리핑을 나누고 멤버끼리 가볍게 교류합니다.</p>
-      <p class="eyebrow" style="margin-top:22px;">4L 리뷰 (모임 후 필수)</p>
-      <p style="margin-top:6px;">배움이 휘발되지 않도록, 모임이 끝나기 전 슬랙에 4L 리뷰를 꼭 남겨주세요.</p>
     </div>
-    <div class="grid grid-2" style="gap:12px; align-content:start;">
-      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Liked</h3><p>좋았던 점</p></div>
-      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Learned</h3><p>배운 것</p></div>
-      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Lacked</h3><p>아쉬웠던 점</p></div>
-      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Long for</h3><p>앞으로 시도하고 싶은 것</p></div>
+    <div class="card">
+      <p class="eyebrow">클럽과 오픈 채팅방</p>
+      <div style="margin-top:8px;">
+        <p style="margin:0 0 8px;"><span class="accent bold">취지</span> &nbsp;HFK 멤버들의 지속적인 네트워킹</p>
+        <p style="margin:0 0 8px;"><span class="accent bold">공지</span> &nbsp;시즌 공지 채널 및 공지 단톡방</p>
+        <p style="margin:0;"><span class="accent bold">신청</span> &nbsp;클럽은 구글폼, 오픈채팅방은 링크</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== 7: SELF-INTRO + NOTICE ===== -->
+<!-- ===== 9: 4L ===== -->
+<section>
+  <div class="label">Get Started · 4</div>
+  <h2>4L 리뷰 (모임 후 필수)</h2>
+  <p class="sub" style="margin:0 0 22px;">배움이 휘발되지 않도록, 모임이 끝나기 전 슬랙에 4L 리뷰를 꼭 남겨주세요. 기록할 때 비로소 자신의 것이 됩니다.</p>
+  <div class="grid grid-4" style="gap:14px;">
+    <div class="card"><h3 style="font-size:0.66em; color:var(--accent);">Liked</h3><p>오늘 좋았던 점</p></div>
+    <div class="card"><h3 style="font-size:0.66em; color:var(--accent);">Learned</h3><p>내게 영감을 준 내용</p></div>
+    <div class="card"><h3 style="font-size:0.66em; color:var(--accent);">Lacked</h3><p>앞으로 발전시키고 싶은 부분</p></div>
+    <div class="card"><h3 style="font-size:0.66em; color:var(--accent);">Long for</h3><p>오늘을 바탕으로 시도해보고 싶은 것</p></div>
+  </div>
+</section>
+
+<!-- ===== 10: SELF-INTRO MISSION + NOTICE ===== -->
 <section>
   <div class="label">Get Started · 5</div>
   <h2>자기소개 미션과 회차 공지</h2>
@@ -223,26 +264,32 @@
     <div class="card">
       <p class="eyebrow">회차 공지 읽는 법</p>
       <p style="margin-top:6px;">매 회차 전, 1번 채널에 공지가 올라옵니다. 일시와 장소, 주차 안내, 준비물, 참석 여부 체크가 담겨 있어요.</p>
-      <p class="ink" style="margin-top:10px; font-weight:600;">공지를 읽고 참석 여부는 이모티콘으로 꼭 체크해 주세요.</p>
+      <p class="ink" style="margin-top:10px; font-weight:600;">공지를 읽고 참석 여부는 이모지로 꼭 표시해 주세요.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== 8: GROUND RULES ===== -->
+<!-- ===== 11: GROUND RULES ===== -->
 <section>
   <div class="label">Ground Rules</div>
   <h2>그라운드룰</h2>
-  <p class="sub" style="margin:0 0 22px;">서로를 존중하며 오래 함께하기 위한 약속입니다.</p>
-  <div class="grid grid-3" style="gap:16px;">
-    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">호칭</h3><p>직함 대신 '님'으로 부릅니다.</p></div>
-    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">존중</h3><p>서로 다른 의견과 취향을 존중합니다.</p></div>
-    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">환대</h3><p>새로 온 멤버를 반갑게 맞이합니다.</p></div>
-    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">약속</h3><p>맡은 과제를 충실히 해옵니다.</p></div>
-    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">기록</h3><p>모임 후 4L 관점으로 배움을 정리합니다.</p></div>
+  <p class="sub" style="margin:0 0 16px;">서로를 존중하며 오래 함께하기 위한 약속입니다.</p>
+  <div class="grid grid-2" style="gap:0 40px;">
+    <div>
+      <div class="rule"><span class="term">호칭</span><span class="desc">직급, 나이를 떠나 서로 '님'으로 부릅니다.</span></div>
+      <div class="rule"><span class="term">명칭</span><span class="desc">수업, 클래스 대신 '팀', '세션'이라고 합니다.</span></div>
+      <div class="rule"><span class="term">존중</span><span class="desc">다른 생각은 사고의 폭을 넓혀줍니다. 서로의 의견과 취향을 존중해주세요.</span></div>
+      <div class="rule"><span class="term">비밀</span><span class="desc">Off the record. 이곳에서 들은 이야기는 이곳에 둡니다.</span></div>
+    </div>
+    <div>
+      <div class="rule"><span class="term">환대</span><span class="desc">먼저 반갑게 인사를 건네주세요.</span></div>
+      <div class="rule"><span class="term">과제</span><span class="desc">성장하기 위해 모인 만큼 과제는 충실히 해주세요.</span></div>
+      <div class="rule"><span class="term">기록</span><span class="desc">기록할 때 비로소 자신의 것이 됩니다. (4L)</span></div>
+    </div>
   </div>
 </section>
 
-<!-- ===== 9: BENEFITS ===== -->
+<!-- ===== 12: BENEFITS ===== -->
 <section>
   <div class="label">Benefits</div>
   <h2>멤버 혜택</h2>
@@ -267,7 +314,46 @@
   </div>
 </section>
 
-<!-- ===== 10: CONTACT ===== -->
+<!-- ===== 13: INTRO KEYWORD ===== -->
+<section>
+  <div class="label">Introduce Yourself · Keyword</div>
+  <h2>운영진 및 참가자 소개</h2>
+  <p class="sub" style="margin:0 0 22px;">아래 세 가지를 중심으로, 돌아가며 자기소개를 나눕니다.</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <p class="eyebrow">이름 · 회사 · 직무</p>
+      <p style="margin-top:8px;">어느 회사에서 어떤 일을 하시나요?</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">경로 · 동기</p>
+      <p style="margin-top:8px;">HFK를 알게 된 경로와 등록 동기는요?</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">목표</p>
+      <p style="margin-top:8px;">이번 시즌 팀에서 얻고 싶은 것은 무엇인가요?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14: Q&A ===== -->
+<section data-background-color="#f0eae2">
+  <div style="display:flex; flex-direction:column; justify-content:center; height:100%; text-align:center;">
+    <p class="label" style="text-align:center;">Q &amp; A</p>
+    <h1>궁금하신 점,<br>물어봐 주세요</h1>
+    <div class="divider" style="margin-top:30px;"></div>
+  </div>
+</section>
+
+<!-- ===== 15: NETWORKING ===== -->
+<section data-background-color="#441a15">
+  <div style="display:flex; flex-direction:column; justify-content:center; height:100%; text-align:center;">
+    <p class="label" style="color:#ff9a92; text-align:center;">Networking</p>
+    <h1 style="color:#f0eae2;">지금부터 서로<br>명함 교환하며 인사 나눠요</h1>
+    <p style="color:#ff9a92; font-weight:600; font-size:0.6em; margin-top:26px;">최근 공지, 확인하셨나요?</p>
+  </div>
+</section>
+
+<!-- ===== 16: CONTACT ===== -->
 <section data-background-color="#441a15">
   <div style="display:flex; flex-direction:column; justify-content:center; height:100%;">
     <p class="label" style="color:#ff9a92;">Contact</p>
@@ -277,7 +363,7 @@
     <p style="color:#e1dac9; margin:0 0 4px;">전화 070-8822-2013 &nbsp;·&nbsp; 이메일 info@hbrforum.org</p>
     <p style="color:#e1dac9; margin:0 0 4px;">운영시간 화~금 14:00~22:00 / 토~일 10:00~18:00</p>
     <p style="color:#e1dac9; margin:0;">웹사이트 thehfk.org</p>
-    <p style="color:#ff9a92; font-weight:700; font-size:0.66em; margin-top:28px;">HFK에 오신 것을 환영합니다.</p>
+    <p style="color:#ff9a92; font-weight:700; font-size:0.66em; margin-top:26px;">HFK에 오신 것을 환영합니다.</p>
   </div>
 </section>
 
@@ -286,12 +372,12 @@
 
 <div id="custom-progress">
   <div class="seg" data-range="0-0">Title</div>
-  <div class="seg" data-range="1-1">About</div>
-  <div class="seg" data-range="2-2">Program</div>
-  <div class="seg" data-range="3-7">Get Started</div>
-  <div class="seg" data-range="8-8">Ground Rules</div>
-  <div class="seg" data-range="9-9">Benefits</div>
-  <div class="seg" data-range="10-10">Contact</div>
+  <div class="seg" data-range="1-3">About</div>
+  <div class="seg" data-range="4-4">Program</div>
+  <div class="seg" data-range="5-11">Get Started</div>
+  <div class="seg" data-range="12-12">Benefits</div>
+  <div class="seg" data-range="13-15">Intro · Q&amp;A</div>
+  <div class="seg" data-range="16-16">Contact</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
