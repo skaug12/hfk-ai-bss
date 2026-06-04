@@ -31,11 +31,10 @@
     --r-heading-color: var(--text);
     --r-main-font-size: 30px;
   }
-  .reveal { font-weight: 400; }
-  .reveal h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; color: var(--text); }
-  .reveal h1 { text-transform: none; }
-  .reveal h2 { font-size: 1.32em; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.62em; line-height: 1.32; color: var(--text); text-transform: none; }
-  .reveal h3 { font-size: 0.74em; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); text-transform: none; }
+  .reveal { font-weight: 400; letter-spacing: -0.025em; }
+  .reveal h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; color: var(--text); text-transform: none; }
+  .reveal h2 { font-size: 1.32em; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 0.62em; line-height: 1.32; color: var(--text); text-transform: none; }
+  .reveal h3 { font-size: 0.74em; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); text-transform: none; }
   .reveal p { font-size: 0.66em; line-height: 1.8; color: var(--text-sub); }
   .reveal li { font-size: 0.66em; line-height: 1.8; color: var(--text-sub); }
   .reveal ul { list-style: none; padding-left: 0; margin: 0; }
@@ -95,7 +94,9 @@
 
   .divider { width: 52px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0 auto; }
 
-  .shotlabel { position: absolute; top: 20px; right: 24px; z-index: 6; font-family: 'Media77','Pretendard',sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(152,0,0,0.92); padding: 6px 14px; border-radius: 6px; }
+  .reveal section.shotslide { padding: 0 !important; }
+  .shotwrap { position: relative; width: 100%; height: 720px; }
+  .shotlabel { position: absolute; top: 20px; left: 24px; z-index: 6; font-family: 'Media77','Pretendard',sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(152,0,0,0.92); padding: 6px 14px; border-radius: 6px; }
   .shotcap { position: absolute; bottom: 20px; left: 26px; right: 26px; z-index: 6; font-size: 14px; line-height: 1.5; color: #2d2523; background: rgba(255,255,255,0.86); padding: 8px 16px; border-radius: 6px; }
 
   #custom-progress { position: fixed; bottom: 0; left: 0; right: 0; height: 28px; background: #e7ded0; display: flex; z-index: 100; font-family: 'Pretendard', sans-serif; }
@@ -259,8 +260,8 @@
 </section>
 
 <!-- ===== 6s: PROFILE SCREENSHOT ===== -->
-<section data-background-image="assets/shots/shot-profile.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Slack · 프로필 설정</div>
+<section class="shotslide" data-background-image="assets/shots/shot-profile.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Slack · 프로필 설정</div></div>
 </section>
 
 <!-- ===== 7: SLACK CHANNELS ===== -->
@@ -275,8 +276,8 @@
 </section>
 
 <!-- ===== 7s: CHANNELS SCREENSHOT ===== -->
-<section data-background-image="assets/shots/shot-channels.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Slack · 채널 실물</div>
+<section class="shotslide" data-background-image="assets/shots/shot-channels.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Slack · 채널 실물</div></div>
 </section>
 
 <!-- ===== 8: KAKAO + CLUB ===== -->
@@ -331,28 +332,24 @@
 </section>
 
 <!-- ===== 10s: NOTICE/LETTER SCREENSHOTS ===== -->
-<section data-background-image="assets/shots/shot-selfintro.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Notice · 자기소개 공지</div>
+<section class="shotslide" data-background-image="assets/shots/shot-selfintro.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Notice · 자기소개 공지</div></div>
 </section>
 
-<section data-background-image="assets/shots/shot-notice-emoji.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Notice · 회차 공지 · 이모지 참석</div>
+<section class="shotslide" data-background-image="assets/shots/shot-notice-emoji.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Notice · 회차 공지 · 이모지 참석</div></div>
 </section>
 
-<section data-background-image="assets/shots/shot-letter.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Notice · 시즌레터</div>
+<section class="shotslide" data-background-image="assets/shots/shot-letter.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Notice · 시즌레터</div></div>
 </section>
 
-<section data-background-image="assets/shots/shot-adventure.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Notice · 팀 어드벤처 신청</div>
+<section class="shotslide" data-background-image="assets/shots/shot-adventure.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Notice · 팀 어드벤처 신청</div></div>
 </section>
 
-<section data-background-image="assets/shots/shot-booktalk.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Event · 저자 북토크 공지</div>
-</section>
-
-<section data-background-image="assets/shots/shot-pest.jpg" data-background-size="contain" data-background-color="#ffffff">
-  <div class="shotlabel">Event · PEST 브리핑 신청</div>
+<section class="shotslide" data-background-image="assets/shots/shot-pest.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotwrap"><div class="shotlabel">Event · PEST 브리핑 신청</div></div>
 </section>
 
 <!-- ===== 11: GROUND RULES ===== -->
@@ -447,9 +444,9 @@
   <div class="seg" data-range="0-0">Title</div>
   <div class="seg" data-range="1-3">About</div>
   <div class="seg" data-range="4-7">Program</div>
-  <div class="seg" data-range="8-22">Get Started</div>
-  <div class="seg" data-range="23-23">Benefits</div>
-  <div class="seg" data-range="24-26">Intro · Q&amp;A</div>
+  <div class="seg" data-range="8-21">Get Started</div>
+  <div class="seg" data-range="22-22">Benefits</div>
+  <div class="seg" data-range="23-25">Intro · Q&amp;A</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
