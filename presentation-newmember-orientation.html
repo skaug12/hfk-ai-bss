@@ -95,6 +95,9 @@
 
   .divider { width: 52px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0 auto; }
 
+  .shotlabel { position: absolute; top: 22px; left: 26px; z-index: 6; font-family: 'Media77','Pretendard',sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(152,0,0,0.92); padding: 6px 15px; border-radius: 6px; }
+  .shotcap { position: absolute; bottom: 20px; left: 26px; right: 26px; z-index: 6; font-size: 14px; line-height: 1.5; color: #2d2523; background: rgba(255,255,255,0.86); padding: 8px 16px; border-radius: 6px; }
+
   #custom-progress { position: fixed; bottom: 0; left: 0; right: 0; height: 28px; background: #e7ded0; display: flex; z-index: 100; font-family: 'Pretendard', sans-serif; }
   #custom-progress .seg { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.02em; position: relative; transition: background 0.3s, color 0.3s; cursor: pointer; }
   #custom-progress .seg.active { background: var(--accent); color: #fff; }
@@ -255,6 +258,11 @@
   </div>
 </section>
 
+<!-- ===== 6s: PROFILE SCREENSHOT ===== -->
+<section data-background-image="assets/shots/shot-profile.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Slack · 프로필 설정</div>
+</section>
+
 <!-- ===== 7: SLACK CHANNELS ===== -->
 <section>
   <div class="label">Get Started · 2</div>
@@ -264,6 +272,11 @@
   <div class="row" style="margin-bottom:18px; align-items:center;"><span class="chnum">1</span><p style="margin:0;"><span class="bold ink">진행 중인 시즌</span>의 멤버만. 시즌 공지, 어드벤처 신청, 자신이 신청한 팀 채널이 있습니다.</p></div>
   <div class="row" style="margin-bottom:18px; align-items:center;"><span class="chnum">2</span><p style="margin:0;"><span class="bold ink">이벤트</span> 관련. AAR 밋업, HBR·PEST 브리핑, 저자 북토크, 스페셜 토크 안내가 올라옵니다.</p></div>
   <div class="row" style="align-items:center;"><span class="chnum">3</span><p style="margin:0;"><span class="bold ink">클럽</span>. 멤버가 만드는 동아리 활동이 모이는 채널입니다.</p></div>
+</section>
+
+<!-- ===== 7s: CHANNELS SCREENSHOT ===== -->
+<section data-background-image="assets/shots/shot-channels.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Slack · 채널 실물</div>
 </section>
 
 <!-- ===== 8: KAKAO + CLUB ===== -->
@@ -315,6 +328,31 @@
       <p class="ink" style="margin-top:10px; font-weight:600;">공지를 읽고 참석 여부는 이모지로 꼭 표시해 주세요.</p>
     </div>
   </div>
+</section>
+
+<!-- ===== 10s: NOTICE/LETTER SCREENSHOTS ===== -->
+<section data-background-image="assets/shots/shot-selfintro.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Notice · 자기소개 공지</div>
+</section>
+
+<section data-background-image="assets/shots/shot-notice-emoji.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Notice · 회차 공지 · 이모지 참석</div>
+</section>
+
+<section data-background-image="assets/shots/shot-letter.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Notice · 시즌레터</div>
+</section>
+
+<section data-background-image="assets/shots/shot-adventure.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Notice · 팀 어드벤처 신청</div>
+</section>
+
+<section data-background-image="assets/shots/shot-booktalk.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Event · 저자 북토크 공지</div>
+</section>
+
+<section data-background-image="assets/shots/shot-pest.jpg" data-background-size="contain" data-background-color="#ffffff">
+  <div class="shotlabel">Event · PEST 브리핑 신청</div>
 </section>
 
 <!-- ===== 11: GROUND RULES ===== -->
@@ -409,9 +447,9 @@
   <div class="seg" data-range="0-0">Title</div>
   <div class="seg" data-range="1-3">About</div>
   <div class="seg" data-range="4-7">Program</div>
-  <div class="seg" data-range="8-14">Get Started</div>
-  <div class="seg" data-range="15-15">Benefits</div>
-  <div class="seg" data-range="16-18">Intro · Q&amp;A</div>
+  <div class="seg" data-range="8-22">Get Started</div>
+  <div class="seg" data-range="23-23">Benefits</div>
+  <div class="seg" data-range="24-26">Intro · Q&amp;A</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
