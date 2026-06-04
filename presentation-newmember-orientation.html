@@ -33,8 +33,9 @@
   }
   .reveal { font-weight: 400; }
   .reveal h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; color: var(--text); }
-  .reveal h2 { font-size: 1.32em; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.62em; line-height: 1.32; color: var(--text); }
-  .reveal h3 { font-size: 0.74em; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); }
+  .reveal h1 { text-transform: none; }
+  .reveal h2 { font-size: 1.32em; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.62em; line-height: 1.32; color: var(--text); text-transform: none; }
+  .reveal h3 { font-size: 0.74em; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); text-transform: none; }
   .reveal p { font-size: 0.66em; line-height: 1.8; color: var(--text-sub); }
   .reveal li { font-size: 0.66em; line-height: 1.8; color: var(--text-sub); }
   .reveal ul { list-style: none; padding-left: 0; margin: 0; }
@@ -66,7 +67,8 @@
 
   .card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 26px 28px; overflow: hidden; }
   .card h3 { margin: 0; }
-  .card p { margin: 0; }
+  .card p { margin: 0; font-size: 0.6em; }
+  .card li { font-size: 0.6em; }
   .card ul, .card ol { margin: 0; }
   .card > * + * { margin-top: 12px !important; }
 
@@ -108,8 +110,8 @@
 <section data-background-image="assets/photos/title-bg.jpg" data-background-size="cover" data-background-position="center">
   <div style="position:absolute; inset:0; background:rgba(40,20,16,0.64);"></div>
   <div style="position:relative; display:flex; flex-direction:column; justify-content:center; height:100%; text-align:center;">
-    <img src="assets/logo_hfk_white.png" alt="HFK" style="width:118px; height:auto; margin:0 auto 28px; display:block;">
-    <p class="label" style="margin-bottom:16px; text-align:center; color:#ffb0a7;">Your Growth Matters</p>
+    <img src="assets/logo_hfk_white.png" alt="HFK" style="width:84px; height:auto; margin:0 auto 26px; display:block;">
+    <p style="font-family:'Pretendard',sans-serif; font-size:0.54em; font-weight:600; letter-spacing:0.12em; color:#ffb0a7; margin:0 0 16px; text-align:center;">Your Growth Matters</p>
     <h1 style="color:#ffffff;">뉴멤버 오리엔테이션</h1>
     <p style="font-size:0.78em; color:#ffd9d4; font-weight:600; margin-top:20px;">처음 오신 멤버를 위한 HFK 안내</p>
     <div class="divider" style="margin-top:34px; background:#ff9a92;"></div>
@@ -290,10 +292,10 @@
   <h2>4L 리뷰 (모임 후 필수)</h2>
   <p class="sub" style="margin:0 0 22px;">배움이 휘발되지 않도록, 모임이 끝나기 전 슬랙에 4L 리뷰를 꼭 남겨주세요. 기록할 때 비로소 자신의 것이 됩니다.</p>
   <div class="grid grid-4" style="gap:14px;">
-    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent);">Liked</h3><p>오늘 좋았던 점</p></div>
-    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent);">Learned</h3><p>내게 영감을 준 내용</p></div>
-    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent);">Lacked</h3><p>앞으로 발전시키고 싶은 부분</p></div>
-    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent);">Long for</h3><p>오늘을 바탕으로 시도해보고 싶은 것</p></div>
+    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent); text-transform:uppercase;">Liked</h3><p>오늘 좋았던 점</p></div>
+    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent); text-transform:uppercase;">Learned</h3><p>내게 영감을 준 내용</p></div>
+    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent); text-transform:uppercase;">Lacked</h3><p>앞으로 발전시키고 싶은 부분</p></div>
+    <div class="card"><h3 class="en" style="font-size:0.82em; color:var(--accent); text-transform:uppercase;">Long for</h3><p>오늘을 바탕으로 시도해보고 싶은 것</p></div>
   </div>
 </section>
 
@@ -393,7 +395,7 @@
 <!-- ===== 15: NETWORKING (closing) ===== -->
 <section data-background-color="#441a15">
   <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
-    <img src="assets/logo_hfk_white.png" alt="HFK" style="width:104px; height:auto; margin:0 0 30px; display:block;">
+    <img src="assets/logo_hfk_white.png" alt="HFK" style="width:80px; height:auto; margin:0 0 28px; display:block;">
     <p class="label" style="color:#ff9a92; text-align:center;">Networking</p>
     <h1 style="color:#f0eae2;">지금부터 서로<br>명함 교환하며 인사 나눠요</h1>
     <p style="color:#ff9a92; font-weight:600; font-size:0.6em; margin-top:26px;">최근 공지, 확인하셨나요?</p>
