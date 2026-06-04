@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HFK 뉴멤버 오리엔테이션</title>
+<meta name="description" content="HFK에 처음 오신 멤버를 위한 오리엔테이션: 프로그램, 슬랙, 4L 리뷰, 그라운드룰, 멤버 혜택.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f0eae2;
+    --text: #2d2523;
+    --text-sub: #5a4b45;
+    --text-dim: #9c8c80;
+    --accent: #980000;
+    --card-bg: #ffffff;
+    --line: #ddcfbf;
+    --r-background-color: var(--bg);
+    --r-main-font: 'Pretendard', -apple-system, sans-serif;
+    --r-heading-font: 'Pretendard', -apple-system, sans-serif;
+    --r-main-color: var(--text);
+    --r-heading-color: var(--text);
+    --r-main-font-size: 30px;
+  }
+  .reveal { font-weight: 400; }
+  .reveal h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; color: var(--text); }
+  .reveal h2 { font-size: 1.3em; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5em; color: var(--text); }
+  .reveal h3 { font-size: 0.7em; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; word-break: keep-all; overflow-wrap: break-word; color: var(--text); }
+  .reveal p { font-size: 0.6em; line-height: 1.7; color: var(--text-sub); }
+  .reveal li { font-size: 0.6em; line-height: 1.7; color: var(--text-sub); }
+  .reveal ul { list-style: none; padding-left: 0; margin: 0; }
+  .reveal ul li { padding-left: 14px; position: relative; }
+  .reveal ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+  .reveal ol { padding-left: 18px; }
+  .reveal ol li { padding-left: 4px; }
+  .reveal ol li::before { display: none; }
+  .reveal section { text-align: left; padding: 40px 64px 60px !important; box-sizing: border-box; overflow: hidden; }
+  .reveal .slides section:not(.present) { opacity: 0 !important; visibility: hidden !important; }
+  .reveal .slides { text-align: left; }
+  .reveal .slide-number { font-family: 'Pretendard'; font-size: 11px; color: var(--text-dim); }
+  .reveal .controls { color: var(--accent); }
+  .reveal .progress { display: none; }
+
+  .sub { color: var(--text-sub); }
+  .dim { color: var(--text-dim); }
+  .accent { color: var(--accent); }
+  .bold { font-weight: 700; }
+  .ink { color: var(--text) !important; }
+
+  .label { font-size: 0.42em; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+
+  .grid { display: grid; gap: 22px; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+  .card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; overflow: hidden; }
+  .card h3 { margin: 0; }
+  .card p { margin: 0; }
+  .card ul, .card ol { margin: 0; }
+  .card > * + * { margin-top: 10px !important; }
+
+  .eyebrow { font-size: 0.46em; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); margin: 0 0 4px; }
+
+  .badge { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: var(--accent); color: #fff; border-radius: 50%; font-size: 0.5em; font-weight: 700; flex: 0 0 30px; }
+  .chnum { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; background: #e7ded0; color: var(--accent); border-radius: 8px; font-size: 0.56em; font-weight: 700; flex: 0 0 34px; }
+
+  .row { display: flex; gap: 16px; align-items: flex-start; }
+  .row + .row { margin-top: 16px; }
+
+  .note { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; }
+  .note p { margin: 0; }
+
+  .divider { width: 52px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0 auto; }
+
+  #custom-progress { position: fixed; bottom: 0; left: 0; right: 0; height: 28px; background: #e7ded0; display: flex; z-index: 100; font-family: 'Pretendard', sans-serif; }
+  #custom-progress .seg { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.02em; position: relative; transition: background 0.3s, color 0.3s; cursor: pointer; }
+  #custom-progress .seg.active { background: var(--accent); color: #fff; }
+  #custom-progress .seg.done { background: rgba(152,0,0,0.16); color: var(--accent); }
+  #custom-progress .seg + .seg { border-left: 1px solid rgba(0,0,0,0.06); }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ===== 0: TITLE ===== -->
+<section data-background-color="#f0eae2">
+  <div style="display:flex; flex-direction:column; justify-content:center; height:100%; text-align:center;">
+    <p class="label" style="margin-bottom:16px; text-align:center;">Welcome to HFK</p>
+    <h1>뉴멤버 오리엔테이션</h1>
+    <p style="font-size:0.74em; color:var(--accent); font-weight:600; margin-top:18px;">처음 오신 멤버를 위한 HFK 안내</p>
+    <div class="divider" style="margin-top:32px;"></div>
+    <p class="dim" style="font-size:0.5em; margin-top:24px;">첫 시즌을 잘 시작할 수 있도록, 알아두면 좋은 것을 한곳에 모았습니다.</p>
+  </div>
+</section>
+
+<!-- ===== 1: ABOUT ===== -->
+<section>
+  <div class="label">About</div>
+  <h2>HFK는 어떤 곳인가요</h2>
+  <div class="grid grid-2" style="gap:28px;">
+    <div>
+      <p class="ink" style="font-size:0.66em; font-weight:600;">좋은 리더로 성장하고 싶은 실무 리더를 위한 자기계발 커뮤니티입니다.</p>
+      <p style="margin-top:14px;">2013년 하버드 비즈니스 리뷰(HBR) 읽기 모임으로 시작했고, 지금은 3개월 단위 시즌제로 운영합니다.</p>
+      <p style="margin-top:12px;">한 시즌 동안 멤버는 같은 팀에서 함께 읽고 토론하며, 매주 열리는 이벤트와 멤버가 직접 만드는 클럽에 참여합니다.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr; gap:14px;">
+      <div class="card" style="text-align:center;">
+        <p class="accent bold" style="font-size:0.8em; margin:0;">2013</p>
+        <p class="dim" style="margin:6px 0 0;">HBR 읽기 모임으로 시작</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <p class="accent bold" style="font-size:0.8em; margin:0;">3개월</p>
+        <p class="dim" style="margin:6px 0 0;">한 시즌 단위로 운영</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <p class="accent bold" style="font-size:0.8em; margin:0;">같은 팀</p>
+        <p class="dim" style="margin:6px 0 0;">함께 읽고 토론하는 동료</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2: PROGRAM ===== -->
+<section>
+  <div class="label">Program</div>
+  <h2>한 시즌을 채우는 세 가지</h2>
+  <p class="sub" style="margin:0 0 22px;">팀, 이벤트, 클럽으로 한 시즌이 채워집니다.</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <p class="eyebrow">전공</p>
+      <h3 style="font-size:0.86em; color:var(--accent);">팀</h3>
+      <p>비즈니스, 리더십, 커리어 개발을 주제로 3개월간 월 2회, 총 6번 모입니다. 시즌 중에는 팀끼리 떠나는 어드벤처도 있습니다.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">교양</p>
+      <h3 style="font-size:0.86em; color:var(--accent);">이벤트</h3>
+      <p>매주 수요일에 열립니다. AAR 밋업, HBR 브리핑, PEST 브리핑, 저자 북토크, 스페셜 토크로 팀 밖에서 폭넓게 배웁니다.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">동아리</p>
+      <h3 style="font-size:0.86em; color:var(--accent);">클럽</h3>
+      <p>멤버가 직접 기획하고 운영하는 모임입니다. 매월 1회 이상 자유롭게 열립니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3: CHECKLIST OVERVIEW ===== -->
+<section>
+  <div class="label">Get Started</div>
+  <h2>첫 모임 전 준비 다섯 가지</h2>
+  <p class="sub" style="margin:0 0 22px;">첫 모임 전에 아래 다섯 가지를 준비해 주세요.</p>
+  <div class="grid grid-2" style="gap:16px;">
+    <div class="row"><span class="badge">1</span><div><h3 style="font-size:0.7em;">슬랙 가입과 프로필</h3><p>HFK의 모든 소통은 슬랙에서 이뤄집니다.</p></div></div>
+    <div class="row"><span class="badge">2</span><div><h3 style="font-size:0.7em;">슬랙 채널 익히기</h3><p>앞자리 번호로 채널 성격을 구분합니다.</p></div></div>
+    <div class="row"><span class="badge">3</span><div><h3 style="font-size:0.7em;">카카오톡 병행</h3><p>공지 카톡방과 오픈채팅방을 함께 씁니다.</p></div></div>
+    <div class="row"><span class="badge">4</span><div><h3 style="font-size:0.7em;">4L 리뷰</h3><p>모임이 끝나기 전 배움을 정리합니다.</p></div></div>
+    <div class="row"><span class="badge">5</span><div><h3 style="font-size:0.7em;">자기소개 미션</h3><p>1번 채널에 자기소개를 남깁니다.</p></div></div>
+  </div>
+</section>
+
+<!-- ===== 4: SLACK JOIN ===== -->
+<section>
+  <div class="label">Get Started · 1</div>
+  <h2>슬랙 가입과 프로필</h2>
+  <div class="grid grid-2" style="gap:28px;">
+    <div>
+      <p class="ink" style="font-size:0.64em; font-weight:600;">HFK의 모든 소통은 슬랙에서 이뤄집니다.</p>
+      <p style="margin-top:14px;">시즌 첫 공지 전날 문자로 초대 링크를 보내드립니다. 받으시면 바로 가입해 주세요.</p>
+      <p style="margin-top:12px;">가입 후 프로필을 아래처럼 맞춰주시면 서로를 알아보기 쉽습니다.</p>
+    </div>
+    <div class="card" style="display:flex; flex-direction:column; justify-content:center;">
+      <p class="eyebrow" style="margin-bottom:10px;">프로필 설정</p>
+      <p class="ink" style="line-height:1.9; margin:0;"><span class="accent bold">Display Name</span><br>이름_팀명<br><br><span class="accent bold">What I do</span><br>직장명</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5: SLACK CHANNELS ===== -->
+<section>
+  <div class="label">Get Started · 2</div>
+  <h2>슬랙 채널 구성</h2>
+  <p class="sub" style="margin:0 0 20px;">채널은 앞자리 번호로 성격을 구분합니다. 번호만 보면 어떤 채널인지 바로 알 수 있어요.</p>
+  <div class="row" style="margin-bottom:14px;"><span class="chnum">0</span><p style="margin:0;"><span class="bold ink">전체 멤버</span> 대상. 공지 확인, 교류 게시판, 자주 묻는 질문이 모여 있습니다.</p></div>
+  <div class="row" style="margin-bottom:14px;"><span class="chnum">1</span><p style="margin:0;"><span class="bold ink">진행 중인 시즌</span>의 멤버만. 시즌 공지, 어드벤처 신청, 우리 팀 채널이 여기 있습니다.</p></div>
+  <div class="row" style="margin-bottom:14px;"><span class="chnum">2</span><p style="margin:0;"><span class="bold ink">이벤트</span> 관련. AAR 밋업, HBR·PEST 브리핑, 저자 북토크, 스페셜 토크 안내가 올라옵니다.</p></div>
+  <div class="row"><span class="chnum">3</span><p style="margin:0;"><span class="bold ink">클럽</span>. 멤버가 만드는 동아리 활동이 모이는 채널입니다.</p></div>
+</section>
+
+<!-- ===== 6: KAKAO + 4L ===== -->
+<section>
+  <div class="label">Get Started · 3 · 4</div>
+  <h2>카카오톡과 4L 리뷰</h2>
+  <div class="grid grid-2" style="gap:24px;">
+    <div>
+      <p class="eyebrow">카카오톡 병행</p>
+      <p style="margin-top:6px;">슬랙과 함께 카카오톡도 씁니다. 공지용 카톡방과 오픈채팅방 두 개가 있어요. 오픈채팅방에서는 뉴스 클리핑을 나누고 멤버끼리 가볍게 교류합니다.</p>
+      <p class="eyebrow" style="margin-top:22px;">4L 리뷰 (모임 후 필수)</p>
+      <p style="margin-top:6px;">배움이 휘발되지 않도록, 모임이 끝나기 전 슬랙에 4L 리뷰를 꼭 남겨주세요.</p>
+    </div>
+    <div class="grid grid-2" style="gap:12px; align-content:start;">
+      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Liked</h3><p>좋았던 점</p></div>
+      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Learned</h3><p>배운 것</p></div>
+      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Lacked</h3><p>아쉬웠던 점</p></div>
+      <div class="card" style="padding:16px 18px;"><h3 style="font-size:0.62em; color:var(--accent);">Long for</h3><p>앞으로 시도하고 싶은 것</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7: SELF-INTRO + NOTICE ===== -->
+<section>
+  <div class="label">Get Started · 5</div>
+  <h2>자기소개 미션과 회차 공지</h2>
+  <div class="grid grid-2" style="gap:24px;">
+    <div class="card">
+      <p class="eyebrow">자기소개 미션</p>
+      <p style="margin-top:6px;">첫 모임 전, 1번 채널에 자기소개를 댓글로 남겨주세요. 어떤 일을 하는지, HFK를 알게 된 경로, 이번 시즌의 목표를 적어주시면 됩니다.</p>
+      <p class="dim" style="margin-top:10px;">개인정보 보호를 위해 자기소개 글은 3개월 후 자동으로 삭제됩니다.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">회차 공지 읽는 법</p>
+      <p style="margin-top:6px;">매 회차 전, 1번 채널에 공지가 올라옵니다. 일시와 장소, 주차 안내, 준비물, 참석 여부 체크가 담겨 있어요.</p>
+      <p class="ink" style="margin-top:10px; font-weight:600;">공지를 읽고 참석 여부는 이모티콘으로 꼭 체크해 주세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8: GROUND RULES ===== -->
+<section>
+  <div class="label">Ground Rules</div>
+  <h2>그라운드룰</h2>
+  <p class="sub" style="margin:0 0 22px;">서로를 존중하며 오래 함께하기 위한 약속입니다.</p>
+  <div class="grid grid-3" style="gap:16px;">
+    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">호칭</h3><p>직함 대신 '님'으로 부릅니다.</p></div>
+    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">존중</h3><p>서로 다른 의견과 취향을 존중합니다.</p></div>
+    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">환대</h3><p>새로 온 멤버를 반갑게 맞이합니다.</p></div>
+    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">약속</h3><p>맡은 과제를 충실히 해옵니다.</p></div>
+    <div class="card"><h3 style="font-size:0.72em; color:var(--accent);">기록</h3><p>모임 후 4L 관점으로 배움을 정리합니다.</p></div>
+  </div>
+</section>
+
+<!-- ===== 9: BENEFITS ===== -->
+<section>
+  <div class="label">Benefits</div>
+  <h2>멤버 혜택</h2>
+  <p class="sub" style="margin:0 0 22px;">시즌에 등록한 멤버라면 누구나 누릴 수 있습니다.</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3 style="font-size:0.72em;">하버드 비즈니스 리뷰 최신호</h3>
+      <p>첫 세션에 HBR 최신호 1권을 드립니다.</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:0.72em;">마이시크릿덴 · 소정동</h3>
+      <ul style="margin-top:8px;">
+        <li>마이시크릿덴 낮(공유서재): 이용권 1회 무료</li>
+        <li>마이시크릿덴 밤(와인): 글래스 50%, 바틀 10% 할인</li>
+        <li>소정동(원테이블 라운지): 공간비 1회 50% 할인</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="font-size:0.72em;">폴인(fol:in) Lite 3개월</h3>
+      <p>일하는 나를 위한 인사이트 콘텐츠 서비스 폴인의 Lite 이용권을 3개월간 무료로 드립니다. 쿠폰번호는 슬랙에 공지합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10: CONTACT ===== -->
+<section data-background-color="#441a15">
+  <div style="display:flex; flex-direction:column; justify-content:center; height:100%;">
+    <p class="label" style="color:#ff9a92;">Contact</p>
+    <h2 style="color:#f0eae2;">문의 · 오시는 길</h2>
+    <p style="font-size:0.7em; color:#f0eae2; font-weight:700; margin:14px 0 10px;">위어드벤처 (WeAdventure)</p>
+    <p style="color:#e1dac9; margin:0 0 4px;">서울시 중구 덕수궁길 9 현진빌딩 5층</p>
+    <p style="color:#e1dac9; margin:0 0 4px;">전화 070-8822-2013 &nbsp;·&nbsp; 이메일 info@hbrforum.org</p>
+    <p style="color:#e1dac9; margin:0 0 4px;">운영시간 화~금 14:00~22:00 / 토~일 10:00~18:00</p>
+    <p style="color:#e1dac9; margin:0;">웹사이트 thehfk.org</p>
+    <p style="color:#ff9a92; font-weight:700; font-size:0.66em; margin-top:28px;">HFK에 오신 것을 환영합니다.</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<div id="custom-progress">
+  <div class="seg" data-range="0-0">Title</div>
+  <div class="seg" data-range="1-1">About</div>
+  <div class="seg" data-range="2-2">Program</div>
+  <div class="seg" data-range="3-7">Get Started</div>
+  <div class="seg" data-range="8-8">Ground Rules</div>
+  <div class="seg" data-range="9-9">Benefits</div>
+  <div class="seg" data-range="10-10">Contact</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    width: 1280,
+    height: 720,
+    margin: 0.04,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+    center: true,
+    controls: true,
+    controlsLayout: 'edges',
+    progress: false,
+    slideNumber: 'c/t',
+  });
+
+  Reveal.on('slidechanged', updateProgress);
+  Reveal.on('ready', updateProgress);
+
+  document.querySelectorAll('#custom-progress .seg').forEach(function(seg) {
+    seg.addEventListener('click', function() {
+      var start = parseInt(seg.dataset.range.split('-')[0]);
+      Reveal.slide(start);
+    });
+  });
+
+  function updateProgress() {
+    var idx = Reveal.getIndices().h;
+    document.querySelectorAll('#custom-progress .seg').forEach(function(seg) {
+      var range = seg.dataset.range.split('-');
+      var start = parseInt(range[0]);
+      var end = parseInt(range[1]);
+      seg.classList.remove('active', 'done');
+      if (idx >= start && idx <= end) {
+        seg.classList.add('active');
+      } else if (idx > end) {
+        seg.classList.add('done');
+      }
+    });
+  }
+</script>
+</body>
+</html>
