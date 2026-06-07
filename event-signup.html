@@ -15,19 +15,18 @@
   *{box-sizing:border-box;}
   body{padding:32px 14px 64px;font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
        color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased;}
-  .card{max-width:600px;margin:0 auto;background:var(--card);border-radius:20px;
-        padding:34px 30px 38px;box-shadow:0 2px 18px rgba(45,37,35,.06);}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;color:var(--red);margin:0 0 11px;}
-  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.3;margin:0 0 16px;letter-spacing:-0.03em;}
-  .lead{font-size:15px;line-height:1.85;color:var(--burg);margin:0;}
-  .hr{height:1px;background:var(--line);margin:30px 0;border:0;}
-  .sec{font-size:13px;font-weight:700;color:var(--red);letter-spacing:0.04em;margin:0 0 4px;}
-  .sec-sub{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.6;}
+  .card{max-width:560px;margin:0 auto;background:var(--card);border-radius:24px;
+        padding:52px 44px 52px;box-shadow:0 1px 26px rgba(45,37,35,.045);}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;color:var(--red);margin:0 0 13px;}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.3;margin:0 0 18px;letter-spacing:-0.03em;}
+  .lead{font-size:15px;line-height:1.95;color:var(--burg);margin:0;}
+  .sec{font-size:13px;font-weight:700;color:var(--red);letter-spacing:0.04em;margin:56px 0 6px;}
+  .sec-sub{font-size:13px;color:var(--muted);margin:0 0 10px;line-height:1.65;}
 
   /* events */
-  .events{border-top:1px solid var(--line);}
-  .ev{border-bottom:1px solid var(--line);}
-  .ev-head{display:flex;gap:13px;align-items:flex-start;padding:18px 2px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .events{}
+  .ev + .ev{border-top:1px solid var(--line);}
+  .ev-head{display:flex;gap:14px;align-items:flex-start;padding:24px 2px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
   .box{flex:0 0 23px;width:23px;height:23px;margin-top:1px;border:1.5px solid #c4b29b;border-radius:7px;
        display:flex;align-items:center;justify-content:center;transition:.15s;background:#fff;}
   .box svg{width:14px;height:14px;opacity:0;transition:.15s;}
@@ -39,11 +38,10 @@
   .ev.on .ev-when{color:var(--burg);}
   .ev-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
   .ev.on .ev-body{max-height:720px;}
-  .ev-inner{padding:2px 2px 22px 36px;}
-  .byline{display:inline-block;font-size:12px;font-weight:600;color:var(--red);letter-spacing:0.02em;
-          border:1px solid #f0c9c4;background:#fdf3f1;border-radius:6px;padding:3px 9px;margin:0 0 11px;}
-  .hook{font-size:15px;line-height:1.75;color:var(--ink);margin:0 0 15px;font-weight:500;}
-  .meta{font-size:13.5px;line-height:1.5;color:var(--burg);margin:0 0 18px;}
+  .ev-inner{padding:6px 2px 30px 37px;}
+  .byline{display:block;font-size:12px;font-weight:700;color:var(--red);letter-spacing:0.08em;margin:0 0 9px;}
+  .hook{font-size:15px;line-height:1.8;color:var(--ink);margin:0 0 18px;font-weight:500;}
+  .meta{font-size:13.5px;line-height:1.5;color:var(--burg);margin:0 0 22px;}
   .meta .row{display:flex;gap:8px;padding:3px 0;}
   .meta .k{flex:0 0 64px;color:var(--muted);}
   .meta .v{flex:1 1 auto;}
@@ -56,7 +54,7 @@
   textarea.miss,input.miss{border-color:var(--coral);background:#fff7f6;}
 
   /* fields */
-  .field{margin:0 0 17px;}
+  .field{margin:0 0 22px;}
   .field label{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin:0 0 7px;}
   .field .hint{font-weight:400;color:var(--muted);font-size:12.5px;}
   .req{color:var(--coral);}
@@ -69,15 +67,17 @@
   .err{color:var(--red);font-size:14px;font-weight:600;margin:13px 2px 0;line-height:1.7;display:none;}
 
   .done{display:none;}
-  .done .chk{width:48px;height:48px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 0 22px;}
+  .done .chk{margin:0 0 18px;line-height:0;}
+  .done .chk svg{width:44px;height:44px;}
   .done h2{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.35;}
   .done p{font-size:15px;line-height:1.85;color:var(--burg);margin:0 0 10px;}
   .done .evs{font-weight:600;color:var(--ink);}
 
   @media(max-width:480px){
-    body{padding:18px 10px 48px;}
-    .card{padding:26px 20px 30px;border-radius:16px;}
+    body{padding:14px 8px 44px;}
+    .card{padding:36px 22px 38px;border-radius:18px;}
     h1{font-size:25px;}
+    .sec{margin-top:44px;}
     .ev-inner{padding-left:30px;}
   }
 </style>
@@ -90,12 +90,10 @@
     <h1>이벤트 신청</h1>
     <p class="lead">신청 후 슬랙 DM으로 신청 완료 및 확정/대기 여부를 안내드립니다. 이벤트는 여름시즌 전체 멤버와 ODC 멤버가 무료로 신청할 수 있습니다. 각자에게 인사이트있는 이벤트가 될 수 있도록 신청 시 기대되거나 궁금한 점을 꼭 적어주세요. 내용을 남겨주신 분을 우선적으로 이벤트에 초대합니다.</p>
 
-    <hr class="hr">
     <p class="sec">신청할 이벤트</p>
     <p class="sec-sub">참여하고 싶은 이벤트를 모두 선택하세요. 선택하면 아래에 자세한 내용이 펼쳐집니다.</p>
     <div class="events" id="events"></div>
 
-    <hr class="hr">
     <p class="sec">신청자 정보</p>
     <div class="field" style="margin-top:14px;">
       <label>이름 <span class="req">*</span></label>
@@ -116,7 +114,7 @@
   </div>
 
   <div class="done" id="done-view">
-    <div class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#980000" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <h2>신청이 접수됐습니다</h2>
     <p class="evs" id="done-events"></p>
     <p>잠시 후 슬랙으로 접수 확인 메시지를 보내드립니다. 확정 또는 대기 여부는 각 이벤트의 발표일에 다시 안내드립니다.</p>
