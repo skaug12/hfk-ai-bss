@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HFK 이벤트 신청</title>
+<meta name="description" content="HFK 멤버를 위한 이벤트 신청. 원하는 이벤트를 모두 선택해 한 번에 신청하세요.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#f0eae2; --ink:#2d2523; --burg:#441a15; --red:#980000;
+    --coral:#ff6154; --line:#ddcfbf; --sand:#ceb9a4; --card:#f7f3ec;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);}
+  *{box-sizing:border-box;}
+  body{padding:40px 16px 72px;font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+       color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:0.18em;color:var(--red);margin:0 0 12px;line-height:1.8;}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.28;margin:0 0 14px;letter-spacing:-0.03em;}
+  .lead{font-size:16px;line-height:1.85;color:var(--burg);margin:0 0 8px;}
+  .hr{width:100%;height:1px;background:var(--line);margin:36px 0;border:0;}
+  .sec-label{font-size:13px;font-weight:700;color:var(--red);letter-spacing:0.06em;margin:0 0 16px;}
+
+  /* event list */
+  .events{border-top:1px solid var(--line);}
+  .ev{border-bottom:1px solid var(--line);}
+  .ev-head{display:flex;gap:14px;align-items:flex-start;padding:20px 4px;cursor:pointer;}
+  .box{flex:0 0 22px;width:22px;height:22px;margin-top:2px;border:1.5px solid var(--sand);border-radius:6px;
+       display:flex;align-items:center;justify-content:center;transition:.15s;background:#fff;}
+  .box svg{width:13px;height:13px;opacity:0;transition:.15s;}
+  .ev.on .box{border-color:var(--red);background:var(--red);}
+  .ev.on .box svg{opacity:1;}
+  .ev-title{flex:1 1 auto;}
+  .ev-name{font-size:17px;font-weight:700;color:var(--ink);line-height:1.4;margin:0;}
+  .ev-when{font-size:14px;color:var(--sand);margin:5px 0 0;line-height:1.6;}
+  .ev.on .ev-when{color:var(--burg);}
+  .ev-body{max-height:0;overflow:hidden;transition:max-height .28s ease;}
+  .ev.on .ev-body{max-height:640px;}
+  .ev-inner{padding:0 4px 22px 50px;}
+  .ev-intro{font-size:15px;line-height:1.8;color:var(--ink);margin:0 0 14px;}
+  .meta{font-size:14px;line-height:1.9;color:var(--burg);margin:0 0 16px;}
+  .meta b{font-weight:600;color:var(--ink);}
+  .ev-q label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin:0 0 7px;}
+  textarea,input{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;
+       border:1px solid var(--line);border-radius:10px;padding:12px 13px;line-height:1.7;letter-spacing:-0.01em;}
+  textarea{min-height:78px;resize:vertical;}
+  input:focus,textarea:focus{outline:none;border-color:var(--red);}
+
+  /* common fields */
+  .field{margin:0 0 18px;}
+  .field label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin:0 0 7px;}
+  .field .hint{font-weight:400;color:var(--sand);font-size:13px;}
+  .req{color:var(--coral);}
+
+  .submit{width:100%;margin-top:8px;padding:15px;font-size:16px;font-weight:700;font-family:inherit;
+       color:#fff;background:var(--red);border:0;border-radius:12px;cursor:pointer;letter-spacing:-0.01em;transition:.15s;}
+  .submit:hover{background:#7a0000;}
+  .submit:disabled{background:var(--sand);cursor:not-allowed;}
+  .note{font-size:13px;color:var(--sand);line-height:1.7;margin:14px 2px 0;}
+  .err{color:var(--red);font-size:14px;margin:12px 2px 0;line-height:1.7;display:none;}
+
+  /* done */
+  .done{display:none;text-align:left;padding:8px 2px;}
+  .done h2{font-size:24px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.3;}
+  .done p{font-size:16px;line-height:1.85;color:var(--burg);margin:0 0 10px;}
+  .done .chk{width:46px;height:46px;border-radius:50%;background:var(--red);display:flex;align-items:center;
+       justify-content:center;margin:0 0 22px;}
+  .done .chk svg{width:24px;height:24px;}
+  .loading{opacity:.5;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="form-view">
+    <p class="eyebrow">HFK EVENT</p>
+    <h1>이벤트 신청</h1>
+    <p class="lead">참여하고 싶은 이벤트를 모두 선택해 주세요. 한 번에 여러 이벤트를 신청할 수 있습니다.</p>
+    <p class="lead" style="font-size:14px;color:var(--sand);">신청 후 슬랙으로 접수 확인을, 마감 뒤 확정/대기 여부를 안내드립니다. 이벤트는 여름시즌 전체 멤버와 ODC 멤버가 신청할 수 있습니다.</p>
+
+    <hr class="hr">
+    <p class="sec-label">신청할 이벤트</p>
+    <div class="events" id="events"></div>
+
+    <hr class="hr">
+    <p class="sec-label">신청자 정보</p>
+    <div class="field">
+      <label>이름 <span class="req">*</span></label>
+      <input id="f-name" type="text" autocomplete="name">
+    </div>
+    <div class="field">
+      <label>이메일 <span class="hint">슬랙 가입 이메일로 적어주세요</span> <span class="req">*</span></label>
+      <input id="f-email" type="email" autocomplete="email" placeholder="슬랙에 가입하신 이메일">
+    </div>
+    <div class="field">
+      <label>연락처 <span class="req">*</span></label>
+      <input id="f-phone" type="tel" autocomplete="tel" placeholder="010-0000-0000">
+    </div>
+
+    <p class="err" id="err"></p>
+    <button class="submit" id="submit">신청하기</button>
+    <p class="note">이 페이지의 신청 내용은 HFK 운영팀에게만 전달됩니다.</p>
+  </div>
+
+  <div class="done" id="done-view">
+    <div class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>신청이 접수됐습니다</h2>
+    <p id="done-events"></p>
+    <p>잠시 후 슬랙으로 접수 확인 메시지를 보내드립니다. 확정 또는 대기 여부는 각 이벤트의 발표일에 다시 안내드립니다.</p>
+  </div>
+
+</div>
+
+<script>
+const DATA_URL = './event-signup-data.json';
+let CFG = null;
+const sel = new Set();   // 선택된 이벤트 name
+
+const CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function render(){
+  const box = document.getElementById('events');
+  box.innerHTML = '';
+  CFG.events.forEach((ev, i) => {
+    const el = document.createElement('div');
+    el.className = 'ev';
+    el.dataset.name = ev.name;
+    el.innerHTML =
+      '<div class="ev-head">' +
+        '<div class="box">' + CHECK + '</div>' +
+        '<div class="ev-title">' +
+          '<p class="ev-name">' + esc(ev.name) + '</p>' +
+          '<p class="ev-when">' + esc([ev.when, ev.place].filter(Boolean).join(' · ')) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="ev-body"><div class="ev-inner">' +
+        (ev.intro ? '<p class="ev-intro">' + esc(ev.intro) + '</p>' : '') +
+        '<p class="meta">' +
+          (ev.when ? '<b>일시</b> ' + esc(ev.when) + (ev.place ? ' · ' + esc(ev.place) : '') + '<br>' : '') +
+          (ev.deadline ? '<b>신청 마감</b> ' + esc(ev.deadline) + '<br>' : '') +
+          (ev.result_date ? '<b>확정/대기 발표</b> ' + esc(ev.result_date) : '') +
+        '</p>' +
+        '<div class="ev-q"><label>기대되거나 궁금한 점 <span style="font-weight:400;color:var(--sand)">(선택)</span></label>' +
+          '<textarea data-q="' + i + '" placeholder="이 이벤트에 기대하거나 궁금한 점이 있다면 적어주세요"></textarea></div>' +
+      '</div></div>';
+    el.querySelector('.ev-head').addEventListener('click', () => toggle(el, ev.name));
+    box.appendChild(el);
+  });
+}
+
+function toggle(el, name){
+  if (sel.has(name)) { sel.delete(name); el.classList.remove('on'); }
+  else { sel.add(name); el.classList.add('on'); }
+}
+
+function esc(s){ return (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function preselect(){
+  const p = new URLSearchParams(location.search).get('event');
+  if (!p) return;
+  const want = p.trim();
+  document.querySelectorAll('.ev').forEach(el => {
+    if (el.dataset.name === want) { toggle(el, want); el.scrollIntoView({block:'center'}); }
+  });
+}
+
+function submit(){
+  const err = document.getElementById('err');
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  if (sel.size === 0) return showErr('신청할 이벤트를 한 개 이상 선택해 주세요.');
+  if (!name)  return showErr('이름을 적어주세요.');
+  if (!email || !/.+@.+\..+/.test(email)) return showErr('슬랙 가입 이메일을 정확히 적어주세요.');
+  if (!phone) return showErr('연락처를 적어주세요.');
+  err.style.display = 'none';
+
+  const body = new URLSearchParams();
+  CFG.events.forEach((ev, i) => {
+    if (!sel.has(ev.name)) return;
+    body.append('entry.' + CFG.entry.event, ev.name);
+    const q = document.querySelector('textarea[data-q="' + i + '"]');
+    if (q && q.value.trim() && ev.expect_entry) body.append('entry.' + ev.expect_entry, q.value.trim());
+  });
+  body.append('entry.' + CFG.entry.name, name);
+  body.append('entry.' + CFG.entry.email, email);
+  body.append('entry.' + CFG.entry.phone, phone);
+
+  document.getElementById('submit').disabled = true;
+  document.getElementById('form-view').classList.add('loading');
+
+  fetch(CFG.form_action, { method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body.toString() })
+    .then(finish).catch(finish);
+}
+
+function finish(){
+  const names = CFG.events.filter(e => sel.has(e.name)).map(e => e.name);
+  document.getElementById('done-events').textContent = '신청한 이벤트: ' + names.join(', ');
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('done-view').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function showErr(m){ const e = document.getElementById('err'); e.textContent = m; e.style.display = 'block'; }
+
+fetch(DATA_URL).then(r => r.json()).then(d => {
+  CFG = d; render(); preselect();
+  document.getElementById('submit').addEventListener('click', submit);
+}).catch(() => showErr('이벤트 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'));
+</script>
+</body>
+</html>
