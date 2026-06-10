@@ -129,12 +129,13 @@
 <section>
   <div class="label">Overview</div>
   <h2>오늘 다룰 내용 소개</h2>
-  <p style="margin-bottom:14px;">케이스 스터디부터 시작해서, 도구를 익히고, 실전 스킬을 보고, 나만의 워크스페이스를 설계하는 시간입니다.</p>
+  <p style="margin-bottom:14px;">케이스 스터디로 시작해서, 도구를 익히고, 직접 스킬을 만들어 본 뒤, 실전 사례와 나만의 활용법까지 보는 시간입니다.</p>
   <div class="grid grid-3" style="gap:16px;margin-bottom:14px;">
     <div class="card" style="background:rgba(139,94,60,0.06);">
       <h3 style="color:var(--accent);">Part 1: 왜, 그리고 무엇을</h3>
       <ul>
         <li>센스의 재발견: 많이 볼수록 센스가 생긴다</li>
+        <li>AI를 쓸수록 나는? 암묵지가 차별화를 만든다</li>
         <li>이 시간이 끝나고 기억할 세 가지</li>
       </ul>
     </div>
@@ -142,13 +143,23 @@
       <h3 style="color:var(--accent2);">Part 2: Claude Code 이해하기</h3>
       <ul>
         <li>Claude Code란? / ChatGPT와 비교</li>
-        <li>네 가지 기본 개념: Skill, Agent, API, MCP</li>
-        <li>어디서 쓸 수 있나? / 설치 안내</li>
-        <li>VS Code에서 시작하기</li>
+        <li>기본 개념: Skill, Agent, API, MCP</li>
+        <li>더 알아둘 개념: RAG, 하니스, 아티팩트</li>
+        <li>어디서 쓸 수 있나? / 설치 / VS Code 시작</li>
       </ul>
     </div>
     <div class="card" style="background:rgba(91,123,94,0.06);">
-      <h3 style="color:var(--accent3);">Part 3: 실전 스킬 100개</h3>
+      <h3 style="color:var(--accent3);">Part 3: 직접 만들어 보기</h3>
+      <ul>
+        <li>스킬 워크숍: 크롤링&middot;유튜브&middot;캘린더&middot;카드뉴스</li>
+        <li>핸즈온: 오늘을 기록으로 남기는 스킬</li>
+        <li>보안 리스크 관리 / 토큰 절약</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid grid-2" style="gap:16px;">
+    <div class="card" style="background:rgba(123,107,138,0.06);">
+      <h3 style="color:var(--accent4);">Part 4: 실전 스킬 100개</h3>
       <ul>
         <li>HFK 커뮤니티 운영 자동화 사례</li>
         <li>상품, 콘텐츠, 일정, 이미지, 에이전트</li>
@@ -156,20 +167,11 @@
         <li>MCP 서버 연동</li>
       </ul>
     </div>
-  </div>
-  <div class="grid grid-2" style="gap:16px;">
-    <div class="card" style="background:rgba(123,107,138,0.06);">
-      <h3 style="color:var(--accent4);">Part 4: 나만의 활용법 찾기</h3>
-      <ul>
-        <li>두번째 지능 / STAR 프레임워크</li>
-        <li>커스텀 스킬 만드는 법</li>
-        <li>보안 리스크 관리 / 토큰 절약</li>
-      </ul>
-    </div>
     <div class="card" style="background:rgba(138,94,94,0.06);">
-      <h3 style="color:var(--accent5);">Part 5: 내 워크스페이스 만들기</h3>
+      <h3 style="color:var(--accent5);">Part 5: 나만의 활용법 + 마무리</h3>
       <ul>
-        <li>반복 업무 → 스킬 → 에이전트 설계</li>
+        <li>두번째 지능 / STAR &middot; BCG 프레임워크</li>
+        <li>커스텀 스킬 / 내 워크스페이스 만들기</li>
         <li>AI = 기본기, 인사이트와 센스를 기르는 것</li>
       </ul>
     </div>
@@ -711,7 +713,7 @@
 <!-- 33.6: 워크숍1 크롤링 -->
 <section>
   <div class="label">Workshop 1 / 4</div>
-  <h2>웹 크롤링으로 기록 모으기</h2>
+  <h2>웹 크롤링으로 기록 모으기 <span style="font-size:0.4em;font-weight:600;padding:3px 9px;border-radius:5px;background:rgba(91,123,94,0.12);color:var(--accent3);vertical-align:middle;white-space:nowrap;">API&middot;MCP 없이</span></h2>
   <p style="margin-bottom:6px;"><span style="color:var(--accent);font-weight:600;">목표:</span> 흩어진 글과 자료를 Claude Code가 웹에서 가져와 한 폴더에 정리합니다.</p>
   <p class="dim" style="font-size:0.5em;margin-bottom:14px;">준비물: 모으고 싶은 사이트 주소, 저장할 폴더 이름. 따라 입력만 하면 됩니다.</p>
   <div class="grid grid-3" style="gap:14px;">
@@ -739,7 +741,7 @@
 <!-- 33.7: 워크숍2 유튜브 -->
 <section>
   <div class="label">Workshop 2 / 4</div>
-  <h2>유튜브로 브리핑 노트 만들기</h2>
+  <h2>유튜브로 브리핑 노트 만들기 <span style="font-size:0.4em;font-weight:600;padding:3px 9px;border-radius:5px;background:rgba(61,90,128,0.12);color:var(--accent2);vertical-align:middle;white-space:nowrap;">API 연결</span></h2>
   <p style="margin-bottom:6px;"><span style="color:var(--accent);font-weight:600;">목표:</span> 재생목록에 영상을 넣으면, 그 영상 내용을 요약한 브리핑 노트가 자동으로 만들어집니다.</p>
   <p class="dim" style="font-size:0.5em;margin-bottom:14px;">준비물: 유튜브 재생목록 하나, /analyze-youtube 스킬</p>
   <div class="grid grid-3" style="gap:14px;">
@@ -767,7 +769,7 @@
 <!-- 33.8: 워크숍3 액션플랜 -->
 <section>
   <div class="label">Workshop 3 / 4</div>
-  <h2>기록을 액션 플랜으로, 캘린더까지</h2>
+  <h2>기록을 액션 플랜으로, 캘린더까지 <span style="font-size:0.4em;font-weight:600;padding:3px 9px;border-radius:5px;background:rgba(123,107,138,0.12);color:var(--accent4);vertical-align:middle;white-space:nowrap;">MCP 연결</span></h2>
   <p style="margin-bottom:6px;"><span style="color:var(--accent);font-weight:600;">목표:</span> 쌓인 메모를 정리해 할 일 목록을 만들고, 그대로 캘린더에 일정으로 넣습니다.</p>
   <p class="dim" style="font-size:0.5em;margin-bottom:14px;">준비물: 정리할 노트 폴더, Google Calendar 연결(MCP)</p>
   <div class="grid grid-3" style="gap:14px;">
@@ -795,7 +797,7 @@
 <!-- 33.9: 워크숍4 카드뉴스 -->
 <section>
   <div class="label">Workshop 4 / 4</div>
-  <h2>인스타그램 카드뉴스 만들어 올리기</h2>
+  <h2>인스타그램 카드뉴스 만들어 올리기 <span style="font-size:0.4em;font-weight:600;padding:3px 9px;border-radius:5px;background:rgba(61,90,128,0.12);color:var(--accent2);vertical-align:middle;white-space:nowrap;">API 연결</span></h2>
   <p style="margin-bottom:6px;"><span style="color:var(--accent);font-weight:600;">목표:</span> 글 하나로 인스타그램 카드뉴스를 만들고 예약 발행까지 합니다.</p>
   <p class="dim" style="font-size:0.5em;margin-bottom:14px;">준비물: 소재가 될 글이나 주제, /post-to-buffer 스킬(Buffer 연결)</p>
   <div class="grid grid-3" style="gap:14px;">
@@ -823,7 +825,7 @@
 <!-- 33.95: 핸즈온 기록 스킬 -->
 <section>
   <div class="label">Hands-on</div>
-  <h2>직접 해보기: 오늘을 기록으로 남기는 스킬 만들기</h2>
+  <h2>직접 해보기: 오늘을 기록으로 남기는 스킬 만들기 <span style="font-size:0.4em;font-weight:600;padding:3px 9px;border-radius:5px;background:rgba(91,123,94,0.12);color:var(--accent3);vertical-align:middle;white-space:nowrap;">API&middot;MCP 없이</span></h2>
   <p style="margin-bottom:6px;"><span style="color:var(--accent);font-weight:600;">미션:</span> 오늘 나눈 대화와 진행한 세션을 모두 정리해 기록으로 남기는 스킬을 만드세요.</p>
   <p class="dim" style="font-size:0.5em;margin-bottom:14px;">준비물: 오늘의 대화&middot;메모가 담긴 폴더. 프롬프트는 '상황 구체화 &rarr; 결과물 &rarr; 스킬화' 순서로.</p>
   <div class="grid grid-3" style="gap:14px;">
