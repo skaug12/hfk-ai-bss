@@ -234,9 +234,9 @@
       <p style="font-size:0.6em;color:var(--text);line-height:1.7;margin-top:12px;">요즘 에이전틱으로 24시간 일한다는 게, 정말 '나'의 능력이 좋아진 걸까요? 그냥 '에이전트'가 좋아진 거 아닐까. 나는 오히려 빈머리가 되는 거 아닐까 싶어요.</p>
     </div>
     <div class="card" style="background:rgba(139,94,60,0.06);">
-      <p style="color:var(--accent);font-weight:700;font-size:0.56em;margin-bottom:10px;">운영자</p>
+      <p style="color:var(--accent);font-weight:700;font-size:0.56em;margin-bottom:10px;">HFK</p>
       <p style="font-size:0.6em;color:var(--text);line-height:1.7;">스킬을 고도화하는 건 내 업무를 아주 구체적으로 발견하고 다듬는 일이에요. 인풋을 잘 넣어야 아웃풋인 에이전트가 잘 나오니까, 인풋 넣는 일을 게을리할 수가 없어요. 오히려 머리가 단단해지는 기분이에요.</p>
-      <p style="font-size:0.6em;color:var(--text);line-height:1.7;margin-top:12px;">좋은 문장을 쓰려고 안 보던 소설까지 봐요. 그걸 에이전트로 만들려면 결국 글로 써내야 하고, 그 과정에서 지식이 내 것이 되더라고요. 클로드 코드가 저를 멱살 잡고 성장시키는 중이에요 ㅋㅋ</p>
+      <p style="font-size:0.6em;color:var(--text);line-height:1.7;margin-top:12px;">좋은 문장을 쓰려고 안 보던 소설까지 봐요. 그걸 에이전트로 만들려면 결국 글로 써내야 하고, 그 과정에서 지식이 내 것이 되더라고요. 클로드 코드가 저를 멱살 잡고 성장시키는 중이에요. 결국 암묵지가 차별화를 만듭니다.</p>
     </div>
   </div>
   <div class="summary-card">
@@ -1264,7 +1264,7 @@
 <section>
   <div class="label">Workshop</div>
   <h2>스킬 워크숍: 직접 만들어 봅니다</h2>
-  <p style="margin-bottom:16px;">지금 내가 가진 스킬을 하나씩 구현해 보는 시간입니다. 오늘 본 방식 그대로 따라 만들어 봅니다.</p>
+  <p style="margin-bottom:16px;">내 반복 업무를 스킬로 만들어 보는 시간입니다. 프롬프트는 이렇게 씁니다: <span style="color:var(--accent);font-weight:600;">&#9312; 내 상황을 최대한 구체적으로 &rarr; &#9313; 원하는 결과물 &rarr; &#9314; '이 일을 다시 쓰게 스킬로 만들어줘'</span></p>
   <div class="grid grid-2" style="gap:18px;">
     <div class="card">
       <p style="color:var(--accent2);font-weight:700;font-size:0.6em;">01</p>
@@ -1298,17 +1298,17 @@
     <div class="card">
       <p style="color:var(--accent2);font-weight:700;font-size:0.54em;">STEP 1</p>
       <h3 style="font-size:0.6em;margin-top:4px;">목록부터 만들기</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; https://example.com/blog 이 블로그 글 목록을 가져와서 제목&middot;링크&middot;날짜를 표로 보여줘. 아직 저장은 하지 마.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 나는 경쟁사 블로그를 매주 손으로 확인해. https://example.com/blog 글 제목&middot;링크&middot;날짜를 표로 모아줘.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent);font-weight:700;font-size:0.54em;">STEP 2</p>
       <h3 style="font-size:0.6em;margin-top:4px;">본문 저장하기</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 방금 표의 글 본문을 하나씩 가져와서 제목을 파일명으로 마크다운(.md)으로 저장해줘. 위치는 ~/Documents/크롤링. 먼저 1개만 시험 저장해 보여줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 각 글 본문을 마크다운으로 ~/Documents/크롤링에 저장해줘. 1개만 먼저 시험 저장해 보여줘.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent3);font-weight:700;font-size:0.54em;">STEP 3</p>
       <h3 style="font-size:0.6em;margin-top:4px;">깔끔하게 정리</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 이상 없으면 전체 저장해줘. 제목 같은 중복은 빼고, 날짜 최신순 목록.md도 같이 만들어줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 이 작업을 /collect-blog 스킬로 만들어줘. 다음엔 주소만 주면 같은 방식으로 모으게.</span></div>
     </div>
   </div>
   <div class="summary-card" style="margin-top:14px;">
@@ -1331,12 +1331,12 @@
     <div class="card">
       <p style="color:var(--accent);font-weight:700;font-size:0.54em;">STEP 2</p>
       <h3 style="font-size:0.6em;margin-top:4px;">브리핑 요청</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; /analyze-youtube 'AI브리핑' 재생목록에서 아직 정리 안 한 영상 자막을 가져와서 요점 5줄&middot;인상 깊은 문장 3개&middot;내 업무 적용 아이디어 2개로 브리핑해줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 출퇴근에 본 강의가 기억이 안 나. 'AI브리핑' 재생목록 새 영상을 요점 5줄&middot;인상 문장 3개&middot;내 업무 적용 2개로 정리해줘.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent3);font-weight:700;font-size:0.54em;">STEP 3</p>
       <h3 style="font-size:0.6em;margin-top:4px;">노트로 저장</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 각 브리핑을 ~/Documents/유튜브노트 폴더에 영상 제목으로 저장해줘. 같은 제목 있으면 덮어쓰지 말고 표시해줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 결과를 ~/Documents/유튜브노트에 저장하고, 이 과정을 /brief-youtube 스킬로 만들어줘.</span></div>
     </div>
   </div>
   <div class="summary-card" style="margin-top:14px;">
@@ -1354,17 +1354,17 @@
     <div class="card">
       <p style="color:var(--accent2);font-weight:700;font-size:0.54em;">STEP 1</p>
       <h3 style="font-size:0.6em;margin-top:4px;">할 일만 뽑기</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; ~/Documents/회의록 폴더 노트를 다 읽고 내가 할 일만 골라서 '누가&middot;무엇을&middot;언제까지' 한 줄씩 목록으로 만들어줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 회의 끝나면 할 일을 자꾸 놓쳐. ~/Documents/회의록 노트에서 내 할 일만 '누가&middot;무엇을&middot;언제까지'로 뽑아줘.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent);font-weight:700;font-size:0.54em;">STEP 2</p>
       <h3 style="font-size:0.6em;margin-top:4px;">살 붙이기</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 각 할 일에 예상 소요시간과 마감일을 붙이고 급한 순서로 정렬해줘. 마감 안 적힌 건 '미정'으로.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 각 할 일에 예상 소요시간&middot;마감일을 붙이고 급한 순서로 정렬해줘. 마감 없으면 '미정'.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent3);font-weight:700;font-size:0.54em;">STEP 3</p>
       <h3 style="font-size:0.6em;margin-top:4px;">캘린더 등록</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 마감일 있는 항목만 구글 캘린더에 넣어줘. 넣기 전에 어떤 일정이 들어갈지 목록으로 먼저 보여주고, 내가 확인하면 등록해.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 마감일은 구글 캘린더에 넣는 것까지 /meeting-todo 스킬로 만들어줘. 등록 전 항상 미리 보여주게.</span></div>
     </div>
   </div>
   <div class="summary-card" style="margin-top:14px;">
@@ -1382,17 +1382,17 @@
     <div class="card">
       <p style="color:var(--accent2);font-weight:700;font-size:0.54em;">STEP 1</p>
       <h3 style="font-size:0.6em;margin-top:4px;">장면 쪼개기</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 이 글을 카드뉴스 6장으로 나눠줘. 1장은 멈추게 하는 후킹 문구, 2~5장은 한 장에 한 메시지, 6장은 행동 유도. 장별 문구만 먼저 보여줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 인스타 카드뉴스 만들기가 오래 걸려. 이 글을 6장으로 나눠줘. 1장 후킹, 2~5장 한 메시지, 6장 행동 유도.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent);font-weight:700;font-size:0.54em;">STEP 2</p>
       <h3 style="font-size:0.6em;margin-top:4px;">이미지로</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 문구 확정했어. 각 장을 1080x1080 카드 이미지로 만들고 ~/Documents/카드뉴스에 저장해줘. 첫 장 시안 1개 먼저 보여줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 각 장을 1080x1080 이미지로 ~/Documents/카드뉴스에 저장해줘. 첫 장 시안 먼저 보여줘.</span></div>
     </div>
     <div class="card">
       <p style="color:var(--accent3);font-weight:700;font-size:0.54em;">STEP 3</p>
       <h3 style="font-size:0.6em;margin-top:4px;">예약 발행</h3>
-      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; /post-to-buffer 이 카드 세트를 인스타그램 예약 발행으로 올려줘. 발행 전 미리보기랑 예약 시각 확인시켜줘.</span></div>
+      <div class="code-block" style="margin-top:8px;padding:9px 11px;font-size:0.42em;line-height:1.6;"><span style="color:#F1EFEA;">&gt; 글만 주면 예약 발행까지 하는 /make-cardnews 스킬로 만들어줘. 발행 전 미리보기.</span></div>
     </div>
   </div>
   <div class="summary-card" style="margin-top:14px;">
