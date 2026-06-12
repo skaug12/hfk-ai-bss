@@ -532,7 +532,7 @@
     <div class="card" style="background:rgba(139,94,60,0.06);">
       <p style="color:var(--accent);font-weight:700;font-size:0.62em;">하네스</p>
       <h3 style="margin-top:6px;">AI에게 도구&middot;규칙을 깔아주기</h3>
-      <p style="margin-top:8px;">같은 AI라도 어떤 도구를 주고 무엇을 막느냐로 결과가 갈립니다. 이 워크스페이스 전체가 하나의 하네스입니다.</p>
+      <p style="margin-top:8px;">같은 AI라도 어떤 도구와 규칙을 주고, 피드백과 메모리를 남기느냐로 결과가 갈립니다. 이 워크스페이스 전체가 하나의 하네스입니다.</p>
       <div style="margin-top:12px;padding:8px 10px;background:rgba(139,94,60,0.06);border-radius:6px;">
         <p style="font-size:0.48em;color:var(--text);margin:0;"><span style="color:var(--accent);font-weight:600;">지금)</span> 스킬 100개, CLAUDE.md 규칙, 메모리</p>
       </div>
@@ -580,90 +580,6 @@
     </p>
     <p style="font-size:0.5em;margin:8px 0 0;">
       <a href="https://github.com/skaug12/hfk-presentations/blob/main/claude-code-platforms.md" target="_blank" style="color:var(--accent);text-decoration:underline;font-weight:600;">플랫폼별 권한, 기능 상세 비교 →</a>
-    </p>
-  </div>
-</section>
-<!-- 13: VS Code에서 시작하기 -->
-<section>
-  <div class="label">Setup</div>
-  <h2>Visual Studio Code에서 Claude Code 시작하기</h2>
-  <div class="grid grid-2" style="gap:22px;">
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div class="card">
-        <p style="color:var(--accent5);font-weight:600;font-size:0.56em;">Step 0: VS Code 설치</p>
-        <ul style="margin-top:10px;">
-          <li><a href="https://code.visualstudio.com" style="color:var(--accent2);">code.visualstudio.com</a> 접속 → 다운로드</li>
-          <li>설치 파일 실행 → 안내에 따라 설치 완료</li>
-          <li>설치 후 VS Code 실행</li>
-        </ul>
-      </div>
-      <div class="card">
-        <p style="color:var(--accent2);font-weight:600;font-size:0.56em;">Step 1: Node.js 설치 확인</p>
-        <div class="code-block" style="margin-top:10px;padding:11px 14px;font-size:0.47em;line-height:1.7;">
-          <span class="prompt">$</span> node --version<br>
-          <span class="comment"># v18 이상이면 OK</span><br>
-          <span class="comment"># 없으면 nodejs.org 에서 설치</span>
-        </div>
-      </div>
-      <div class="card">
-        <p style="color:var(--accent);font-weight:600;font-size:0.56em;">Step 2: Claude Code 설치 &amp; 실행</p>
-        <div class="code-block" style="margin-top:10px;padding:11px 14px;font-size:0.47em;line-height:1.7;">
-          <span class="prompt">$</span> npm install -g @anthropic-ai/claude-code<br>
-          <span class="prompt">$</span> claude <span class="comment"> # 실행 후 브라우저에서 로그인</span>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div class="card">
-        <p style="color:var(--accent3);font-weight:600;font-size:0.56em;">Step 3: VS Code 확장 설치</p>
-        <ul style="margin-top:10px;">
-          <li>Extensions 탭 열기 (⌘⇧X / Ctrl+Shift+X)</li>
-          <li><code>Claude Code</code> 검색 → Anthropic 확장 설치</li>
-          <li>설치 후 VS Code 사이드바에서 바로 사용</li>
-        </ul>
-      </div>
-      <div class="card">
-        <p style="color:var(--accent4);font-weight:600;font-size:0.56em;">VS Code에서 쓰면 좋은 점</p>
-        <ul style="margin-top:10px;">
-          <li>현재 열린 파일을 Claude가 자동으로 인식</li>
-          <li>코드 선택 → 바로 Claude에게 질문</li>
-          <li>에러 메시지를 Claude에게 바로 전달</li>
-          <li>터미널과 에디터를 동시에 사용</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 12: 처음 설치하는 분들을 위한 안내 -->
-<section>
-  <div class="label">Troubleshooting</div>
-  <h2>처음 설치하는 분들을 위한 안내</h2>
-  <p style="margin-bottom:14px;">설치 과정에서 에러가 나더라도 당황하지 마세요. 에러 메시지를 그대로 Claude에게 붙여넣고 물어보면 됩니다.</p>
-  <div class="grid grid-2" style="gap:16px;margin-bottom:16px;">
-    <div class="card">
-      <h3 style="color:var(--accent5);">'command not found: claude'</h3>
-      <p>설치는 됐는데 컴퓨터가 claude 위치를 모르는 상태.</p>
-      <p style="font-size:0.5em;color:var(--text);font-weight:500;margin-top:6px;">해결: 터미널을 완전히 껐다가 다시 열기. 안 되면 <code>claude doctor</code> 실행.</p>
-    </div>
-    <div class="card">
-      <h3 style="color:var(--accent5);">'Permission denied'</h3>
-      <p>설치 폴더에 쓰기 권한이 없는 상태.</p>
-      <p style="font-size:0.5em;color:var(--text);font-weight:500;margin-top:6px;">해결 (Mac): 명령어 앞에 <code>sudo</code> 붙이기. (Windows): '관리자 권한으로 실행'.</p>
-    </div>
-    <div class="card">
-      <h3 style="color:var(--accent5);">PowerShell vs CMD 혼동 (Windows)</h3>
-      <p>파란 창(PowerShell)과 검은 창(CMD)은 다른 프로그램. 명령어가 다릅니다.</p>
-      <p style="font-size:0.5em;color:var(--text);font-weight:500;margin-top:6px;">해결: 반드시 PowerShell(파란 창)을 사용하세요.</p>
-    </div>
-    <div class="card">
-      <h3 style="color:var(--accent5);">로그인 브라우저가 안 열림</h3>
-      <p>회사 보안 정책이나 VPN이 막는 경우.</p>
-      <p style="font-size:0.5em;color:var(--text);font-weight:500;margin-top:6px;">해결: VPN 끄고 재시도. 또는 표시된 URL을 직접 브라우저에 복사.</p>
-    </div>
-  </div>
-  <div class="summary-card">
-    <p style="font-size:0.56em;color:var(--text);margin:0;">
-      <span style="color:var(--accent);font-weight:600;">어떤 단계에서든 막히면</span>: <span class="sub">에러 메시지를 그대로 복사해서 Claude에게 붙여넣으세요. <code style="background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:3px;">claude doctor</code>도 스스로 문제를 진단해줍니다.</span>
     </p>
   </div>
 </section>
@@ -948,44 +864,6 @@
     </p>
   </div>
 </section>
-<!-- 15: 연결 구조 -->
-<section>
-  <div class="label">Architecture</div>
-  <h2>Claude Code 연결 구조</h2>
-
-  <p style="font-size:0.5em;color:var(--text-dim);margin-bottom:8px;">콘텐츠 파이프라인</p>
-  <div class="dflow">
-    <div class="dnode"><div class="dlabel">작성</div><div class="dtitle" style="color:var(--accent2);">Obsidian</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode hl"><div class="dlabel">처리</div><div class="dtitle" style="color:var(--accent);">Claude Code</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode"><div class="dlabel">변환</div><div class="dtitle" style="color:var(--accent3);">HTML 생성</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode"><div class="dlabel">배포</div><div class="dtitle" style="color:var(--accent4);">아임웹</div></div>
-  </div>
-
-  <p style="font-size:0.5em;color:var(--text-dim);margin-bottom:8px;">영상 편집 파이프라인</p>
-  <div class="dflow">
-    <div class="dnode"><div class="dlabel">소스</div><div class="dtitle" style="color:var(--accent2);">프리미어 프로</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode"><div class="dlabel">출력</div><div class="dtitle" style="color:var(--accent);">XML 파일</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode hl"><div class="dlabel">편집</div><div class="dtitle" style="color:var(--accent);">Claude Code</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode"><div class="dlabel">적용</div><div class="dtitle" style="color:var(--accent3);">프리미어 프로</div></div>
-  </div>
-
-  <p style="font-size:0.5em;color:var(--text-dim);margin-bottom:8px;">소통, 일정 파이프라인</p>
-  <div class="dflow" style="margin-bottom:0;">
-    <div class="dnode"><div class="dlabel">일정</div><div class="dtitle" style="color:var(--accent2);">Google Calendar</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode hl"><div class="dlabel">처리</div><div class="dtitle" style="color:var(--accent);">Claude Code</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode"><div class="dlabel">공지</div><div class="dtitle" style="color:var(--accent3);">Slack</div></div>
-    <div class="darrow">→</div>
-    <div class="dnode"><div class="dlabel">관리</div><div class="dtitle" style="color:var(--accent4);">Apple Reminders</div></div>
-  </div>
-</section>
 <!-- 16: HFK 커뮤니티 운영 자동화 -->
 <section>
   <div class="label">Case Study</div>
@@ -1009,188 +887,71 @@
     <div class="card" style="padding:12px 16px;"><span class="category-tag cat-teal" style="font-size:0.42em;">이미지, 분석, 시스템 28</span><p class="dim" style="font-size:0.46em;">categorize, analyze-slack, analyze-youtube, ga-report, update-dashboard, audit-security, apple-notes 외 21개</p></div>
   </div>
 </section>
-<!-- 17: 상품 관리 스킬 -->
+<!-- 17: 스킬 (통합) -->
 <section>
-  <div class="label">Skills: 상품 관리</div>
-  <h2>상품 관리 스킬</h2>
-  <div class="grid grid-2" style="gap:14px;">
-    <div class="card card-sm">
-      <span class="skill-tag" style="background:rgba(61,90,128,0.08);color:var(--accent2);">/sync-products</span>
-      <h3>Obsidian 노트 → 아임웹 동기화</h3>
-      <ul><li>Markdown 파싱 → HTML 생성 → API로 상품 업데이트</li><li>status: draft → synced 자동 전환</li></ul>
+  <div class="label">Skills</div>
+  <h2 style="margin-bottom:5px;">스킬 106개로 운영합니다</h2>
+  <p style="margin-bottom:10px;font-size:0.5em;">반복하는 일을 마크다운 한 장으로 적어두면 명령 한 번으로 돕니다. <span class="accent bold">멤버들이 가장 흥미로워한 것</span>부터 봅니다.</p>
+  <div class="grid grid-4" style="gap:9px;margin-bottom:11px;">
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent);">/today-lunch</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">오늘 점심 뭐 먹지?</h3>
     </div>
-    <div class="card card-sm">
-      <span class="skill-tag" style="background:rgba(91,123,94,0.08);color:var(--accent3);">/backup-products</span>
-      <h3>아임웹 → Obsidian 백업</h3>
-      <ul><li>아임웹 상품 정보를 Markdown 노트로 역변환</li><li>시즌별 카테고리 선택 가능</li></ul>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent2);">/analyze-youtube</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">유튜브 영상 자동 요약</h3>
     </div>
-    <div class="card card-sm">
-      <span class="skill-tag">/evaluate-notes</span>
-      <h3>상품 노트 완성도 평가</h3>
-      <ul><li>가이드라인 기준 100점 만점 자동 채점</li><li>긴급 이슈는 Apple 미리알림에 자동 추가</li></ul>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent3);">/process-screenshots</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">스크린샷 정리해 메모로</h3>
     </div>
-    <div class="card card-sm">
-      <span class="skill-tag" style="background:rgba(123,107,138,0.08);color:var(--accent4);">/expand-idea</span>
-      <h3>아이디어 → 상품 초안</h3>
-      <ul><li>간단한 메모에서 톤앤매너에 맞는 초안 자동 작성</li><li>헤드라인, 소개, 세션 구성까지 생성</li></ul>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent4);">/expense-tracker</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">주간 가계부 자동 정리</h3>
     </div>
-    <div class="card card-sm">
-      <span class="skill-tag" style="background:rgba(90,123,123,0.08);color:var(--accent6);">/convert-to-imweb</span>
-      <h3>Obsidian MD → Imweb HTML 변환</h3>
-      <ul><li>마크다운을 아임웹 에디터 호환 HTML로 변환</li></ul>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent5);">/draft-from-recording</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">녹음 → 글 초안</h3>
     </div>
-  </div>
-</section>
-<!-- 18: 콘텐츠 생성 스킬 -->
-<section>
-  <div class="label">Skills: 콘텐츠 생성</div>
-  <h2>콘텐츠 생성 스킬</h2>
-  <div class="grid grid-4" style="gap:15px;">
-    <div class="card">
-      <span class="skill-tag">/generate-letter</span>
-      <h3>시즌레터 자동 생성</h3>
-      <p>Obsidian 템플릿 + Calendar 일정 기반 HTML 생성</p>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent6);">/generate-team-review</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">후기 자동 작성</h3>
     </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(61,90,128,0.08);color:var(--accent2);">/generate-event-review</span>
-      <h3>이벤트 후기 생성</h3>
-      <p>녹취 텍스트 기반 2,000~3,000자 유형별 후기</p>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent2);">/hello-world</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">하루 시작 브리핑</h3>
     </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(91,123,94,0.08);color:var(--accent3);">/generate-team-review</span>
-      <h3>팀 활동 후기 생성</h3>
-      <p>녹취 텍스트 기반 팀별 세션 내용, 분위기 반영</p>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(123,107,138,0.08);color:var(--accent4);">/generate-certificate</span>
-      <h3>수강확인증 생성</h3>
-      <p>아임웹 파싱 → Google Sheets → PDF</p>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(138,94,94,0.08);color:var(--accent5);">/generate-handout</span>
-      <h3>세션 핸드아웃 생성</h3>
-      <p>날짜 입력 시 팀별 A4 핸드아웃 PDF 생성</p>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(90,123,123,0.08);color:var(--accent6);">/draft-from-recording</span>
-      <h3>녹음 → 콘텐츠 초안</h3>
-      <p>클로버노트 녹취 → 구조화된 콘텐츠 변환</p>
-    </div>
-    <div class="card">
-      <span class="skill-tag">/convert-review-to-html</span>
-      <h3>Markdown 후기 → HTML</h3>
-      <p>작성된 후기를 아임웹 배포용 HTML로 변환</p>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(61,90,128,0.08);color:var(--accent2);">/process-screenshots</span>
-      <h3>스크린샷 → Obsidian 노트</h3>
-      <p>OCR로 텍스트 추출 후 마크다운 노트 변환</p>
+    <div class="card" style="padding:9px 13px;">
+      <span class="skill-tag" style="margin-bottom:4px;background:rgba(0,0,0,0.04);color:var(--accent);">/run-season-ops</span>
+      <h3 style="margin:3px 0 0;font-size:0.56em;">시즌 운영 한 번에</h3>
     </div>
   </div>
-</section>
-<!-- 19: 일정·소통 스킬 -->
-<section>
-  <div class="label">Skills: 일정, 소통</div>
-  <h2>일정 관리 &amp; 소통 스킬</h2>
-  <div class="grid grid-3" style="gap:17px;margin-bottom:17px;">
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(91,123,94,0.08);color:var(--accent3);">/update-schedule</span>
-      <h3>Calendar → 일정 업데이트</h3>
-      <ul><li>캘린더 이벤트에서 팀명 자동 매칭</li><li>각 회차 날짜를 상품 노트에 반영</li></ul>
+  <p style="font-size:0.42em;color:var(--text-dim);margin:0 0 5px;letter-spacing:0.04em;">지금 쓰는 전체 스킬 106개</p>
+  <div class="grid grid-3" style="gap:7px 16px;">
+    <div>
+      <p style="font-size:0.43em;font-weight:700;color:var(--accent);margin:0 0 2px;">상품·콘텐츠 <span style="color:var(--text-dim);font-weight:500;">(23)</span></p>
+      <p style="font-size:0.34em;line-height:1.42;color:var(--text-sub);margin:0;word-break:keep-all;">/sync-products &middot; /backup-products &middot; /clone-and-move-product &middot; /convert-to-imweb &middot; /convert-review-to-html &middot; /expand-idea &middot; /expand-cover-concepts &middot; /generate-product-content &middot; /generate-letter &middot; /generate-event-review &middot; /generate-team-review &middot; /generate-handout &middot; /generate-certificate &middot; /draft-from-recording &middot; /make-review-cards &middot; /link-product-references &middot; /evaluate-teams &middot; /audit-product-templates &middot; /refresh-presale &middot; /set-presale &middot; /schedule-unhide-product &middot; /update-card-news &middot; /normalize-profile-gallery</p>
     </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(61,90,128,0.08);color:var(--accent2);">/schedule-notices</span>
-      <h3>Slack 공지 예약 발송</h3>
-      <ul><li>기간 내 세션 팀 자동 검색</li><li>Block Kit 메시지 생성 후 예약 발송</li></ul>
+    <div>
+      <p style="font-size:0.43em;font-weight:700;color:var(--accent);margin:0 0 2px;">멤버·팀 <span style="color:var(--text-dim);font-weight:500;">(20)</span></p>
+      <p style="font-size:0.34em;line-height:1.42;color:var(--text-sub);margin:0;word-break:keep-all;">/manage-member &middot; /move-member &middot; /manage-attendance &middot; /manage-attendance-26summer &middot; /manage-signup-thread &middot; /invite-new-members &middot; /create-slack-channels &middot; /send-partner-briefing &middot; /brief-event-speaker &middot; /plan-teams &middot; /rename-team &middot; /swap-schedule &middot; /confirm-deposit &middot; /extract-reregistration-contacts &middot; /run-member-roadmap &middot; /send-member-roadmap &middot; /session-dashboard &middot; /audit-team-channels &middot; /sync-slack-profiles &middot; /add-contacts</p>
     </div>
-    <div class="card">
-      <span class="skill-tag">/add-reminder</span>
-      <h3>Apple 미리알림 추가</h3>
-      <ul><li>To-Do 일괄 추가, 마감일 자동 설정</li></ul>
+    <div>
+      <p style="font-size:0.43em;font-weight:700;color:var(--accent);margin:0 0 2px;">일정·이벤트·공지 <span style="color:var(--text-dim);font-weight:500;">(14)</span></p>
+      <p style="font-size:0.34em;line-height:1.42;color:var(--text-sub);margin:0;word-break:keep-all;">/update-schedule &middot; /schedule-notices &middot; /schedule-4l-reminders &middot; /seed-canvas-sessions &middot; /add-reminder &middot; /check-reactions &middot; /check-event-arrivals &middot; /post-arrival-check &middot; /post-event-attendees &middot; /post-adventure-attendees &middot; /post-signup-attendees &middot; /relay-form-response &middot; /sync-event-attendance &middot; /sync-adventure-attendance</p>
     </div>
-  </div>
-  <div class="grid grid-3" style="gap:17px;">
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(138,94,94,0.08);color:var(--accent5);">/create-slack-channels</span>
-      <h3>Slack 채널 일괄 생성</h3>
-      <ul><li>CSV 기반 채널 생성, 멤버 자동 초대</li></ul>
+    <div>
+      <p style="font-size:0.43em;font-weight:700;color:var(--accent);margin:0 0 2px;">분석·이미지 <span style="color:var(--text-dim);font-weight:500;">(10)</span></p>
+      <p style="font-size:0.34em;line-height:1.42;color:var(--text-sub);margin:0;word-break:keep-all;">/analyze-slack &middot; /analyze-youtube &middot; /view-slack-archive &middot; /ga-report &middot; /categorize-images-hfk &middot; /categorize-images-imweb &middot; /process-screenshots &middot; /run-higgsfield-batch &middot; /export-to-figma &middot; /make-nametags</p>
     </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(123,107,138,0.08);color:var(--accent4);">/manage-member</span>
-      <h3>멤버 정보 관리</h3>
-      <ul><li>멤버 프로필, 팀 배정 정보 업데이트</li></ul>
+    <div>
+      <p style="font-size:0.43em;font-weight:700;color:var(--accent);margin:0 0 2px;">시스템·문서 <span style="color:var(--text-dim);font-weight:500;">(20)</span></p>
+      <p style="font-size:0.34em;line-height:1.42;color:var(--text-sub);margin:0;word-break:keep-all;">/edit-premiere-xml &middot; /indd-outline-and-export &middot; /print-interpro-indigo &middot; /run-book-prep &middot; /save-output &middot; /save-conversation &middot; /backup-notes &middot; /rename-by-content &middot; /import-apple-notes &middot; /sync-diary &middot; /update-dashboard &middot; /update-presentations &middot; /update-skill-guide &middot; /color-guide &middot; /cleanup-home &middot; /audit-security &middot; /audit-skills &middot; /check-ai-not-to-do &middot; /review-model-choices &middot; /sync-season-data</p>
     </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(90,123,123,0.08);color:var(--accent6);">/move-member</span>
-      <h3>멤버 팀 이동</h3>
-      <ul><li>멤버를 다른 팀으로 이동, Slack 채널 재배정</li></ul>
+    <div>
+      <p style="font-size:0.43em;font-weight:700;color:var(--accent);margin:0 0 2px;">일상 & 에이전트(묶음) <span style="color:var(--text-dim);font-weight:500;">(19)</span></p>
+      <p style="font-size:0.34em;line-height:1.42;color:var(--text-sub);margin:0;word-break:keep-all;">/today-lunch &middot; /when-to-leave &middot; /when-to-leave-popup &middot; /heypop-now &middot; /expense-tracker &middot; /ask-jaeyoon &middot; /hello-world &middot; /run-daily-note &middot; /run-wednesday &middot; /run-season-ops &middot; /run-season-planning &middot; /run-product-ops &middot; /run-content-ops &middot; /run-image-ops &middot; /run-event-ops &middot; /run-odc-ops &middot; /run-crm-mailing &middot; /post-linkedin &middot; /post-to-buffer</p>
     </div>
-  </div>
-</section>
-<!-- 20: 이미지·분석·시스템 스킬 -->
-<section>
-  <div class="label">Skills: 이미지, 분석, 시스템</div>
-  <h2>이미지, 분석, 시스템 스킬</h2>
-  <div class="grid grid-4" style="gap:14px;margin-bottom:14px;">
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(123,107,138,0.08);color:var(--accent4);">/categorize-images</span>
-      <h3>이미지 자동 분류</h3>
-      <ul><li>Vision으로 이미지 분석 후 팀별 분류</li><li>EXIF 추출, 캘린더 기반 분류</li></ul>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(90,123,123,0.08);color:var(--accent6);">/analyze-slack</span>
-      <h3>Slack 워크스페이스 분석</h3>
-      <ul><li>메시지 수집 후 구조, 시계열 분석</li><li>결과를 Obsidian MD로 저장</li></ul>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(91,123,94,0.08);color:var(--accent3);">/manage-attendance</span>
-      <h3>출석 관리</h3>
-      <ul><li>Google Sheets 출석 자동 관리</li></ul>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(138,94,94,0.08);color:var(--accent5);">/backup-notes</span>
-      <h3>Note 백업</h3>
-      <ul><li>thehfk.org 게시판 → Obsidian 백업</li></ul>
-    </div>
-  </div>
-  <div class="grid grid-4" style="gap:14px;">
-    <div class="card">
-      <span class="skill-tag">/ga-report</span>
-      <h3>GA4 월별 리포트</h3>
-      <ul><li>페이지뷰, 방문자 통계 자동 생성</li></ul>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(61,90,128,0.08);color:var(--accent2);">/view-slack-archive</span>
-      <h3>Slack 아카이브 뷰어</h3>
-      <ul><li>아카이브 데이터 → Obsidian MD 변환</li></ul>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(123,107,138,0.08);color:var(--accent4);">/edit-premiere-xml</span>
-      <h3>프리미어 프로 XML 편집</h3>
-      <ul><li>영상 프로젝트 XML 파일 직접 편집</li></ul>
-    </div>
-    <div class="card">
-      <span class="skill-tag" style="background:rgba(90,123,123,0.08);color:var(--accent6);">/save-output</span>
-      <h3>결과물 MD 저장</h3>
-      <ul><li>작업 결과를 MD 파일로 정리, 저장</li></ul>
-    </div>
-  </div>
-</section>
-<!-- 21: 에이전트 스킬 -->
-<section>
-  <div class="label">Skills: 에이전트</div>
-  <h2>에이전트 스킬</h2>
-  <p style="margin-bottom:16px;">여러 스킬을 하나의 워크플로우로 연결하여 복합 업무를 자동 실행합니다.</p>
-  <div class="grid grid-4" style="gap:17px;margin-bottom:17px;">
-    <div class="card"><p style="color:var(--accent);font-weight:600;">/hello-world</p><h3>하루 시작</h3><p>환경 확인 + 캘린더 브리핑 + 미리알림</p></div>
-    <div class="card"><p style="color:var(--accent3);font-weight:600;">/run-season-ops</p><h3>시즌 운영</h3><p>일정 → 동기화 → 레터 → Slack</p></div>
-    <div class="card"><p style="color:var(--accent2);font-weight:600;">/run-product-ops</p><h3>상품 관리</h3><p>백업 → 평가 → 보완 → 동기화</p></div>
-    <div class="card"><p style="color:var(--accent);font-weight:600;">/run-content-ops</p><h3>콘텐츠 제작</h3><p>후기 생성 → HTML 변환</p></div>
-  </div>
-  <div class="grid grid-3" style="gap:17px;">
-    <div class="card"><p style="color:var(--accent4);font-weight:600;">/run-daily-note</p><h3>데일리 노트</h3><p>작업 수집 + 스킬 변동 감지 + 미리알림</p></div>
-    <div class="card"><p style="color:var(--accent5);font-weight:600;">/run-image-ops</p><h3>이미지 관리</h3><p>확인 → 선택 → 분류</p></div>
-    <div class="card"><p style="color:var(--accent6);font-weight:600;">/run-wednesday</p><h3>수요일 루틴</h3><p>주간 루틴 자동 실행 (Slack + Reminders)</p></div>
   </div>
 </section>
 <!-- 22: 시즌 오픈 자동화 -->
@@ -1556,8 +1317,7 @@
     </div>
     <div class="summary-card" style="text-align:center;">
       <p style="font-size:0.6em;color:var(--text);margin:0;">
-        <span style="color:var(--accent);font-weight:600;">AI는 내 일을 줄이기 위해서 쓰는 것이 아닙니다. 내 일을 자세히 남기기 위해서 쓰는 것입니다. AI로 초안의 완성도를 높이고, 결과물을 고도화하는 데 사용하세요. 기본기를 AI로 빠르게 마스터하고, 비즈니스 인사이트와 센스, 즉 자신만의 암묵지를 기르는 게 필요합니다.</span><br>
-        <span class="sub">HFK가 AI를 생각하는 관점</span>
+        <span style="color:var(--accent);font-weight:600;">AI는 내 일을 줄이기 위해서 쓰는 것이 아닙니다. 내 일을 자세히 남기기 위해서 쓰는 것입니다. AI로 초안의 완성도를 높이고, 결과물을 고도화하는 데 사용하세요.</span>
       </p>
     </div>
   </div>
@@ -1571,12 +1331,12 @@
   <div class="seg" data-range="0-0">Title</div>
   <div class="seg" data-range="1-8">Hook</div>
   <div class="seg" data-range="9-10">한계</div>
-  <div class="seg" data-range="11-16">Intro</div>
-  <div class="seg" data-range="17-22">Action</div>
-  <div class="seg" data-range="23-25">Tips</div>
-  <div class="seg" data-range="26-27">연결</div>
-  <div class="seg" data-range="28-35">스킬+MCP</div>
-  <div class="seg" data-range="36-45">Yours</div>
+  <div class="seg" data-range="11-14">Intro</div>
+  <div class="seg" data-range="15-20">Action</div>
+  <div class="seg" data-range="21-23">Tips</div>
+  <div class="seg" data-range="24-24">연결</div>
+  <div class="seg" data-range="25-28">스킬+MCP</div>
+  <div class="seg" data-range="29-38">Yours</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
