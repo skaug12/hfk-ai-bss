@@ -145,6 +145,34 @@
   .wt-time { font-size: 0.5em; font-weight: 700; flex-shrink: 0; width: 70px; }
   .wt-cmd { flex-shrink: 0; width: 210px; }
   .wt-desc { font-size: 0.5em; color: var(--text-sub); line-height: 1.5; margin: 0; }
+
+  /* file lifecycle (v1.1) */
+  .flife { display: flex; flex-direction: column; }
+  .fchain { display: flex; align-items: stretch; margin: 14px 0 2px; }
+  .fnode { position: relative; flex: 1; min-width: 0; background: var(--card-bg); border: 1px solid transparent; border-radius: 9px; padding: 12px 6px 10px; text-align: center; cursor: pointer; transition: background .2s, border-color .2s, transform .15s; }
+  .fnode:hover { transform: translateY(-1px); }
+  .fn-ic { font-size: 0.92em; line-height: 1; }
+  .fn-name { font-size: 0.44em; font-weight: 700; margin-top: 6px; word-break: keep-all; line-height: 1.25; }
+  .fn-role { font-size: 0.34em; color: var(--text-dim); margin-top: 3px; letter-spacing: 0.03em; }
+  .fnode.done { background: rgba(139,94,60,0.06); }
+  .fnode.done .fn-name { color: var(--accent); }
+  .fnode.active { background: rgba(139,94,60,0.13); border-color: rgba(139,94,60,0.45); transform: translateY(-2px); }
+  .fnode.active .fn-name { color: var(--accent); }
+  .ftoken { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 0.4em; font-weight: 700; color: var(--accent); white-space: nowrap; display: none; }
+  .fnode.active .ftoken { display: block; }
+  .farrow { display: flex; align-items: center; color: var(--text-dim); font-size: 0.6em; padding: 0 4px; flex-shrink: 0; }
+  .floop { font-size: 0.4em; color: var(--text-dim); text-align: right; margin: 5px 4px 0; letter-spacing: 0.02em; }
+  .fcap { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 10px; padding: 15px 21px; min-height: 152px; margin-top: 14px; }
+  .fcap-item[hidden] { display: none; }
+  .fcap-step { font-size: 0.4em; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); }
+  .fcap-title { font-size: 0.64em; font-weight: 700; margin: 6px 0 0; color: var(--text); }
+  .fcap-body { font-size: 0.5em; color: var(--text-sub); line-height: 1.62; margin: 9px 0 0; }
+  .fcap-ex { font-size: 0.46em; color: var(--text); background: rgba(0,0,0,0.035); border-radius: 7px; padding: 8px 12px; margin: 11px 0 0; }
+  .fctrl { display: flex; align-items: center; gap: 9px; margin-top: 13px; }
+  .fbtn { font-family: 'Pretendard', sans-serif; font-size: 0.46em; font-weight: 600; padding: 7px 16px; border-radius: 7px; border: 1px solid rgba(0,0,0,0.12); background: #FFFFFF; color: var(--text); cursor: pointer; transition: background .15s; }
+  .fbtn:hover { background: var(--card-bg); }
+  .fbtn.primary { background: var(--accent); color: #F8F7F4; border-color: var(--accent); }
+  .fprog { font-size: 0.44em; color: var(--text-dim); margin-left: auto; }
 </style>
 </head>
 <body>
@@ -921,76 +949,80 @@
     <div class="card" style="padding:12px 16px;"><span class="category-tag cat-teal" style="font-size:0.42em;">이미지, 분석, 시스템 28</span><p class="dim" style="font-size:0.46em;">categorize, analyze-slack, analyze-youtube, ga-report, update-dashboard, audit-security, apple-notes 외 21개</p></div>
   </div>
 </section>
-<!-- 25: 클릭형 프로그램 맵 (v1.1) -->
+<!-- 25: 파일 하나가 거치는 여정 (v1.1) -->
 <section>
-  <div class="label">My Workflow</div>
-  <h2>내 워크플로우, 클릭해서 보기</h2>
-  <p style="margin-bottom:14px;">왼쪽 <span style="color:var(--accent);font-weight:600;">프로그램을 눌러보세요.</span> 자료가 어디서 들어와 어떻게 처리되고 어디로 나가는지, 각 프로그램을 실제로 어떻게 쓰는지 오른쪽에 보입니다.</p>
-  <div class="wgrid">
-    <div class="wmap">
-      <div class="wnode n-obsidian" data-node="obsidian">
-        <div class="wn-top"><span class="wdot" style="background:var(--accent2);"></span><span class="wn-name accent2">Obsidian</span><span class="wn-role">입력 · 원본 자료</span></div>
-        <p class="wn-sub">모든 노트와 자료, 콘텐츠가 모여 있는 곳</p>
+  <div class="flife">
+    <div class="label">My Workflow</div>
+    <h2 style="margin-bottom:6px;">파일 하나가 거치는 여정</h2>
+    <p style="font-size:0.5em;margin-bottom:2px;">파일 하나가 도구들을 거쳐 결과물이 되고, 그 기록이 다시 입력으로 돌아오는 고리입니다. <span style="color:var(--accent);font-weight:600;">단계를 누르거나 '다음'으로 따라가 보세요.</span></p>
+
+    <div class="fchain">
+      <div class="fnode" data-stage="0"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#128196;</div><div class="fn-name">파일 (.md)</div><div class="fn-role">시작</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fnode" data-stage="1"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#128214;</div><div class="fn-name">Obsidian</div><div class="fn-role">읽기·쓰기</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fnode" data-stage="2"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#129513;</div><div class="fn-name">VS Code</div><div class="fn-role">편집·비교</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fnode" data-stage="3"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#129302;</div><div class="fn-name">Claude Code</div><div class="fn-role">작업</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fnode" data-stage="4"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#128190;</div><div class="fn-name">다시 저장</div><div class="fn-role">보관함으로</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fnode" data-stage="5"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#128451;</div><div class="fn-name">축적</div><div class="fn-role">쌓임</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fnode" data-stage="6"><span class="ftoken">파일 &#9662;</span><div class="fn-ic">&#128640;</div><div class="fn-name">결과물</div><div class="fn-role">발행</div></div>
+    </div>
+    <p class="floop">&#8617; 결과와 기록은 다시 새 작업의 입력이 됩니다 (반복되는 고리)</p>
+
+    <div class="fcap">
+      <div class="fcap-item" data-cap="0">
+        <p class="fcap-step">STEP 1 · 파일</p>
+        <p class="fcap-title">하나의 마크다운 파일에서 시작합니다</p>
+        <p class="fcap-body">특정 프로그램 전용 파일이 아니라, 글이 담긴 .md 텍스트 파일입니다. 그래서 어떤 도구로 열어도 똑같이 읽힙니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> product/26여름/AI부사수.md 같은 상품 노트 한 장</p>
       </div>
-      <div class="warrow">&darr;</div>
-      <div class="wnode hub n-claude sel" data-node="claude">
-        <div class="wn-top"><span class="wdot" style="background:var(--accent);"></span><span class="wn-name accent">Claude Code</span><span class="wn-role">처리 · 오케스트레이터</span></div>
-        <p class="wn-sub">자연어 명령으로 스킬을 실행하고, 외부 서비스를 잇는 중심</p>
+      <div class="fcap-item" data-cap="1" hidden>
+        <p class="fcap-step">STEP 2 · Obsidian</p>
+        <p class="fcap-title">Obsidian이 사람이 읽기 좋게 보여줍니다</p>
+        <p class="fcap-body">같은 .md 파일을 제목과 링크, 태그로 보기 좋게 렌더링합니다. 사람이 직접 읽고, 손으로 내용을 더하거나 고치는 자리입니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> 노트를 열어 읽고, 떠오른 메모를 덧붙입니다.</p>
       </div>
-      <div class="warrow">&darr;</div>
-      <div class="wrow2">
-        <div class="wnode n-imweb" data-node="imweb">
-          <div class="wn-top"><span class="wdot" style="background:var(--accent3);"></span><span class="wn-name accent3">아임웹</span></div>
-          <p class="wn-sub">출력 · 쇼핑몰 상품과 주문</p>
-        </div>
-        <div class="wnode n-external" data-node="external">
-          <div class="wn-top"><span class="wdot" style="background:var(--accent4);"></span><span class="wn-name accent4">Slack · 캘린더 · Sheets</span></div>
-          <p class="wn-sub">출력 · 공지와 일정, 데이터</p>
-        </div>
+      <div class="fcap-item" data-cap="2" hidden>
+        <p class="fcap-step">STEP 3 · VS Code</p>
+        <p class="fcap-title">VS Code는 똑같은 파일을 편집기로 엽니다</p>
+        <p class="fcap-body">같은 파일을 코드 편집기에서 봅니다. 여기에 Claude Code 확장이 붙어 있어, 무엇이 바뀌는지 변경 전과 후를 나란히(diff) 보여줍니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> Claude가 고친 부분이 초록·빨강으로 표시돼 한눈에 확인됩니다.</p>
       </div>
-      <p class="whint">화살표 방향이 자료가 흐르는 방향입니다. 들어와서(Obsidian) · 처리되고(Claude Code) · 나갑니다(아임웹 · Slack · 캘린더 · Sheets).</p>
+      <div class="fcap-item" data-cap="3" hidden>
+        <p class="fcap-step">STEP 4 · Claude Code</p>
+        <p class="fcap-title">Claude Code가 읽고, 판단하고, 고칩니다</p>
+        <p class="fcap-body">파일을 직접 읽어 맥락을 파악하고, 스킬에 따라 내용을 고치거나 새 파일을 만듭니다. 반자동이라 단계마다 '이렇게 할까요?'를 먼저 확인합니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> /convert-to-imweb 이 노트를 발행용 HTML로 변환합니다.</p>
+      </div>
+      <div class="fcap-item" data-cap="4" hidden>
+        <p class="fcap-step">STEP 5 · 다시 저장</p>
+        <p class="fcap-title">바뀐 파일이 그대로 보관함에 저장됩니다</p>
+        <p class="fcap-body">Claude가 만든 결과가 같은 폴더에 저장돼, Obsidian과 VS Code에서 곧바로 다시 보입니다. 파일을 따로 옮기거나 복사할 필요가 없습니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> 수정된 노트와 변환된 HTML이 한 자리에 나란히 생깁니다.</p>
+      </div>
+      <div class="fcap-item" data-cap="5" hidden>
+        <p class="fcap-step">STEP 6 · 축적</p>
+        <p class="fcap-title">노트·메모리·스킬로 쌓입니다</p>
+        <p class="fcap-body">한 번 한 일은 노트로 남고, 자주 쓰는 규칙은 메모리(MEMORY.md)에, 반복 작업은 스킬로 쌓입니다. 그래서 다음에 같은 일을 더 빠르고 똑똑하게 처리합니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> '이렇게 해줘'를 한 번 가르치면, 다음부터 알아서 같은 방식으로 합니다.</p>
+      </div>
+      <div class="fcap-item" data-cap="6" hidden>
+        <p class="fcap-step">STEP 7 · 결과물</p>
+        <p class="fcap-title">결과물로 나가고, 다시 입력이 됩니다</p>
+        <p class="fcap-body">쌓인 파일이 실제 결과로 발행됩니다. 아임웹 상품 페이지, Slack 공지, 시즌레터, 웹페이지로. 그리고 그 기록이 다시 새 작업의 입력이 되어 고리가 이어집니다.</p>
+        <p class="fcap-ex"><span class="accent bold">예)</span> 노트 &rarr; 아임웹 페이지 · Slack 공지 · 레터 HTML</p>
+      </div>
     </div>
 
-    <div class="wpanel" data-panel="claude">
-      <p class="wp-tag accent">처리 · 오케스트레이터</p>
-      <p class="wp-title">AI 부사수처럼 전체를 지휘합니다</p>
-      <ul>
-        <li>한국어로 명령하면 알아서 파일을 읽고 고치고 실행합니다.</li>
-        <li>반복하는 일은 스킬 106개로, 명령 한 번에 처리합니다.</li>
-        <li>MCP 서버 7개로 아임웹 · Slack · 캘린더 같은 외부 서비스에 연결합니다.</li>
-        <li>반자동화 방식이라 단계마다 '이렇게 할까요?'를 확인하며 진행합니다.</li>
-      </ul>
-      <div class="wchip"><p><span class="accent bold">지금)</span> /hello-world 로 하루를 열고, /run-season-ops 로 시즌을 엽니다.</p></div>
-    </div>
-    <div class="wpanel" data-panel="obsidian" hidden>
-      <p class="wp-tag accent2">입력 · 원본 자료</p>
-      <p class="wp-title">모든 자료가 시작되는 곳입니다</p>
-      <ul>
-        <li>노트와 아이디어, 콘텐츠를 로컬 마크다운으로 모아둡니다.</li>
-        <li>Claude Code가 이 파일을 직접 읽고 고칩니다.</li>
-        <li>답을 만들기 전에 메모리와 노트부터 먼저 읽습니다.</li>
-      </ul>
-      <div class="wchip"><p><span class="accent2 bold">지금)</span> 상품 노트와 시즌레터, 후기 초안이 모두 여기에 있습니다.</p></div>
-    </div>
-    <div class="wpanel" data-panel="imweb" hidden>
-      <p class="wp-tag accent3">출력 · 쇼핑몰</p>
-      <p class="wp-title">노트가 곧 상품 페이지가 됩니다</p>
-      <ul>
-        <li>옵시디언 노트를 HTML로 바꿔 쇼핑몰에 올립니다 (convert-to-imweb).</li>
-        <li>상품과 카테고리, 판매 상태를 노트와 맞춰 동기화합니다 (sync-products).</li>
-        <li>새 주문은 멤버십 시트에 자동으로 쌓입니다.</li>
-      </ul>
-      <div class="wchip"><p><span class="accent3 bold">지금)</span> 시즌이 열리면 노트를 한 번 고치고, 쇼핑몰까지 한 흐름으로 반영됩니다.</p></div>
-    </div>
-    <div class="wpanel" data-panel="external" hidden>
-      <p class="wp-tag accent4">출력 · 소통과 데이터</p>
-      <p class="wp-title">팀에게 닿고, 데이터로 남깁니다</p>
-      <ul>
-        <li>Slack: 팀 채널 공지와 예약 발송, 봇 자동화.</li>
-        <li>Google 캘린더: 세션 일정의 정본. 날짜를 자동으로 가져옵니다.</li>
-        <li>Google Sheets: 멤버십과 출석 데이터를 읽고 씁니다.</li>
-      </ul>
-      <div class="wchip"><p><span class="accent4 bold">지금)</span> 공지와 일정, 명단이 손을 거의 안 거치고 자동으로 흐릅니다.</p></div>
+    <div class="fctrl">
+      <button class="fbtn" data-act="prev">&#9664; 이전</button>
+      <button class="fbtn primary" data-act="next">다음 &#9654;</button>
+      <button class="fbtn" data-act="play">&#9654; 자동으로 따라가기</button>
+      <span class="fprog">1 / 7</span>
     </div>
   </div>
 </section>
@@ -1523,17 +1555,54 @@
     if (s) s.textContent = skillNames[idx] || 'Skills';
   }
 
-  // workflow map (v1.1): 노드 클릭 → 강조 + 디테일 패널 교체
-  function selectWNode(node) {
-    var slide = node.closest('section');
-    if (!slide) return;
-    slide.querySelectorAll('.wnode').forEach(function(n) { n.classList.remove('sel'); });
-    node.classList.add('sel');
-    var key = node.dataset.node;
-    slide.querySelectorAll('[data-panel]').forEach(function(p) { p.hidden = (p.dataset.panel !== key); });
+  // file lifecycle (v1.1): 파일이 도구를 거치는 단계를 따라가기
+  function flifeSet(slide, i) {
+    var nodes = slide.querySelectorAll('.fnode');
+    var n = nodes.length;
+    i = ((i % n) + n) % n;
+    nodes.forEach(function(node, idx) {
+      node.classList.remove('active', 'done');
+      if (idx === i) node.classList.add('active');
+      else if (idx < i) node.classList.add('done');
+    });
+    slide.querySelectorAll('.fcap-item').forEach(function(c) { c.hidden = (parseInt(c.dataset.cap) !== i); });
+    var prog = slide.querySelector('.fprog');
+    if (prog) prog.textContent = (i + 1) + ' / ' + n;
+    slide.dataset.fstage = String(i);
   }
-  document.querySelectorAll('.wnode').forEach(function(n) {
-    n.addEventListener('click', function() { selectWNode(n); });
+  function flifeStop(slide) {
+    if (slide._fTimer) { clearInterval(slide._fTimer); slide._fTimer = null; }
+    var b = slide.querySelector('[data-act="play"]');
+    if (b) b.innerHTML = '&#9654; 자동으로 따라가기';
+  }
+  document.querySelectorAll('section').forEach(function(slide) {
+    if (!slide.querySelector('.fchain')) return;
+    flifeSet(slide, 0);
+    slide.querySelectorAll('.fnode').forEach(function(node, idx) {
+      node.addEventListener('click', function() { flifeStop(slide); flifeSet(slide, idx); });
+    });
+    slide.querySelectorAll('[data-act]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cur = parseInt(slide.dataset.fstage || '0');
+        var act = btn.dataset.act;
+        if (act === 'prev') { flifeStop(slide); flifeSet(slide, cur - 1); }
+        else if (act === 'next') { flifeStop(slide); flifeSet(slide, cur + 1); }
+        else if (act === 'play') {
+          if (slide._fTimer) { flifeStop(slide); return; }
+          btn.innerHTML = '&#9632; 멈춤';
+          flifeSet(slide, 0);
+          slide._fTimer = setInterval(function() {
+            var c = parseInt(slide.dataset.fstage || '0');
+            if (c >= slide.querySelectorAll('.fnode').length - 1) flifeStop(slide);
+            else flifeSet(slide, c + 1);
+          }, 1300);
+        }
+      });
+    });
+  });
+  // 슬라이드를 벗어나면 자동재생 중지
+  Reveal.on('slidechanged', function() {
+    document.querySelectorAll('section').forEach(function(s) { if (s._fTimer) flifeStop(s); });
   });
 </script>
 </body>
