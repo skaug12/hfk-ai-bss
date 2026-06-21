@@ -168,6 +168,7 @@ function activeEl(ev, i){
   el.dataset.name = ev.name;
   const metaRows =
     (ev.when ? '<div class="row"><span class="k">일시</span><span class="v">' + esc(ev.when) + (ev.place ? ' · ' + esc(ev.place) : '') + '</span></div>' : '') +
+    (ev.cost ? '<div class="row"><span class="k">예상 비용</span><span class="v">' + esc(ev.cost) + '</span></div>' : '') +
     (ev.deadline ? '<div class="row"><span class="k">신청 마감</span><span class="v">' + esc(ev.deadline) + '</span></div>' : '') +
     (ev.result_date ? '<div class="row"><span class="k">확정 발표</span><span class="v">' + esc(ev.result_date) + '</span></div>' : '');
   el.innerHTML =
