@@ -188,6 +188,11 @@
   .hcenter.active { background: rgba(139,94,60,0.16); border-color: rgba(139,94,60,0.5); }
   .hc-name { font-size: 0.64em; font-weight: 800; color: var(--accent); }
   .hc-sub { font-size: 0.4em; color: var(--text-sub); margin-top: 4px; line-height: 1.45; }
+  .hcenter-col { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 7px; }
+  .hchips { display: flex; gap: 5px; justify-content: center; }
+  .hchip { background: var(--card-bg); border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; padding: 4px 9px; text-align: center; line-height: 1.2; }
+  .hchip-t { display: block; font-size: 0.4em; font-weight: 700; }
+  .hchip-d { display: block; font-size: 0.32em; color: var(--text-dim); margin-top: 1px; letter-spacing: 0.01em; white-space: nowrap; }
   .harrow { flex: 0 0 auto; color: var(--accent); font-size: 0.8em; font-weight: 700; padding: 0 2px; }
   .hout { display: flex; flex-direction: column; align-items: center; gap: 1px; margin-top: 3px; }
   .harrow-v { color: var(--accent); font-size: 0.58em; font-weight: 700; line-height: 1; }
@@ -988,9 +993,16 @@
           </div>
         </div>
         <div class="harrow">&#8644;</div>
-        <div class="hcenter" data-node="vault" data-order="0">
-          <div class="hc-name">보관함</div>
-          <div class="hc-sub">파일이 여기 있습니다<br>노트 · 메모리 · 스킬이 여기 쌓입니다 (축적)</div>
+        <div class="hcenter-col">
+          <div class="hcenter" data-node="vault" data-order="0">
+            <div class="hc-name">보관함 · 내 컴퓨터</div>
+            <div class="hc-sub">파일이 여기 있습니다<br>노트 · 메모리 · 스킬이 여기 쌓입니다 (축적)</div>
+          </div>
+          <div class="hchips">
+            <div class="hchip"><span class="hchip-t accent2">iCloud</span><span class="hchip-d">여러 기기 동기화</span></div>
+            <div class="hchip"><span class="hchip-t accent">GitHub</span><span class="hchip-d">버전 기록 · 백업</span></div>
+            <div class="hchip"><span class="hchip-t" style="color:var(--text);">로컬</span><span class="hchip-d">이 컴퓨터에만</span></div>
+          </div>
         </div>
         <div class="harrow">&#8644;</div>
         <div class="hub-stack">
