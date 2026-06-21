@@ -74,6 +74,22 @@
   .done p{font-size:15px;line-height:1.85;color:var(--burg);margin:0 0 10px;}
   .done .evs{font-weight:600;color:var(--ink);}
 
+  /* 지난 이벤트 (아카이브) */
+  .past-sec{margin-top:6px;}
+  .past-toggle{display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;
+       border-top:1px solid var(--line);font-family:inherit;font-size:13px;font-weight:700;
+       color:var(--muted);letter-spacing:0.02em;padding:18px 2px;cursor:pointer;
+       -webkit-tap-highlight-color:transparent;}
+  .past-toggle .cnt{color:#b3a48f;font-weight:600;}
+  .past-toggle .arr{margin-left:auto;font-size:11px;transition:transform .2s;}
+  .past-sec.open .past-toggle .arr{transform:rotate(180deg);}
+  .past-list{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .past-sec.open .past-list{max-height:700px;}
+  .past-item{display:flex;gap:12px;align-items:baseline;padding:13px 2px;border-top:1px solid var(--line);}
+  .past-item:first-child{border-top:0;}
+  .pi-name{flex:1 1 auto;font-size:14.5px;font-weight:600;color:#a99c8c;line-height:1.45;word-break:keep-all;}
+  .pi-when{flex:0 0 auto;font-size:12.5px;color:#bcae9d;white-space:nowrap;}
+
   @media(max-width:480px){
     body{padding:14px 8px 44px;}
     .card{padding:36px 22px 38px;border-radius:18px;}
@@ -131,35 +147,78 @@ const CHECK = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" str
 
 function esc(s){ return (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 
+// 'when'("6월 17일 (수) 19:30" / "7월 11일 (토)~12일 (일)")에서 종료일을 뽑아 지난 이벤트인지 판정.
+// 종료일 자정까지는 진행 중으로 본다. 파싱 실패 시엔 안전하게 진행 중 처리(노출).
+function isPast(ev){
+  if (ev.archived) return true;
+  const m = (ev.when||'').match(/(\d{1,2})월\s*(\d{1,2})일/);
+  if (!m) return false;
+  let mo = +m[1], da = +m[2];
+  const r = (ev.when||'').match(/~\s*(\d{1,2})일/);   // 기간 이벤트면 끝 날짜로
+  if (r) da = +r[1];
+  const now = new Date();
+  let end = new Date(now.getFullYear(), mo - 1, da, 23, 59, 59);
+  if (end.getTime() < now.getTime() - 1000*60*60*24*180) end = new Date(now.getFullYear()+1, mo-1, da, 23,59,59); // 연말 경계
+  return end.getTime() < now.getTime();
+}
+
+function activeEl(ev, i){
+  const el = document.createElement('div');
+  el.className = 'ev';
+  el.dataset.name = ev.name;
+  const metaRows =
+    (ev.when ? '<div class="row"><span class="k">일시</span><span class="v">' + esc(ev.when) + (ev.place ? ' · ' + esc(ev.place) : '') + '</span></div>' : '') +
+    (ev.deadline ? '<div class="row"><span class="k">신청 마감</span><span class="v">' + esc(ev.deadline) + '</span></div>' : '') +
+    (ev.result_date ? '<div class="row"><span class="k">확정 발표</span><span class="v">' + esc(ev.result_date) + '</span></div>' : '');
+  el.innerHTML =
+    '<div class="ev-head">' +
+      '<div class="box">' + CHECK + '</div>' +
+      '<div class="ev-title">' +
+        '<p class="ev-name">' + esc(ev.name) + '</p>' +
+        '<p class="ev-when">' + esc([ev.when, ev.place].filter(Boolean).join(' · ')) + '</p>' +
+      '</div>' +
+    '</div>' +
+    '<div class="ev-body"><div class="ev-inner">' +
+      (ev.speaker ? '<span class="byline">' + esc(ev.speaker) + '</span>' : '') +
+      (ev.intro ? '<p class="hook">' + esc(ev.intro) + '</p>' : '') +
+      '<div class="meta">' + metaRows + '</div>' +
+      '<label class="q-label">기대되거나 궁금한 점 <span class="req">*</span></label>' +
+      '<textarea data-q="' + i + '" placeholder="이 이벤트에 기대하거나 궁금한 점을 적어주세요. 내용을 남겨주신 분을 우선 초대합니다."></textarea>' +
+    '</div></div>';
+  el.querySelector('.ev-head').addEventListener('click', () => toggle(el, ev.name));
+  return el;
+}
+
+function renderPast(past){
+  const old = document.getElementById('past-sec');
+  if (old) old.remove();
+  if (!past.length) return;
+  const sec = document.createElement('div');
+  sec.className = 'past-sec';
+  sec.id = 'past-sec';
+  sec.innerHTML =
+    '<button type="button" class="past-toggle">지난 이벤트 <span class="cnt">' + past.length + '</span>' +
+      '<span class="arr">▾</span></button>' +
+    '<div class="past-list">' +
+      past.map(ev =>
+        '<div class="past-item" data-name="' + esc(ev.name) + '">' +
+          '<span class="pi-name">' + esc(ev.name) + '</span>' +
+          '<span class="pi-when">' + esc(ev.when || '') + ' · 마감</span>' +
+        '</div>').join('') +
+    '</div>';
+  sec.querySelector('.past-toggle').addEventListener('click', () => sec.classList.toggle('open'));
+  document.getElementById('events').after(sec);
+}
+
 function render(){
   const box = document.getElementById('events');
   box.innerHTML = '';
+  const past = [];
   CFG.events.forEach((ev, i) => {
-    const el = document.createElement('div');
-    el.className = 'ev';
-    el.dataset.name = ev.name;
-    const metaRows =
-      (ev.when ? '<div class="row"><span class="k">일시</span><span class="v">' + esc(ev.when) + (ev.place ? ' · ' + esc(ev.place) : '') + '</span></div>' : '') +
-      (ev.deadline ? '<div class="row"><span class="k">신청 마감</span><span class="v">' + esc(ev.deadline) + '</span></div>' : '') +
-      (ev.result_date ? '<div class="row"><span class="k">확정 발표</span><span class="v">' + esc(ev.result_date) + '</span></div>' : '');
-    el.innerHTML =
-      '<div class="ev-head">' +
-        '<div class="box">' + CHECK + '</div>' +
-        '<div class="ev-title">' +
-          '<p class="ev-name">' + esc(ev.name) + '</p>' +
-          '<p class="ev-when">' + esc([ev.when, ev.place].filter(Boolean).join(' · ')) + '</p>' +
-        '</div>' +
-      '</div>' +
-      '<div class="ev-body"><div class="ev-inner">' +
-        (ev.speaker ? '<span class="byline">' + esc(ev.speaker) + '</span>' : '') +
-        (ev.intro ? '<p class="hook">' + esc(ev.intro) + '</p>' : '') +
-        '<div class="meta">' + metaRows + '</div>' +
-        '<label class="q-label">기대되거나 궁금한 점 <span class="req">*</span></label>' +
-        '<textarea data-q="' + i + '" placeholder="이 이벤트에 기대하거나 궁금한 점을 적어주세요. 내용을 남겨주신 분을 우선 초대합니다."></textarea>' +
-      '</div></div>';
-    el.querySelector('.ev-head').addEventListener('click', () => toggle(el, ev.name));
-    box.appendChild(el);
+    if (isPast(ev)) { past.push(ev); return; }
+    box.appendChild(activeEl(ev, i));
   });
+  renderPast(past);
 }
 
 function toggle(el, name){
@@ -171,8 +230,16 @@ function preselect(){
   const p = new URLSearchParams(location.search).get('event');
   if (!p) return;
   const want = p.trim();
+  let found = false;
   document.querySelectorAll('.ev').forEach(el => {
-    if (el.dataset.name === want){ toggle(el, want); setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),200); }
+    if (el.dataset.name === want){ toggle(el, want); setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),200); found = true; }
+  });
+  if (found) return;
+  // 지난 이벤트 링크면 아카이브 섹션을 펼쳐서 마감 상태를 보여준다
+  const sec = document.getElementById('past-sec');
+  if (!sec) return;
+  sec.querySelectorAll('.past-item').forEach(it => {
+    if (it.dataset.name === want){ sec.classList.add('open'); setTimeout(()=>it.scrollIntoView({block:'center',behavior:'smooth'}),200); }
   });
 }
 
