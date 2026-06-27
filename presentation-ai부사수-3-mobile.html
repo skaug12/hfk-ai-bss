@@ -199,10 +199,11 @@
     <div class="card">
       <h3 class="accent2">설치 단계</h3>
       <p style="color:var(--text); margin-top:6px;">Claude Code 구독 &rarr; VS Code 설치 &rarr; 확장 연결.</p>
+      <p class="dim" style="margin-top:6px;">모든 일의 시작과 끝이 되어야 기록이 축적되고 더 정교한 결과가 나옴.</p>
     </div>
     <div class="card">
       <h3 class="accent3">데일리 노트 스킬 제작</h3>
-      <p style="color:var(--text); margin-top:6px;">자연어로 말해서 하루를 정리하는 데일리 노트 스킬을 직접 만들어봤습니다. "잘 시키는 법은 해봐야 늘음."</p>
+      <p style="color:var(--text); margin-top:6px;">자연어로 말해서 하루를 정리하는 데일리 노트 스킬을 직접 만들어봤습니다. 여러 스킬을 연결해 트리거로 만들 수도 있음.</p>
     </div>
   </div>
   <div class="summary-card" style="margin-top:14px;">
@@ -546,7 +547,7 @@
       <h3 class="accent3">슬기의 S 영역 4개 (실제 운영 중)</h3>
       <ul style="margin-top:6px;">
         <li><code>/hello-world</code> 아침 캘린더·미리알림·잔여 작업 브리핑</li>
-        <li><code>/daily</code> 하루 끝 작업 자동 일지화</li>
+        <li><code>/run-daily-note</code> 하루 끝 작업 자동 일지화</li>
         <li><code>/cleanup-home</code> 흩어진 다운로드 파일 자동 분류</li>
         <li><code>/backup-notes</code> 노트 주기적 백업</li>
       </ul>
@@ -607,7 +608,7 @@
     </div>
     <div class="card">
       <h3 class="accent3">어떻게 추가하나</h3>
-      <p style="margin-top:6px;">채팅창에 <code class="accent">/mcp</code> 입력 → 커넥터 관리 화면에서 연결할 서비스를 고르고 로그인. <span class="bold">코드 없이</span> 됩니다.</p>
+      <p style="margin-top:6px;">claude.ai 왼쪽 상단 메뉴 → 왼쪽 탭 <span class="bold">[사용자 지정]</span> → 커넥터에서 원하는 서비스를 검색해 설치. <span class="bold">코드 없이</span> 됩니다.</p>
     </div>
     <div class="qblock">
       <p style="font-size:14px; color:var(--text); margin:0; line-height:1.7;">
@@ -641,6 +642,26 @@
         <li><span class="bold">사용자 인증 정보</span> → OAuth 클라이언트 ID → <span class="bold">데스크톱 앱</span> 선택</li>
         <li>나온 <span class="bold">Client ID·Secret</span>을 JSON으로 저장 → 내 <code class="accent">.env</code>에 보관</li>
       </ol>
+    </div>
+  </div>
+</div>
+
+<div class="slide-section">
+  <div class="label">준비 &middot; 구글 OAuth</div>
+  <h2>받은 키는 대화창에 적지 말고 .env에 넣는다</h2>
+  <div class="stack" style="margin-top:14px;">
+    <div class="card">
+      <h3 class="accent">VS Code에서 바로 .env 열기</h3>
+      <p style="margin-top:6px;">클로드에게 <span class="bold">".env에 ID·Secret 넣을 자리를 만들고 그 파일을 열어줘"</span>라고 하면, VS Code 창에 .env가 바로 열립니다. 그 자리에 값을 <span class="bold">복사·붙여넣기</span>만 하면 됩니다.</p>
+    </div>
+    <div class="card">
+      <h3 class="accent2">JSON 파일을 받았다면</h3>
+      <p style="margin-top:6px;">"다운로드 폴더의 그 JSON 파일을 보고 <span class="bold">.env에 기록해줘</span>"라고 시키면 클로드가 알아서 옮겨 적습니다.</p>
+    </div>
+    <div class="qblock">
+      <p style="font-size:14px; color:var(--text); margin:0; line-height:1.8;">
+        <span class="accent bold">딱 하나만 지키기:</span> ID·Secret을 <span class="bold">대화창에 직접 적지 않기.</span> "파일을 열어줘 / 보고 기록해줘"라고 시키면 비밀 값이 대화 기록에 안 남습니다.
+      </p>
     </div>
   </div>
 </div>
@@ -805,29 +826,6 @@
         <li>너무 많은 걸 한 번에 시키기 &rarr; 한 단계씩 나누기</li>
       </ul>
       <p class="dim" style="margin-top:8px;">팁: 첫 스킬은 캘린더·슬랙처럼 로그인이 필요한 것보다 <span class="bold">내 컴퓨터 파일 정리</span>처럼 바로 되는 일로 시작하면 막힘이 적습니다.</p>
-    </div>
-  </div>
-</div>
-
-<div class="slide-section">
-  <div class="label">Workshop &middot; Wrap</div>
-  <h2>모든 일은 VS Code 창에서 시작하고 끝내는 습관 기르기</h2>
-  <div class="stack">
-    <div class="card">
-      <h3 class="accent">오늘 밤</h3>
-      <ul style="margin-top:6px;">
-        <li>오늘 만든 명령을 1번 더 실행</li>
-        <li>결과 스크린샷 저장</li>
-        <li>잘 된 점 한 줄 메모</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3 class="accent2">이번 주</h3>
-      <ul style="margin-top:6px;">
-        <li>매일 같은 시간에 한 번씩 실행</li>
-        <li>안 맞는 부분이 있으면 그 자리에서 클로드에게 수정 요청</li>
-        <li>슬랙에 시도/막힘 공유</li>
-      </ul>
     </div>
   </div>
 </div>
